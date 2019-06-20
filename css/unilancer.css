@@ -1,0 +1,372 @@
+#menubar a{
+	color: #4B0082;
+}
+
+.menu-bar {
+	/*height: 60px;*/
+	box-shadow: 1px 1px 5px grey;
+	margin-bottom: 20px;
+	padding: 5px;
+	box-sizing: border-box;
+
+}
+
+#dropdown a{
+	color:black;
+}
+
+#container {
+	
+}
+
+#header {
+	background-color: white;
+	z-index: 200;
+
+	position: sticky;
+	top:0;
+	/*width: 100%;*/
+}
+.join-button {
+
+	border: 2px solid #4B0082;
+	color:#4B0082;
+	font-weight: bold;
+
+}
+
+.join-button:hover {
+	background-color: #4B0082;
+	color: white;
+}
+
+#secondmenu a{
+	font-size: 15px;
+	color: white;
+}
+
+.second-menu-list li{
+	display:inline;
+	
+	margin-right: 3%;
+	
+}	
+
+#secondmenu {
+
+	min-height: 50px;
+	padding-top: 1%;
+	text-align: center;
+	background-color: #4B0082;
+	margin-bottom: 10px;
+
+	position: sticky;
+	top: 60px;
+	z-index: 100;
+}
+
+/*.circlehold {
+	width: 70px; 
+	height: 70px; 
+	border-radius: 50%; 
+	background-color: #4B0082;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	text-align: center;
+}*/
+
+.justifyForMe {
+
+	justify-content: space-around;
+}
+
+.fastyle {
+	font-size: 40px; 
+	color: #4B0082;
+	margin-top: 10px;
+}
+
+.my-textAlign {
+	text-align: center;
+}
+
+.marketbox {
+	width: 250px;
+	height: 140px;
+	box-shadow: 1px 1px 5px grey;
+	background-color: white;
+	margin-bottom: 5%;
+
+	padding: 5px;
+	background-image: url('../images/coder.jpg');
+	background-size: cover;
+	
+	
+}
+
+/*.box1 {
+	background-image: url('../images/writing.jpg');
+	background-size: cover;
+}
+
+.box2 {
+	background-image: url('../images/graphics.jpg');
+	background-size: cover;
+}
+
+.box3 {
+	background-image: url('../images/coder.jpg');
+	background-size: cover;
+}
+
+.box4 {
+	background-image: url('../images/social.jpg');
+	background-size: cover;
+}
+
+.box5 {
+	background-image: url('../images/video.jpg');
+	background-size: cover;
+	
+}
+
+.box6 {
+	background-image: url('../images/music.jpg');
+	background-size: cover;
+}
+
+.box7 {
+	background-image: url('../images/business.jpg');
+	background-size: cover;
+}
+
+.box8 {
+	background-image: url('../images/project.jpg');
+	background-size: cover;
+}*/
+
+.marketext {
+	font-size: 30px;
+	color: white;
+	/*#DDA0DD;*/
+	/*margin: 10px;*/
+	font-weight: bold;
+}
+
+#getStartedImage {
+	background-image: url("../images/code-1839406_1920.jpg");
+	background-size: cover;
+	background-color: grey;
+	position: relative;
+	/*background-attachment:fixed;*/
+	height: 250px;
+	width: 90%;
+	margin: 5%;
+	text-align: center;
+	padding-top: 5%;
+}
+
+#getStartedImage h2{
+	color: white;
+}
+
+#getStartedImage p{
+	color:white;
+}
+
+
+#footer {
+
+	min-height: 200px;
+	background-color:#4B0082;
+	color: white;
+	padding: 2%;
+	/*width: 100%*/;
+	margin-top: 10px;
+}
+
+#footer a{
+	color: white;
+}
+
+#techlist ul{
+	list-style-type: none;
+}
+
+#techlist a{
+	color: black;
+}
+
+.techlistbox {
+	height: 200px;
+	width: 300px;
+	color: grey;
+	box-shadow: 1px 1px 5px grey;
+	margin-right: 3px;
+	box-sizing: border-box;
+	margin-bottom: 5px;
+
+
+}
+
+.purpletext{
+	color: #4B0082;
+}
+
+.purplebg {
+	background-color: #4B0082;
+	color: white;
+}
+
+.purplebg:hover {
+	color:white;
+}
+
+.marginbott {
+	margin-bottom: 2%;
+}
+
+.marginside {
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+#regForm {
+
+	width: 80%;
+	min-height: 100px;
+	box-shadow: 1px 1px 5px grey;
+	padding: 3%;
+	margin: 2%;
+	margin-left: 9%;
+
+}
+
+.codelang {
+	color: black;
+
+}
+
+.codelang:hover {
+	color: #4B0082;
+	text-decoration: none;
+}
+
+ul{
+	list-style-type: none;
+}
+
+.userHeader {
+	width: 200px;
+	height:120px;
+	background-color: lightgrey;
+}
+
+.profilePic {
+	
+	background-color: #4B0082;
+	border-radius: 50%;
+	text-align: center;
+}
+
+a {
+	color: #4B0082;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+#menulist li {
+	display: inline;
+	margin-right: 4%;
+}
+
+#menulist a{
+	color: black;
+}
+
+#menulist a:hover{
+	color: #4B0082;
+	text-decoration: none;
+}
+
+
+
+#userArea {
+
+	padding: 20px;
+	box-sizing: border-box;
+	min-height: 700px;
+}
+
+#rightPane {
+	
+	box-shadow: 1px 1px 5px grey;
+	margin-left: 1%;
+	box-sizing: border-box;
+	padding: 20px;
+	clear: both;
+}
+
+.gigBox {
+	width: 230px;
+	height: 270px;
+	background-color: white;
+	box-shadow: 1px 1px 10px grey;
+	margin-bottom: 20px;
+}
+
+.myHideStyle {
+	display: none;
+}
+
+.myMinHeight {
+
+	min-height: 600px;
+}
+
+/*.settingsRightPane {
+	width: 30%;
+}*/
+
+.gig-list li{
+	display:inline;
+	margin-right: 3%;	
+}
+
+.boxshadow {
+	box-shadow: 1px 1px 5px grey;
+}
+
+.boxshadow p{
+	font-weight: bold;
+}
+
+.gig-public li{
+	display:inline;	
+}
+
+.myBold {
+	font-weight: bold;
+}
+
+#gigform {
+	min-height: 800px;
+	width: 70%;
+	margin: 2% 5% 2% 13%;
+	box-shadow: 1px 1px 5px grey;
+	padding: 1%;
+}
+
+.myPadding {
+
+	padding: 1%;
+}
+
+.marginTop {
+
+	margin-top: 2%;
+}
+

@@ -1,0 +1,369 @@
+<?php
+
+//create unilancer database connection
+	
+	class DatabaseConnect{
+
+		//member variable
+
+		public $udbcon; //unidatabase handler
+
+
+		//member function
+
+		public function __construct(){
+
+			//to create connection by instatiating MYSQLi class
+
+			$this->udbcon = new mysqli("localhost", "root", "", "newunilancer_db");
+
+			//check the connection
+
+			if ($this->udbcon->connect_error) {
+				
+				//use die function to check and terminiate if there's any error
+
+				die('Connect Failed'.$this->udbcon->connect_error);
+			}else{
+
+				// echo "Connection Successul";
+				// exit;
+			}
+		}
+
+	}
+
+
+	//create user class
+
+
+	class User{
+
+		//member variable
+		public $udbobj; //object handler for DatabaseConnect class
+
+		// member functions
+
+		public function __construct(){
+
+			//creating instance of class DatabaseConnect class
+
+			$this->udbobj = new DatabaseConnect;
+
+		}
+
+		//getstate function
+
+		public function getStates(){
+
+			//query to select all states in database
+
+			$mysql = "SELECT * from state ";
+
+			//to check if the sql syntax is running
+
+			if ($result = $this->udbobj->udbcon->query($mysql)) {
+
+				$row= $result->fetch_all(MYSQLI_ASSOC);
+			}else{
+
+				echo "Opps ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+		}
+
+
+		//getuniversities function
+
+		public function getUniversities(){
+
+			//query to select all universities in database
+
+			$mysql = "SELECT * from university ";
+
+			//to check if the sql syntax is running
+
+			if ($result = $this->udbobj->udbcon->query($mysql)) {
+
+				$row= $result->fetch_all(MYSQLI_ASSOC);
+			}else{
+
+				echo "Opps ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+		}
+
+		//getcourses function
+
+		public function getCourses(){
+
+			//query to select all universities in database
+
+			$mysql = "SELECT * from course_of_study ";
+
+			//to check if the sql syntax is running
+
+			if ($result = $this->udbobj->udbcon->query($mysql)) {
+
+				$row= $result->fetch_all(MYSQLI_ASSOC);
+			}else{
+
+				echo "Opps ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+		}
+
+		//getlevel function
+
+		public function getLevel(){
+
+			//query to select all Level in database
+
+			$mysql = "SELECT * from level ";
+
+			//to check if the sql syntax is running
+
+			if ($result = $this->udbobj->udbcon->query($mysql)) {
+
+				$row= $result->fetch_all(MYSQLI_ASSOC);
+			}else{
+
+				echo "Opps ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+		}
+
+
+		//getcountries function
+
+		public function getCountries(){
+
+			//query to select all Country in database
+
+			$mysql = "SELECT * from country ";
+
+			//to check if the sql syntax is running
+
+			if ($result = $this->udbobj->udbcon->query($mysql)) {
+
+				$row= $result->fetch_all(MYSQLI_ASSOC);
+			}else{
+
+				echo "Opps ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+		}
+
+
+		//sanitize input function
+
+		public static function dataSanitize($data){
+
+
+			$data = trim($data);
+			$data = htmlspecialchars($data);
+			$data = addslashes($data);
+
+			return $data;
+		}
+
+
+		//create signup method
+
+		public function signUp($email, $fname, $lname, $username, $password, $phone, $stateid, $country, $course, $university, $level, $gender){
+
+			$pwd = md5($password);
+			$username = strtolower($username);
+
+			//write query to insert into user table
+
+			$sql = "INSERT into user(user_email, user_fname, user_lname, user_username, user_password, user_phone, user_stateid, user_countryid, user_coursestudyid, user_universityid, user_levelid, user_gender) values('$email', '$fname', '$lname', '$username', '$pwd', '$phone', '$stateid', '$country', '$course', '$university', '$level', '$gender')";
+
+			//to check if the query runs
+
+			if ($this->udbobj->udbcon->query($sql) === true) {
+				
+				//get last inserted userid
+
+				$userid = $this->udbobj->udbcon->insert_id;
+
+				//create session variable
+
+				$_SESSION['userid'] = $userid;
+				$_SESSION['email'] = $email;
+				$_SESSION['username'] = $username;
+
+				// redirect to fullregisteration page
+
+				header("Location: http://localhost/6thprojectphp/newuser.php");
+				exit;
+
+			}else{
+
+				echo "Opps ".$this->udbobj->udbcon->error;
+			}
+
+		}
+
+
+		//create login method
+
+		public function login($email, $password){
+
+			$password = md5($password);
+
+			//write query
+
+			$sql = "SELECT * from user where user_email = '$email' and user_password = '$password' limit 1 ";
+
+			//run  query
+
+			$result = $this->udbobj->udbcon->query($sql);
+
+			//check if number of roles returned is one
+
+
+			if ($this->udbobj->udbcon->affected_rows == 1) {
+				//fetch the result
+
+				$row = $result->fetch_assoc();
+
+				// var_dump($row);
+				// exit;
+
+				//create session
+
+				$_SESSION['userid'] = $row['userid'];
+				$_SESSION['firstname']= $row['user_fname'];
+				$_SESSION['lastname']= $row['user_lname'];
+				$_SESSION['photo'] = $row['user_picture'];
+				$_SESSION['gender'] = $row['user_gender'];
+				$_SESSION['username'] = strtolower($row['user_username']);
+
+				// echo $_SESSION['username'];
+				// echo "<pre>";
+				// print_r($row);
+				// echo "</pre>";
+				// exit;
+
+				//redirect to user dashboard
+
+				header("Location: http://localhost/6thprojectphp/userpage.php");
+				exit;
+			}else{
+
+				//display invalid login credentials
+
+				$result = "<div class='alert alert-danger'>Invalid Email Address or Password</div>";
+				// echo "Opps ".$this->udbobj->udbcon->error;	
+			}
+
+			return $result;
+		}
+
+
+		public function uploadProfileImage(){
+
+			//check if global varaible $_FILES has a value;
+
+			if ($_FILES['profilephoto']['error'] == 0) {
+				# start file upload
+
+				$filesize = $_FILES['profilephoto']['size'];
+				$filename = $_FILES['profilephoto']['name'];
+				$filetype = $_FILES['profilephoto']['type'];
+				$filetempname = $_FILES['profilephoto']['tmp_name'];
+
+				//specify the destination folder to upload fils to
+				$folder = "profilepicture/";
+
+				//get the file extension
+
+
+				$file_ext= explode('.', $filename); //convert string to array
+				$file_ext = end($file_ext);	 //get last element of array
+				$file_ext = strtolower($file_ext); //convert string to lower case
+
+				//check the file size
+
+				if ($filesize > 2097152) {
+					$error[]= "File size must be exactly or less than 2 mb!";
+				}
+
+				//specify the extensions allowed
+
+				$extensions = array('png', 'gif', 'jpg', 'jpeg', 'bmp');
+
+				// check if the file extension is valid
+
+				if (in_array($file_ext, $extensions) === false) {
+					
+					$error[] = "Extention not allowed!";
+				}
+
+				//change the file name
+
+				$filename = $filename."_".$_SESSION['userid'];
+
+				$destination = $folder.$filename.".$file_ext";
+
+				// var_dump($destination);
+
+				//now check if there is no other error and upload
+
+				if (!empty(($error))) {
+
+					var_dump($error);
+					
+				}else{
+
+					//otherwise, upload to the destination folder
+
+					move_uploaded_file($filetempname, $destination);
+
+					//update user_picture column in users table based on the userid
+
+					$myuserid = $_SESSION['userid'];
+
+					//write query to update the table coluymn
+
+					$sql = "UPDATE user set user_picture = '$destination' WHERE userid=$myuserid";
+
+					//run the query
+
+					$result = $this->udbobj->udbcon->query($sql);
+
+					if ($this->udbobj->udbcon->affected_rows == 1) {
+						//new session photo
+						$_SESSION['photo'] = $destination;
+
+						$result = "<div class ='alert alert-success'> Profile photo uploaded</div>";
+
+						header("Location: https://localhost/6thprojectphp/userpage");
+
+					}else{
+
+					$result = "<div class ='alert alert-danger'> No profile photo uploaded!</div>".$this->udbobj->udbcon->error;
+				}
+				
+			}
+
+		}else{
+
+				$result = "<div class ='alert alert-danger'> You have not uploaded any image!</div>";
+			}
+
+			return $result;
+		}
+
+
+
+
+	}
+
+?>
