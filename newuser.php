@@ -9,14 +9,7 @@
 			<!-- user info area/left pane -->
 			<div class="col-md-3">
 				<div class="row">
-					<div class="col-md">
-						<div style="text-align: center"><a href="#"><i class="fas fa-user-circle purpletext" style="font-size: 100px"></i></a></div>
-						<h4 style=""><?php if (isset($_SESSION['username'])) {
-							echo $_SESSION['username'];
-						} ?></h4>
-						<p>Tell us your story in one line <a href="#"><i class="fas fa-pen purpletext"></i></a></p>
-						<hr>
-					</div>
+					<?php include_once('user_side_bar.php'); ?>
 				</div>
 
 				<div class="row">

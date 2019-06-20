@@ -205,6 +205,21 @@
 						 <span id="err_text1"><?php if (isset($reg_err['email'])){echo $reg_err['email'];}?></span>
 					</div>
 
+
+					<!-- gender section -->
+
+					<div class="col-md">
+						<select id="gender" class="custom-select" name="gender">
+						  <option value="">Gender</option>
+						  <option <?php if(isset($_REQUEST['gender']) && $_REQUEST['gender'] == 'Female' ){ echo "value='Female' selected";
+						  }else{echo "value='Female'";}?> >Female</option>
+						  <option <?php if(isset($_REQUEST['gender']) && $_REQUEST['gender'] == 'Male' ){ echo "value='Male' selected";
+						  }else{echo "value='Male'";}?> >Male</option>
+						 </select>
+
+						 <span id="err_text9"></span>
+					</div>
+
 					<!-- <div class="col-md"></div> -->
 
 				</div>
@@ -289,6 +304,8 @@
 						</select>
 						<span id="err_text6"><?php if (isset($reg_err['country'])){echo $reg_err['country'];}?></span>
 					</div>
+
+
 				</div>
 
 				<div class="row">
@@ -378,17 +395,7 @@
 
 					<!-- empty div here -->
 
-					<div class="col-md">
-						<select id="gender" class="custom-select" name="gender">
-						  <option value="">Gender</option>
-						  <option <?php if(isset($_REQUEST['gender']) && $_REQUEST['gender'] == 'Female' ){ echo "value='Female' selected";
-						  }else{echo "value='Female'";}?> >Female</option>
-						  <option <?php if(isset($_REQUEST['gender']) && $_REQUEST['gender'] == 'Male' ){ echo "value='Male' selected";
-						  }else{echo "value='Male'";}?> >Male</option>
-						 </select>
-
-						 <span id="err_text9"></span>
-					</div>
+					
 
 
 
