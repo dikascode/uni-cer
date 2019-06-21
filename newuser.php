@@ -8,9 +8,8 @@
 		<div class="row" id="userArea">
 			<!-- user info area/left pane -->
 			<div class="col-md-3">
-				<div class="row">
+				
 					<?php include_once('user_side_bar.php'); ?>
-				</div>
 
 				<div class="row">
 					<div class="col-md">
@@ -73,7 +72,7 @@
 				<!-- Gig profiles -->
 				<div class="row">
 					<div class="col-md d-flex justifyForMe">
-						<h3 class="purpletext animated flash">Looks like you don't have a gig, yet.</h3><button class="btn join-button">Create a New Gig <i class="fas fa-plus"></i></button>
+						<h3 class="purpletext animated flash">Looks like you don't have a gig, yet.</h3><a href="gig-setup-form.php?id=<?php echo $_SESSION['userid'] ?>&name=<?php echo $_SESSION['username'] ?>" class="btn join-button">Create a New Gig <i class="fas fa-plus"></i></a>
 					</div>
 
 				</div>

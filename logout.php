@@ -4,7 +4,7 @@
 
 	session_destroy();
 
-	header('Location: http://localhost/6thprojectphp/signin.php');
+	header('Location: http://localhost/6thprojectphp/index.php');
 
 	exit;
 ?>

@@ -66,7 +66,7 @@
 					<div class="col-md">
 						<h5 style="float: left;">Description</h5> <a class="purpletext" href="#" style="float: right;">Edit Description <i class="fas fa-pen purpletext"></i></a>
 						<div style="clear: both;"></div>
-						<p>Alright, let's cut to the chase. What do you what to know?
+						<p id="userDesc">Alright, let's cut to the chase. What do you what to know?
 						 I'm a creative writer with several years of experience writing stories and helping businesses make profit with online content.
 						 
 						 I can write sizzling romantic stories with words that will melt your readers heart like the Sun and enchant their eyes to each paragraph like a spell.

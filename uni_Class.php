@@ -41,6 +41,7 @@
 
 		//member variable
 		public $udbobj; //object handler for DatabaseConnect class
+		// public static $userid;
 
 		// member functions
 
@@ -197,6 +198,7 @@
 				$_SESSION['userid'] = $userid;
 				$_SESSION['email'] = $email;
 				$_SESSION['username'] = $username;
+				$_SESSION['gender'] = $gender;
 
 				// redirect to fullregisteration page
 
@@ -330,7 +332,7 @@
 
 					$myuserid = $_SESSION['userid'];
 
-					//write query to update the table coluymn
+					//write query to update the table column
 
 					$sql = "UPDATE user set user_picture = '$destination' WHERE userid=$myuserid";
 
@@ -362,8 +364,48 @@
 		}
 
 
+		// write method to insert the usertype into database
+
+		public function userType($usertype, $userid){
+
+			//write sql query
+
+			$sql = "INSERT into user_type(user_type, user_type_userid) VALUES('$usertype', '$userid')";
+
+			//check for errors
+
+			if ($this->udbobj->udbcon->query($sql) === true) {
+
+			}else{
+
+				echo "Opps ".$this->udbobj->udbcon->error;
+			}
 
 
+		}
+
+		
 	}
+
+	//create a class for usertype to identify which usertype a user has picked
+
+	// class Usertype{
+
+
+	// 	//member variable
+	// 	public $udbobj; //object handler for DatabaseConnect class
+
+	// 	// member functions
+
+	// 	public function __construct(){
+
+	// 		//creating instance of class DatabaseConnect class
+
+	// 		$this->udbobj = new DatabaseConnect;
+
+	// 	}
+
+		
+	// }
 
 ?>

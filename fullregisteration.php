@@ -12,7 +12,7 @@
 	$dbobj = new DatabaseConnect;
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-		
+	
 		$email = User::dataSanitize($_REQUEST['email']);
 		$firstname = User::dataSanitize($_REQUEST['fname']);
 		$lastname = User::dataSanitize($_REQUEST['lname']);
@@ -95,6 +95,10 @@
 			$reg_err['level'] = "<span class='text-danger'>Level field is required</span>";
 		}
 
+		if (empty($activity)) {
+			$reg_err['activity'] = "<span class='text-danger'>This field is required</span>";
+		}
+
 
 		
 
@@ -105,11 +109,20 @@
 
 					$signupobj= new User;
 
+					$user_typeobj = new user;
+
+					 // var_dump(user::$userid);
+					 // exit;
+
+
+					$user_typeobj->userType($activity, $_REQUEST['userid']);
+
+
 					if ($activity = 'Seller') {
 						$signupobj->signUp($email, $firstname, $lastname, $username, $pwd, $phone, $state, $country, $course, $university, $level, $gender);
 					}else{
 
-					$signupobj->signUp($email, $firstname, $lastname, $username, $pwd, $phone, $state, $country, '', '', '', '');
+					$signupobj->signUp($email, $firstname, $lastname, $username, $pwd, $phone, $state, $country, '', '', '', $gender);
 					}
 				}
 			
@@ -184,6 +197,8 @@
 						 <input id="buyer_btn" class="form-check-input activity" type="radio" name="activity" value="Buyer" <?php if (isset($_REQUEST['activity']) && $_REQUEST['activity'] == 'Buyer'){ echo 'checked';} ?> ><label class="form-check-label">Buyer</label><br>
 
 						<input id="seller_btn" class="form-check-input activity" type="radio" name="activity" value="Seller" <?php if (isset($_REQUEST['activity']) && $_REQUEST['activity'] == 'Seller'){ echo 'checked';} ?>> <label class="form-check-label">Seller</label>
+
+						<?php if (isset($reg_err['activity'])){echo $reg_err['activity'];}?>
 					</div>
 
 				</div>
@@ -420,7 +435,7 @@
 		<!-- Footer section-->
 
 		<?php
-		include 'footer.php';
+		include_once ('footer.php');
 		?>
 
 

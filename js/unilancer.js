@@ -280,4 +280,13 @@ $(document).ready(function(){
 			
 
 	});
+
+
+	$('#userDesc').click(function(){
+
+		//get the string from the p tag inner html
+		var userDesc = $(this).html();
+
+		$('#userDesc').load("editdesc.php", {output:userDesc});
+	});
 })
