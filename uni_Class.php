@@ -366,46 +366,32 @@
 
 		// write method to insert the usertype into database
 
-		public function userType($usertype, $userid){
+		public function getUserType(){
 
 			//write sql query
 
-			$sql = "INSERT into user_type(user_type, user_type_userid) VALUES('$usertype', '$userid')";
+			$sql = "SELECT * from user_type WHERE type_title != 'Admin'";
 
-			//check for errors
+			//check if the query runs the sql syntax/statement
 
-			if ($this->udbobj->udbcon->query($sql) === true) {
+			if ($result = $this->udbobj->udbcon->query($sql)) {
+				
+				$row = $result->fetch_all(MYSQLI_ASSOC);
 
 			}else{
 
-				echo "Opps ".$this->udbobj->udbcon->error;
+				echo "Error: ".$this->ubdobj->ubdcon->error;
+			}
+
+			return $row;
+
 			}
 
 
-		}
 
 		
 	}
 
-	//create a class for usertype to identify which usertype a user has picked
-
-	// class Usertype{
-
-
-	// 	//member variable
-	// 	public $udbobj; //object handler for DatabaseConnect class
-
-	// 	// member functions
-
-	// 	public function __construct(){
-
-	// 		//creating instance of class DatabaseConnect class
-
-	// 		$this->udbobj = new DatabaseConnect;
-
-	// 	}
-
-		
-	// }
+	
 
 ?>

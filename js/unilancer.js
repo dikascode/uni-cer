@@ -67,20 +67,34 @@ $(document).ready(function(){
 
 	$('#edu_info').hide();
 
-	$('#buyer_btn').click(function(){
+	//if statement to hide educational infomation or not
+
+	$('#activity').click(function(){
+
+		 
+
+		if ($('#activity option[value="2"]').prop('selected')) {
+
+			// alert('hi');
 
 		$('#edu_info').hide();
+	}
 
-
-	});
-
-
-
-	$('#seller_btn').click(function(){
-
+	if($('#activity option[value="1"]').prop('selected')){
 		$('#edu_info').show();
+	}else{
+		$('#edu_info').hide();
+	}
 
 	});
+
+
+
+	// $('#seller_btn').click(function(){
+
+		
+
+	// });
 
 
 

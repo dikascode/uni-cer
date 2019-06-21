@@ -99,6 +99,10 @@
 			$reg_err['activity'] = "<span class='text-danger'>This field is required</span>";
 		}
 
+		if (empty($gender)) {
+			$reg_err['gender'] = "<span class='text-danger'>Gender field is required</span>";
+		}
+
 
 		
 
@@ -109,14 +113,8 @@
 
 					$signupobj= new User;
 
-					$user_typeobj = new user;
-
 					 // var_dump(user::$userid);
 					 // exit;
-
-
-					$user_typeobj->userType($activity, $_REQUEST['userid']);
-
 
 					if ($activity = 'Seller') {
 						$signupobj->signUp($email, $firstname, $lastname, $username, $pwd, $phone, $state, $country, $course, $university, $level, $gender);
@@ -168,6 +166,8 @@
 					$level = $userobject->getLevel();
 
 					$country = $userobject->getCountries();
+
+					$usertype = $userobject->getUserType();
 					// echo "<pre>";
 					// 	 		print_r($state);
 					// 	 		echo "</pre>";
@@ -190,18 +190,32 @@
 					</div>
 				</div>
 
-				<!-- radio button to choose activity on freelancer -->
+					<!-- select button to choose activity on freelancer -->
+					<div class="row marginbott">
+					<div  class="col-md-3">
+						<select id="activity" name="activity" class="custom-select">
+						  <option value="">Activity</option>
+						  <?php
 
-				<div class="row form-group">
-					<div class="col-md marginbott form-check">
-						 <input id="buyer_btn" class="form-check-input activity" type="radio" name="activity" value="Buyer" <?php if (isset($_REQUEST['activity']) && $_REQUEST['activity'] == 'Buyer'){ echo 'checked';} ?> ><label class="form-check-label">Buyer</label><br>
+						 	foreach ($usertype as $key => $value) {
+						 			
+						 			$usertypeid = $value['roleid'];
+						 			$usertypename = $value['type_title'];
+						 		
+						 ?>
 
-						<input id="seller_btn" class="form-check-input activity" type="radio" name="activity" value="Seller" <?php if (isset($_REQUEST['activity']) && $_REQUEST['activity'] == 'Seller'){ echo 'checked';} ?>> <label class="form-check-label">Seller</label>
+						 <option <?php if(isset($_REQUEST['activity']) && $_REQUEST['activity'] == $usertypeid ){ echo "value='$usertypeid' selected";
+						  }else{echo "value='$usertypeid'";}?> > <?php echo $usertypename; ?> </option>
 
-						<?php if (isset($reg_err['activity'])){echo $reg_err['activity'];}?>
+						 <?php
+						 }
+						 ?>
+						</select>
+						<span id="err_text6"><?php if (isset($reg_err['activity'])){echo $reg_err['activity'];}?></span>
 					</div>
-
 				</div>
+
+			
 
 				<div class="row form-group">
 				<div id="reg_info" class="col-md" >
@@ -232,7 +246,7 @@
 						  }else{echo "value='Male'";}?> >Male</option>
 						 </select>
 
-						 <span id="err_text9"></span>
+						 <span id="err_text9"><?php if (isset($reg_err['gender'])){echo $reg_err['gender'];}?></span>
 					</div>
 
 					<!-- <div class="col-md"></div> -->

@@ -1,4 +1,4 @@
-<!-- Modal for creating username and Password -->
+Modal for creating username and Password -->
 
 <div class="modal fade" id="usernamePwd_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -250,3 +250,18 @@ else{
               }
 
 ?>
+
+
+<!-- from registeration page -->
+
+
+  <!-- <div class="row form-group">
+          <div class="col-md marginbott form-check">
+             <input id="buyer_btn" class="form-check-input activity" type="radio" name="activity" value="Buyer" <?php if (isset($_REQUEST['activity']) && $_REQUEST['activity'] == 'Buyer'){ echo 'checked';} ?> ><label class="form-check-label">Buyer</label><br>
+
+            <input id="seller_btn" class="form-check-input activity" type="radio" name="activity" value="Seller" <?php if (isset($_REQUEST['activity']) && $_REQUEST['activity'] == 'Seller'){ echo 'checked';} ?>> <label class="form-check-label">Seller</label>
+
+            <?php if (isset($reg_err['activity'])){echo $reg_err['activity'];}?>
+          </div>
+
+        </div>
