@@ -1,3 +1,4 @@
+
 <div class="row">
 
 					<div class="col-md" style="text-align: center;">
@@ -46,7 +47,7 @@
 
 				<div class="row">
 					<div class="col-md">
-						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since 2019</span></p>
+						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since <?php echo $_SESSION['date']?></span></p>
 						
 						<hr>
 

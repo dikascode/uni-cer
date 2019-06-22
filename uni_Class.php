@@ -200,6 +200,7 @@
 				$_SESSION['username'] = $username;
 				$_SESSION['gender'] = $gender;
 				$_SESSION['usertype'] = $usertype;
+				$_SESSION['date'] = date('j M Y');
 
 				var_dump($_SESSION['usertype']);
 
@@ -258,6 +259,9 @@
 				$_SESSION['photo'] = $row['user_picture'];
 				$_SESSION['gender'] = $row['user_gender'];
 				$_SESSION['username'] = strtolower($row['user_username']);
+				$_SESSION['date'] = date('j M Y', strtotime($row['user_datereg']));
+				$_SESSION['usertype'] = $row['user_typeid'];
+
 
 				// echo $_SESSION['username'];
 				// echo "<pre>";
@@ -267,8 +271,18 @@
 
 				//redirect to user dashboard
 
-				header("Location: http://localhost/6thprojectphp/userpage.php");
+				if ($_SESSION['usertype'] == '1') {
+					
+				
+
+				header("Location: http://localhost/6thprojectphp/newuser.php");
 				exit;
+			}else{
+
+				header("Location: http://localhost/6thprojectphp/buyerpage.php");
+				exit;
+
+				}
 			}else{
 
 				//display invalid login credentials
