@@ -176,14 +176,14 @@
 
 		//create signup method
 
-		public function signUp($email, $fname, $lname, $username, $password, $phone, $stateid, $country, $course, $university, $level, $gender){
+		public function signUp($email, $fname, $lname, $username, $password, $phone, $stateid, $country, $course, $university, $level, $gender, $usertype){
 
 			$pwd = md5($password);
 			$username = strtolower($username);
 
 			//write query to insert into user table
 
-			$sql = "INSERT into user(user_email, user_fname, user_lname, user_username, user_password, user_phone, user_stateid, user_countryid, user_coursestudyid, user_universityid, user_levelid, user_gender) values('$email', '$fname', '$lname', '$username', '$pwd', '$phone', '$stateid', '$country', '$course', '$university', '$level', '$gender')";
+			$sql = "INSERT into user(user_email, user_fname, user_lname, user_username, user_password, user_phone, user_stateid, user_countryid, user_coursestudyid, user_universityid, user_levelid, user_gender, user_typeid) values('$email', '$fname', '$lname', '$username', '$pwd', '$phone', '$stateid', '$country', '$course', '$university', '$level', '$gender', '$usertype')";
 
 			//to check if the query runs
 
@@ -199,11 +199,21 @@
 				$_SESSION['email'] = $email;
 				$_SESSION['username'] = $username;
 				$_SESSION['gender'] = $gender;
+				$_SESSION['usertype'] = $usertype;
+
+				var_dump($_SESSION['usertype']);
+
 
 				// redirect to fullregisteration page
 
-				header("Location: http://localhost/6thprojectphp/newuser.php");
+				if ($_SESSION['usertype'] == '1') {
+					header("Location: http://localhost/6thprojectphp/newuser.php");
+					exit;
+				}else{
+
+				header("Location: http://localhost/6thprojectphp/buyerpage.php");
 				exit;
+				}
 
 			}else{
 
@@ -211,6 +221,8 @@
 			}
 
 		}
+
+		
 
 
 		//create login method
@@ -346,7 +358,7 @@
 
 						$result = "<div class ='alert alert-success'> Profile photo uploaded</div>";
 
-						header("Location: https://localhost/6thprojectphp/userpage");
+						// header("Location: https://localhost/6thprojectphp/userpage.php");
 
 					}else{
 

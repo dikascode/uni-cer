@@ -265,3 +265,29 @@ else{
           </div>
 
         </div>
+
+
+
+    from uni class -->
+
+    <?php
+
+
+    if ($_SESSION['usertype'] == '1') {
+          header("Location: http://localhost/6thprojectphp/newuser.php");
+          exit;
+
+        }else{
+
+          echo "Opps ".$this->udbobj->udbcon->error;
+        }
+
+        if($_SESSION['usertype'] == '2'){
+
+          header("Location: http://localhost/6thprojectphp/buyerpage.php");
+          exit;
+        }else{
+
+          echo "Opps ".$this->udbobj->udbcon->error;
+        }
+?>

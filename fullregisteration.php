@@ -27,6 +27,8 @@
 		$gender = User::dataSanitize($_REQUEST['gender']);
 		$activity = User::dataSanitize($_REQUEST['activity']); 
 
+		// $activity is same as usertype
+
 
 	
 
@@ -116,11 +118,11 @@
 					 // var_dump(user::$userid);
 					 // exit;
 
-					if ($activity = 'Seller') {
-						$signupobj->signUp($email, $firstname, $lastname, $username, $pwd, $phone, $state, $country, $course, $university, $level, $gender);
+					if ($activity == '1') {
+						$signupobj->signUp($email, $firstname, $lastname, $username, $pwd, $phone, $state, $country, $course, $university, $level, $gender, $activity);
 					}else{
 
-					$signupobj->signUp($email, $firstname, $lastname, $username, $pwd, $phone, $state, $country, '', '', '', $gender);
+					$signupobj->signUp($email, $firstname, $lastname, $username, $pwd, $phone, $state, $country, '', '', '', $gender, $activity);
 					}
 				}
 			
