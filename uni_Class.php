@@ -414,6 +414,38 @@
 			}
 
 
+			//create method to edit profile description
+
+			public function editDesc($userid, $text){
+
+				//write query
+
+				$sql = "UPDATE user_profile set userid = '$userid', profile_desc = '$text' where userid='$userid' ";
+
+				//execute myquery
+
+				$this->udbobj->udbcon->query($sql);
+
+				//how many rows affected//updated
+
+			if ($this->udbobj->udbcon->affected_rows == 1) {
+				//redirect to showallusers.php page
+				$msg = "<p class='alert alert-successful'>Profile Description updated successfully</p>";
+
+			}elseif ($this->udbobj->udbcon->affected_rows == 0) {
+
+				$msg ="<p class='alert alert-danger'>Profile Description not updated</p>";
+
+			}else{
+
+				echo "Error: ".$this->udbobj->udbcon->error;
+			}
+
+			return $msg;
+
+			}
+
+
 
 		
 	}
@@ -523,6 +555,36 @@
 
 		}
 
+		}
+
+
+		//method to get all gig created by a seller user
+
+		public function getGigs($userid){
+
+
+
+			//write query
+
+			$sql = "SELECT  gig.*, user.* from gig
+			 		left join user on gig.gig_userid = user.userid where gig.gig_userid = '$userid' ";
+
+			 		//$row = array();
+
+
+		//execute the query
+
+		$result = $this->udbobj->udbcon->query($sql);
+		if ($this->udbobj->udbcon->affected_rows > 0) {
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+		}else{
+
+			echo "Error: .".$this->dbobj->dbcon->error;
+
+			//echo "<div class='alert alert-danger'>No Record Found</div>";
+		}
+
+		return $row;
 		}
 
 		

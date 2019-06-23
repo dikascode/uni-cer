@@ -63,9 +63,13 @@
 				</div>
 
 				<div class="row">
+
 					<div class="col-md">
-						<h5 style="float: left;">Description</h5> <a class="purpletext" href="#" style="float: right;">Edit Description <i class="fas fa-pen purpletext"></i></a>
+						<h5 style="float: left;">Description</h5> <a id="editDesc" class="purpletext" href="#" style="float: right;">Edit Description <i class="fas fa-pen purpletext"></i></a>
 						<div style="clear: both;"></div>
+						<?php if (isset($desc)) {
+							echo $desc;
+						} ?>
 						<p id="userDesc">Alright, let's cut to the chase. What do you what to know?
 						 I'm a creative writer with several years of experience writing stories and helping businesses make profit with online content.
 						 
@@ -88,7 +92,7 @@
 
 				</div>
 
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-md">
 						<h5>Social Links</h5>
 						<ul>
@@ -100,7 +104,7 @@
 						</ul>
 						<hr> 
 					</div>
-				</div>
+				</div> -->
 
 				<div class="row">
 					<div class="col-md">

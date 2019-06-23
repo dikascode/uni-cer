@@ -2,6 +2,15 @@
 	
 		include_once ('header2.php');
 
+		$gigobj = new Gigs;
+
+		$gigs = $gigobj->getGigs($_SESSION['userid']);
+
+		
+
+		// var_dump($gigs);
+		// exit;
+
 ?>
 
 		
@@ -11,53 +20,9 @@
 				
 					<?php include_once('user_side_bar.php'); ?>
 
-				<div class="row">
-					<div class="col-md">
-						<p><i class="fas fa-map-marker-alt purpletext"></i><span> From</span><span style="float: right">FUT</span></p>
-						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since 2019</span></p>
-						<!-- Something hidden here -->
-						<p class="myHideStyle"><i class="fas fa-paper-plane purpletext"></i><span> Last Delivery</span><span style="float: right">1 day</span></p>
-						<hr>
+				
 
-					</div>
-
-				</div>
-
-				<div class="row">
-					<div class="col-md">
-						<h5 style="float: left;">Description</h5> <a class="purpletext" href="#" style="float: right;">Edit Description <i class="fas fa-pen purpletext"></i></a>
-						<div style="clear: both;"></div>
-						<p>Your pitch line goes here</p>
-						 <hr>
-						
-					</div>
-
-				</div>
-
-				<div class="row">
-					<div class="col-md">
-						<h5>Social Links</h5>
-						<ul>
-							<a href="#"><li>Facebook</li></a>
-							<a href="#"><li>Google</li></a>
-							<a href="#"><li>Linkedln</li></a>
-							<a href="#"><li>Behance</li></a>
-							<a href="#"><li>GitHub</li></a>
-						</ul>
-						<hr> 
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md">
-						<h5>Skills</h5>
-						<!-- Something hidden here -->
-						<div class=" myHideStyle">
-						<a href="#" class="badge badge-primary">JQuery</a> <a href="#" class="badge badge-warning">PHP</a> <a href="#" class="badge badge-success">HTML&CSS</a>
-						<a href="#" class="badge badge-primary">SQL</a>
-						</div>
-					</div>
-				</div>
+	
 			</div>
 
 			<!-- right pane -->
@@ -71,8 +36,15 @@
 
 				<!-- Gig profiles -->
 				<div class="row">
-					<div class="col-md d-flex justifyForMe">
+					<div class="col-md d-flex">
+						<?php if (count($gigs) > 0) {?>
+
+							<h3 class="purpletext animated flash">Welcome, <?php echo $_SESSION['username'] ?>.</h3><a style="margin-left: 5px;" href="gig-setup-form.php?id=<?php echo $_SESSION['userid'] ?>&name=<?php echo $_SESSION['username'] ?>" class="btn join-button">Create a New Gig <i class="fas fa-plus"></i></a>
+							
+						<?php }else {?>
 						<h3 class="purpletext animated flash">Hello, <?php echo $_SESSION['firstname'] ?> looks like you don't have a gig, yet.</h3><a href="gig-setup-form.php?id=<?php echo $_SESSION['userid'] ?>&name=<?php echo $_SESSION['username'] ?>" class="btn join-button">Create a New Gig <i class="fas fa-plus"></i></a>
+
+					<?php } ?>
 					</div>
 
 				</div>
@@ -82,14 +54,36 @@
 				<!-- Created Gig profiles -->
 				<div class="row">
 					<div class="col-md d-flex justifyForMe">
-						<div class="gigBox">
-							<img src="images/laptop-3190194_1920.jpg" width="230" >
-							<a href="#"><p style="margin:5px;">I will build your website with php</p></a>
-							<hr>
+						
 
-							<a  href="#"><p style="margin-left:40%">For just <b class="badge badge-info">N50000</b></p></a>
+					<?php foreach ($gigs as $key => $value) {
+						$gigimage = $value['gig_headerpic'];
+						$gigtitle = $value['gig_title'];
+						$gig_basicprice = $value['basic_price'];
+					 ?>
+
+					 	<div class="col-md d-flex justifyForMe">
+						<div class="gigBox">
+							<div style="width:230px; height:180px; background-color: black;">
+							<img class="img-fluid" src="<?php if (isset($gigimage)) {
+								 echo $gigimage;
+							} ?>">
+						</div>
+						<p style="padding:5px; height: 50px;">	<a href="#"><?php if (isset($gigtitle)) {
+								 echo $gigtitle;
+							} ?></a></p>
+							
+							<!-- <hr> -->
+
+						<p style="margin-left:40%">	<a  href="#">For just <b class="badge badge-info">&#8358;<?php if (isset($gig_basicprice)) {
+								 echo $gig_basicprice;
+							} ?></b></a></p>
 						</div>
 					</div>
+
+
+					 <?php } ?>
+
 
 				</div>
 
@@ -98,6 +92,7 @@
 				
 
 			</div>
+		</div>
 		</div>
 
 		

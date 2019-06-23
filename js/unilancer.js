@@ -296,11 +296,25 @@ $(document).ready(function(){
 	// });
 
 
-	$('#userDesc').click(function(){
+	$('#editDesc').click(function(){
+
+		// alert('hi');
+
+		//hide the previous div housing the previous description
+
+
 
 		//get the string from the p tag inner html
-		var userDesc = $(this).html();
+		var user_Desc = $('#userDesc').html();
+		// $('#userDesc').hide();
 
-		$('#userDesc').load("editdesc.php", {output:userDesc});
+		// alert(user_Desc);
+
+		$('#userDesc').load("editdesc.php", {output:user_Desc});
+		// $.get("editdesc.php",function(data){
+
+		// 		document.getElementById('userDesc').innerHTML = data;
+		// 	});
+
 	});
 })

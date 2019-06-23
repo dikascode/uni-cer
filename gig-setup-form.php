@@ -184,7 +184,7 @@
 		<div class="row" id="gigform">
 			
 			<div class="col-md" >
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);  ?>?id=<?php echo $_GET['id']; ?>&name= <?php echo $_GET['name'];?>">
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?id=<?php echo $_GET['id']; ?>&name= <?php echo $_GET['name'];?>">
 				<div class="row purplebg">
 					<div class="col-md ">
 						<h3>OVERVIEW</h3>
