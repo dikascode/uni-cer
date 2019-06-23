@@ -54,7 +54,7 @@
 				<div class="row">
 					<div class="col-md">
 						<p><i class="fas fa-map-marker-alt purpletext"></i><span> From</span><span style="float: right">FUT</span></p>
-						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since 2019</span></p>
+						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since <?php echo $_SESSION['date']?></span></p>
 						<p><i class="fas fa-paper-plane purpletext"></i><span> Last Delivery</span><span style="float: right">1 day</span></p>
 						<hr>
 

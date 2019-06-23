@@ -9,7 +9,7 @@
 	$reg_err = array();
 	
 
-	$dbobj = new DatabaseConnect;
+	// $dbobj = new DatabaseConnect;
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	

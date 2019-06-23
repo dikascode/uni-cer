@@ -72,12 +72,27 @@
 				<!-- Gig profiles -->
 				<div class="row">
 					<div class="col-md d-flex justifyForMe">
-						<h3 class="purpletext animated flash">Looks like you don't have a gig, yet.</h3><a href="gig-setup-form.php?id=<?php echo $_SESSION['userid'] ?>&name=<?php echo $_SESSION['username'] ?>" class="btn join-button">Create a New Gig <i class="fas fa-plus"></i></a>
+						<h3 class="purpletext animated flash">Hello, <?php echo $_SESSION['firstname'] ?> looks like you don't have a gig, yet.</h3><a href="gig-setup-form.php?id=<?php echo $_SESSION['userid'] ?>&name=<?php echo $_SESSION['username'] ?>" class="btn join-button">Create a New Gig <i class="fas fa-plus"></i></a>
 					</div>
 
 				</div>
 
 				<hr>
+
+				<!-- Created Gig profiles -->
+				<div class="row">
+					<div class="col-md d-flex justifyForMe">
+						<div class="gigBox">
+							<img src="images/laptop-3190194_1920.jpg" width="230" >
+							<a href="#"><p style="margin:5px;">I will build your website with php</p></a>
+							<hr>
+
+							<a  href="#"><p style="margin-left:40%">For just <b class="badge badge-info">N50000</b></p></a>
+						</div>
+					</div>
+
+				</div>
+
 
 
 				

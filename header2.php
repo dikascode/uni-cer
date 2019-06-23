@@ -53,7 +53,7 @@
 
 			<div class="col-md-5">
 				<ul id="menulist"  style="margin-top: 2%;">
-					<li><a href="#">Dashboard</a></li>
+					<li><a href="newuser.php">Dashboard</a></li>
 					<li><a href="#">Messages <span class="badge badge-primary">3</span></a></li>
 					<li><a href="#">Orders</a></li>
 					<li><a href="#">Gigs</a></li>
@@ -68,7 +68,7 @@
 			<div class="col-md-2">
 
 				<div class="btn-group dropleft" style="float: right;">
-					<a href="fullregisteration.php" class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a href="" class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
 						<?php
 

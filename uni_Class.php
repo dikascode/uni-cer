@@ -418,6 +418,117 @@
 		
 	}
 
+
+	//create class for gigs
+
+	class Gigs{
+
+
+
+		//member variable
+		public $udbobj; //object handler for DatabaseConnect class
+		// public static $userid;
+
+		// member functions
+
+		public function __construct(){
+
+			//creating instance of class DatabaseConnect class
+
+			$this->udbobj = new DatabaseConnect;
+
+		}
+
+		//create method to get all categories from marketplace table
+
+		public function getCategories(){
+			//write sql query
+
+			$sql = "SELECT * from marketplace";
+
+			//run query
+
+			if($result = $this->udbobj->udbcon->query($sql)){
+
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+
+			}else{
+
+				echo "Oops ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+
+		}
+
+
+		//create method to get all subcategories from service table
+
+		public function getSubCategories(){
+			//write sql query
+
+			$sql = "SELECT * from service";
+
+			//run query
+
+			if($result = $this->udbobj->udbcon->query($sql)){
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+
+
+			}else{
+
+				echo "Oops ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+
+		}
+
+		//ceate method to populate gig table
+
+		public function insertGig($gigTitle, $gigUserid, $premium_title, $standard_title, $basic_title, $premium_desc, $standard_desc, $basic_desc, $premium_cd, $standard_cd, $basic_cd, $premium_rd, $standard_rd, $basic_rd, $premium_sc, $standard_sc, $basic_sc, $premium_pages, $standard_pages, $basic_pages, $premium_revisions, $standard_revisions, $basic_revisions, $premium_delivery, $standard_delivery, $basic_delivery, $premium_price, $standard_price, $basic_price, $requirement, $gig_serviceid, $gig_marketid){
+
+			//write query
+
+			if (!empty($gigTitle)) {
+				
+			
+
+			$sql = "INSERT into gig(gig_title, gig_userid, premium_title, standard_title, basic_title, premium_desc, standard_desc, basic_desc, premium_cd, standard_cd, basic_cd, premium_rd, standard_rd, basic_rd, premium_sc, standard_sc, basic_sc, premium_pages, standard_pages, basic_pages, premium_revisions, standard_revisions, basic_revisions, premium_delivery, standard_delivery, basic_delivery, premium_price, standard_price, basic_price, requirement, gig_serviceid, gig_marketid) values('$gigTitle', '$gigUserid', '$premium_title', '$standard_title', '$basic_title', '$premium_desc', '$standard_desc', '$basic_desc', '$premium_cd', '$standard_cd', '$basic_cd', '$premium_rd', '$standard_rd', '$basic_rd', '$premium_sc', '$standard_sc', '$basic_sc', '$premium_pages', '$standard_pages', '$basic_pages', '$premium_revisions', '$standard_revisions', '$basic_revisions', '$premium_delivery', '$standard_delivery', '$basic_delivery', '$premium_price', '$standard_price', '$basic_price', '$requirement', '$gig_serviceid', '$gig_marketid')";
+
+			// var_dump($gig_marketid);
+			// exit;
+
+			//check if the query() runs //data is inserted into gig table
+
+			if ($this->udbobj->udbcon->query($sql) === true) {
+				//get last inserted user_id
+
+				$gigid = $this->udbobj->udbcon->insert_id;
+
+				//create session variable
+
+				$_SESSION['gigid'] = $gigid;
+				$_SESSION['title']= $gigTitle;
+
+				//redirect to dashboard
+
+				// header('Location: http://localhost/6thprojectphp/newuser.php');
+				// exit;
+
+			}else{
+
+				echo "Error ".$this->udbobj->udbcon->error;
+			}
+
+		}
+
+		}
+
+		
+	}
+
+
 	
 
 ?>
