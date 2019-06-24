@@ -6,12 +6,6 @@
 
 	$gigobj = new Gigs;
 	$language = $gigobj->getLanguage();
-
-
-	$gigobj = new Gigs;
-
-	$gigs = $gigobj->getDevGigs();
-
 ?>
 
 
@@ -74,38 +68,11 @@
 		<!-- section for sellers profiles -->
 		
 
-			<div class="row">				
+			<div class="row" id="devgig">				
 
-					<?php foreach ($gigs as $key => $value) {
-						$gigimage = $value['gig_headerpic'];
-						$gigtitle = $value['gig_title'];
-						$gig_basicprice = $value['basic_price'];
-						$username = $value['user_username'];
-					 ?>
+					
 
-					 	<div class="col-md d-flex justifyForMe">
-						<div class="gigBox">
-							<div style="width:230px; height:180px; background-color: black;">
-							<img class="img-fluid" src="<?php if (isset($gigimage)) {
-								 echo $gigimage;
-							} ?>">
-							</div>
-						<p style="padding:5px; height: 20px;">	<a href="#"><?php if (isset($username)) {
-								 echo $username;
-							} ?></a></p>
-
-						<p style="padding:5px; height: 50px;">	<a href="#"><?php if (isset($gigtitle)) {
-								 echo $gigtitle;
-							} ?></a></p>
-							
-						</div>
-						</div>
-
-
-					 <?php } ?>
-
-
-				</div>
+			</div>
 		
 
 		

@@ -619,32 +619,119 @@
 		//get webdev gigs without parameter
 
 
-		public function getDevGigs(){
+		// public function getDevGigs(){
 
 
 
-			//write query
+		// 	//write query
 
-			$sql = "SELECT  gig.*, user.* from gig
-			 		left join user on gig.gig_userid = user.userid where gig.gig_serviceid = '65' ";
+		// 	$sql = "SELECT  gig.*, user.* from gig
+		// 	 		left join user on gig.gig_userid = user.userid where gig.gig_serviceid = '65' ";
 
-			 		//$row = array();
+		// 	 		//$row = array();
 
+
+		// //execute the query
+
+		// $result = $this->udbobj->udbcon->query($sql);
+		// if ($this->udbobj->udbcon->affected_rows > 0) {
+		// 	$row = $result->fetch_all(MYSQLI_ASSOC);
+		// }else{
+
+		// 	echo "Error: .".$this->dbobj->dbcon->error;
+
+		// 	//echo "<div class='alert alert-danger'>No Record Found</div>";
+		// }
+
+		// return $row;
+		// }
+
+
+
+
+			//fetch  gigs randomly from users table
+
+	public function getDev8(){
+
+		//write query  
+		$sql = "SELECT  gig.*, user.*, language.* from gig left join user on gig.gig_userid = user.userid left join language on gig.languageid = language.languageid /*WHERE gig.gig_serviceid = '65'*/ order by rand() limit 8 ";
+		$row = array();
 
 		//execute the query
 
 		$result = $this->udbobj->udbcon->query($sql);
 		if ($this->udbobj->udbcon->affected_rows > 0) {
 			$row = $result->fetch_all(MYSQLI_ASSOC);
+			
 		}else{
 
-			echo "Error: .".$this->dbobj->dbcon->error;
+			//echo "Error: .".$this->dbobj->dbcon->error;
 
-			//echo "<div class='alert alert-danger'>No Record Found</div>";
+			echo "<div class='alert alert-danger'>No Record Found</div>";
 		}
 
 		return $row;
+	}
+
+
+
+		//fetch  specific dev gigs from gig table
+
+
+		public function getFeaturedDev12($lang){
+
+			//write query  
+		$sql = "SELECT  gig.*, user.*, language.* from gig left join user on gig.gig_userid = user.userid left join language on gig.languageid = language.languageid WHERE gig.languageid = '$lang' /*and gig.gig_serviceid = '65'*/ order by user_datereg limit 12 ";
+
+		$row = array();
+
+		//execute query
+
+		$result = $this->udbobj->udbcon->query($sql);
+
+		if ($this->udbobj->udbcon->affected_rows > 0) {
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+		}else{
+
+			// echo "Error: .".$this->udbobj->udbcon->error;
+
+			echo "<div class='alert alert-danger'>No Record Found</div>";
 		}
+
+		return $row;
+
+		//see output at displayDevgig.php
+		}
+
+
+
+		//function to search categories and sub categories
+
+		public function getSearchedGigs12($market, $service){
+
+			//write query  
+		$sql = "SELECT  gig.*, user.*, marketplace.* from gig left join user on gig.gig_userid = user.userid WHERE gig.gig_marketid = '$market' and gig.gig_serviceid = '$service' order by user_datereg limit 12 ";
+
+		$row = array();
+
+		//execute query
+
+		$result = $this->udbobj->udbcon->query($sql);
+
+		if ($this->udbobj->udbcon->affected_rows > 0) {
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+		}else{
+
+			// echo "Error: .".$this->udbobj->udbcon->error;
+
+			echo "<div class='alert alert-danger'>No Record Found</div>";
+		}
+
+		return $row;
+
+		//see output at displaysearchgig.php
+		}
+
 
 		
 	}

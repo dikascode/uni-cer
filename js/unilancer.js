@@ -317,4 +317,82 @@ $(document).ready(function(){
 		// 	});
 
 	});
+
+
+
+	//dispaly Dev8 once this page load using $.get method
+			$.get("displayDevGig.php", function(data){
+
+				document.getElementById('devgig').innerHTML = data;
+			});
+
+			//display 12 dev gigs once you change the value of  language drop down box
+
+
+	$('#language').change(function(){
+
+			//get language value
+
+			var language = $('#language').val();
+
+			//send the parameters to displaydevpro.php using $.ajax method
+
+
+			$.ajax({
+
+				type: "POST",
+				url: "displayDevGig.php",
+				data: "language=" + language,
+				success: function(response){
+
+					document.getElementById('devgig').innerHTML =response;
+
+				}
+
+			});
+
+	});
+
+
+	//FOR SEARCH RESULTS
+
+
+	//dispaly Dev8 once this page load using $.get method
+			$.get("displaysearchGig.php", function(data){
+
+				document.getElementById('devgig').innerHTML = data;
+			});
+
+			//display 12 dev gigs once you change the value of  language drop down box
+
+
+	$('#category').change(function(){
+
+			//get category value
+
+			var category = $('#category').val();
+
+			//get subcategory value
+
+			var subcategory = $('#subcategory').val();
+
+			//send the parameters to displaydevpro.php using $.ajax method
+
+
+			$.ajax({
+
+				type: "POST",
+				url: "displaysearchGig.php",
+				data: "category=" + category + "&subcategory=" + subcategory,
+				success: function(response){
+
+					document.getElementById('devgig').innerHTML =response;
+
+					////see output at displaysearchgig.php
+
+				}
+
+			});
+
+	});
 })

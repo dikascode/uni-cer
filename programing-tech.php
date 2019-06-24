@@ -45,7 +45,7 @@
 									
 							</div>
 							<div class="col-md" style="margin: 0; padding: 0; box-sizing: border-box;">
-									<a href="#"><div class="techlistbox">
+									<a href="webdevelopment.php"><div class="techlistbox">
 										<img src="images/laptop-3190194_1920.jpg" alt="a coding pc" width="300">
 									</div>
 									<h6 class="purpletext">Web Development</h6>
