@@ -7,27 +7,6 @@
 
 		?>
 
-		<!-- second menu bar -->
-		
-		<div id="secondmenu" class="row">
-			
-
-			<div class="col-md">
-				<ul class="second-menu-list">
-						<li><a href="#">Writing</a></li>
-						<li><a href="#">Design</a></li>
-						<li><a href="#">Programing & Tech</a></li>
-						<li><a href="#">Digital Marketing</a></li>
-						<li><a href="#">Video & Animation</a></li>
-						<li><a href="#">Music & Audio</a></li>
-						<li><a href="#">Business</a></li>
-						<li><a href="#">Final Year Research</a></li>
-						
-				</ul>
-			</div>
-
-		</div>
-
 		<!-- market aith its sub services section  -->
 		<div class="row">
 			<div class="col-md">
@@ -42,7 +21,7 @@
 						<h5>Programming & Tech</h5>
 						<ul>
 							<li><a href="#">WordPress</a></li>
-							<li><a href="#">Web Development</a></li>
+							<li><a href="webdevelopment.php">Web Development</a></li>
 							<li><a href="#">E-commerce</a></li>
 							<li><a href="#">Mobile Apps</a></li>
 							<li><a href="#">Data Analytics</a></li>

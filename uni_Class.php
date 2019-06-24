@@ -516,9 +516,36 @@
 
 		}
 
+
+		//create get language method
+
+		public function getLanguage(){
+
+			//write sql query
+
+			$sql = "SELECT * from language";
+
+			//run query
+
+			if($result = $this->udbobj->udbcon->query($sql)){
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+
+
+			}else{
+
+				echo "Oops ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+
+		}
+
+
+
+
 		//ceate method to populate gig table
 
-		public function insertGig($gigTitle, $gigUserid, $premium_title, $standard_title, $basic_title, $premium_desc, $standard_desc, $basic_desc, $premium_cd, $standard_cd, $basic_cd, $premium_rd, $standard_rd, $basic_rd, $premium_sc, $standard_sc, $basic_sc, $premium_pages, $standard_pages, $basic_pages, $premium_revisions, $standard_revisions, $basic_revisions, $premium_delivery, $standard_delivery, $basic_delivery, $premium_price, $standard_price, $basic_price, $requirement, $gig_serviceid, $gig_marketid){
+		public function insertGig($gigTitle, $gigUserid, $premium_title, $standard_title, $basic_title, $premium_desc, $standard_desc, $basic_desc, $premium_cd, $standard_cd, $basic_cd, $premium_rd, $standard_rd, $basic_rd, $premium_sc, $standard_sc, $basic_sc, $premium_pages, $standard_pages, $basic_pages, $premium_revisions, $standard_revisions, $basic_revisions, $premium_delivery, $standard_delivery, $basic_delivery, $premium_price, $standard_price, $basic_price, $requirement, $gig_serviceid, $gig_marketid, $languageid){
 
 			//write query
 
@@ -526,7 +553,7 @@
 				
 			
 
-			$sql = "INSERT into gig(gig_title, gig_userid, premium_title, standard_title, basic_title, premium_desc, standard_desc, basic_desc, premium_cd, standard_cd, basic_cd, premium_rd, standard_rd, basic_rd, premium_sc, standard_sc, basic_sc, premium_pages, standard_pages, basic_pages, premium_revisions, standard_revisions, basic_revisions, premium_delivery, standard_delivery, basic_delivery, premium_price, standard_price, basic_price, requirement, gig_serviceid, gig_marketid) values('$gigTitle', '$gigUserid', '$premium_title', '$standard_title', '$basic_title', '$premium_desc', '$standard_desc', '$basic_desc', '$premium_cd', '$standard_cd', '$basic_cd', '$premium_rd', '$standard_rd', '$basic_rd', '$premium_sc', '$standard_sc', '$basic_sc', '$premium_pages', '$standard_pages', '$basic_pages', '$premium_revisions', '$standard_revisions', '$basic_revisions', '$premium_delivery', '$standard_delivery', '$basic_delivery', '$premium_price', '$standard_price', '$basic_price', '$requirement', '$gig_serviceid', '$gig_marketid')";
+			$sql = "INSERT into gig(gig_title, gig_userid, premium_title, standard_title, basic_title, premium_desc, standard_desc, basic_desc, premium_cd, standard_cd, basic_cd, premium_rd, standard_rd, basic_rd, premium_sc, standard_sc, basic_sc, premium_pages, standard_pages, basic_pages, premium_revisions, standard_revisions, basic_revisions, premium_delivery, standard_delivery, basic_delivery, premium_price, standard_price, basic_price, requirement, gig_serviceid, gig_marketid, $languageid) values('$gigTitle', '$gigUserid', '$premium_title', '$standard_title', '$basic_title', '$premium_desc', '$standard_desc', '$basic_desc', '$premium_cd', '$standard_cd', '$basic_cd', '$premium_rd', '$standard_rd', '$basic_rd', '$premium_sc', '$standard_sc', '$basic_sc', '$premium_pages', '$standard_pages', '$basic_pages', '$premium_revisions', '$standard_revisions', '$basic_revisions', '$premium_delivery', '$standard_delivery', '$basic_delivery', '$premium_price', '$standard_price', '$basic_price', '$requirement', '$gig_serviceid', '$gig_marketid', '$languageid')";
 
 			// var_dump($gig_marketid);
 			// exit;
@@ -568,6 +595,38 @@
 
 			$sql = "SELECT  gig.*, user.* from gig
 			 		left join user on gig.gig_userid = user.userid where gig.gig_userid = '$userid' ";
+
+			 		//$row = array();
+
+
+		//execute the query
+
+		$result = $this->udbobj->udbcon->query($sql);
+		if ($this->udbobj->udbcon->affected_rows > 0) {
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+		}else{
+
+			echo "Error: .".$this->dbobj->dbcon->error;
+
+			//echo "<div class='alert alert-danger'>No Record Found</div>";
+		}
+
+		return $row;
+		}
+
+
+
+		//get webdev gigs without parameter
+
+
+		public function getDevGigs(){
+
+
+
+			//write query
+
+			$sql = "SELECT  gig.*, user.* from gig
+			 		left join user on gig.gig_userid = user.userid where gig.gig_serviceid = '65' ";
 
 			 		//$row = array();
 

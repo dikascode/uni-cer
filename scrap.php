@@ -390,3 +390,396 @@ else{
                 <!-- <a class="dropdown-item" href="#">Separated link</a> -->
               </div>
           </div>
+
+
+
+<!-- From Development -->
+
+
+  <div class="col-md-3">
+        <div class="row">
+          <div class="col-md">
+            <ul>
+              <p>Delivery Time</p>
+              <li><input type="radio" name="time"> Up to 24 hours</li>
+              <li><input type="radio" name="time"> Up to 3 days</li>
+              <li><input type="radio" name="time"> Up to 7 days</li>
+              <li><input type="radio" name="time"> Any</li>
+            </ul>
+            <hr>
+          </div>
+        </div>
+
+        <!-- <div class="row">
+          <div class="col-md">
+            
+            <span>N</span><input class="form-control" type="text" name=""> 
+          </div>
+
+          <div class="col-md">
+            <span>To</span><input class="" type="" name="">
+          </div>
+          
+        </div> -->
+      <!-- </div> -->
+
+
+<!-- from web development.php -->
+
+
+      <div class="row">
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/ab.jpg" width="200"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/abc.jpg" width="200"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/laptop-3190194_1920.jpg" width="200" height="120"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/code-1839406_1920.jpg" width="200" height="120"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/ab.jpg" width="200"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/abc.jpg" width="200"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/laptop-3190194_1920.jpg" width="200" height="120"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/code-1839406_1920.jpg" width="200" height="120"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/ab.jpg" width="200"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/abc.jpg" width="200"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/laptop-3190194_1920.jpg" width="200" height="120"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/code-1839406_1920.jpg" width="200" height="120"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/ab.jpg" width="200"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/abc.jpg" width="200"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/laptop-3190194_1920.jpg" width="200" height="120"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/code-1839406_1920.jpg" width="200" height="120"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/ab.jpg" width="200"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/abc.jpg" width="200"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/laptop-3190194_1920.jpg" width="200" height="120"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md">
+            <div class="row">
+              <div class="col-md">
+                <div class="userHeader"><img src="images/code-1839406_1920.jpg" width="200" height="120"></div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+                <h6><a href="#">dikacoder</a></h6>
+                <p>I will build a very responsive web</p>
+                <hr>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>

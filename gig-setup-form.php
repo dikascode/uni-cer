@@ -15,6 +15,7 @@
 			$category = $gigobj->getCategories();
 
 			$subcategory = $gigobj->getSubCategories();
+			$language = $gigobj->getLanguage();
 
 
 	
@@ -26,6 +27,7 @@
 		$gigtitle = User::dataSanitize($_REQUEST['gigtitle']);
 		$category_id = User::dataSanitize($_REQUEST['categoryid']);
 		$subcategory_id = User::dataSanitize($_REQUEST['subcategoryid']);
+		$language_id = User::dataSanitize($_REQUEST['languageid']);
 		$p_plantitle = User::dataSanitize($_REQUEST['p_plantitle']);
 		$s_plantitle = User::dataSanitize($_REQUEST['s_plantitle']);
 		$b_plantitle = User::dataSanitize($_REQUEST['b_plantitle']);
@@ -74,6 +76,13 @@
 			
 			$reg_err['subcategory'] = "<span class='text-danger'>Subcategory field is required</span>";
 		}
+
+
+		if (empty($language_id)) {
+			
+			$reg_err['language'] = "<span class='text-danger'>Language field is required</span>";
+		}
+
 
 
 		if (empty($p_plantitle)) {
@@ -171,7 +180,7 @@
 		if (count($reg_err) == 0) {
 
 			$gigUploadobj= new Gigs;
-			$gig = $gigUploadobj->insertGig($gigtitle, $_GET['id'], $p_plantitle, $s_plantitle, $b_plantitle, $p_plandesc, $s_plandesc, $b_plandesc, $p_CD, $s_CD, $b_CD, $p_RD, $s_RD, $b_RD, $p_SC, $s_SC, $b_SC, $p_pages, $s_pages, $b_pages, $p_numrev, $s_numrev, $b_numrev, $p_delivery, $s_delivery, $b_delivery, $premium_price, $standard_price, $basic_price, $requirement, $subcategory_id, $category_id);
+			$gig = $gigUploadobj->insertGig($gigtitle, $_GET['id'], $p_plantitle, $s_plantitle, $b_plantitle, $p_plandesc, $s_plandesc, $b_plandesc, $p_CD, $s_CD, $b_CD, $p_RD, $s_RD, $b_RD, $p_SC, $s_SC, $b_SC, $p_pages, $s_pages, $b_pages, $p_numrev, $s_numrev, $b_numrev, $p_delivery, $s_delivery, $b_delivery, $premium_price, $standard_price, $basic_price, $requirement, $subcategory_id, $category_id, $languageid);
 
 			// var_dump($gig);
 			// exit;
@@ -243,7 +252,7 @@
 						 		
 						 ?>
 
-						 <option <?php if(isset($_REQUEST['subcategoryid']) && $_REQUEST['subcategoryid'] == $subcategoryid  ){ echo "value='$subcategoryid' selected";
+						 <option <?php if(isset($_REQUEST['subcategoryid']) && $_REQUEST['subcategoryid'] == $languageid  ){ echo "value='$subcategoryid' selected";
 						  }else{echo "value='$subcategoryid'";}?> > <?php echo $subcategoryname; ?> </option>
 
 						 <?php
@@ -251,8 +260,39 @@
 						 ?>
 
 						</select>
-						<span id="err_subcat"><?php if (isset($reg_err['subcategory'])){echo $reg_err['subcategory'];}?></span>
+						<span id="err_subcat"><?php if (isset($reg_err['language'])){echo $reg_err['subcategory'];}?></span>
 					</div>
+
+
+					<div class="col-md">
+
+
+						<select id="language" class="form-control marginTop" name="languageid">
+							<option value="">Select a Language</option>
+							<!-- generating service options from database -->
+							<?php
+
+
+						 	foreach ($language as $key => $value) {
+						 			
+						 			$languageid = $value['languageid'];
+						 			$languagename = $value['language_title'];
+						 		
+						 ?>
+
+						 <option <?php if(isset($_REQUEST['languageid']) && $_REQUEST['languageid'] == $subcategoryid  ){ echo "value='$languageid' selected";
+						  }else{echo "value='$languageid'";}?> > <?php echo $languagename; ?> </option>
+
+						 <?php
+						 }
+						 ?>
+
+						</select>
+						<span id="err_lang"><?php if (isset($reg_err['language'])){echo $reg_err['language'];}?></span>
+						
+					</div>
+
+
 				</div>
 
 				<div class="row purplebg marginTop">
