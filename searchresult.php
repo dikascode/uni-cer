@@ -80,7 +80,8 @@
 		<!-- section for sellers profiles -->
 		
 
-			<div class="row" id="searchgig">			
+			<div class="row" id="searchgig">
+			<!-- from displaysearchGig.php -->			
 
 					
 

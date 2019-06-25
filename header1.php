@@ -4,6 +4,37 @@
 
 	session_start();
 
+	
+	if (isset($_REQUEST['search'])) {
+		$_REQUEST['search'] = $_GET['string'];
+	} 
+
+
+
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	   
+	   $string = user::dataSanitize($_REQUEST['search']);
+
+	   if (strlen($string) > 0) {
+	   		
+	   		$_SESSION['searchword'] = $string;
+	   		header("Location: http://localhost/6thprojectphp/searchresult.php?"."string=".$_SESSION['searchword']);
+			exit;
+
+
+	   }else{
+
+	   	header("Location: http://localhost/6thprojectphp/searchresult.php");
+	   	exit;
+
+
+	   }
+
+	   
+	   
+	}
+
+
 ?>
 
 <!-- header1 with search bar for my unilancer project
@@ -42,8 +73,6 @@
 	
 </head>
 
-
-
 <body>
 	<div id="container" class="container-fluid">
 <div id="header" class="row menubar menu-bar" style="background-color: white;">
@@ -51,10 +80,12 @@
 			<div class="col-md-2" style="font-size: 30px; color:#4B0082; font-weight: bold; margin-right: 5%;"><a href="index.php">UNILANCER</a></div>
 			<div class="col-md-5">
 				<nav class="navbar navbar-light" style="display:">
-				  <form class="form-inline">
-				    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+
+				  <form class="form-inline" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);  ?>">
+				    <input autocomplete="off" id="search" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 				    <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="background-color: #4B0082; color:white">Search</button>
 				  </form>
+
 				</nav>
 				<div id="displaySearch" style="border: width: 220px; height: 50px; position: absolute; top:50px; z-index: 10;"></div>
 			</div>

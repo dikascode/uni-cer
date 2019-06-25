@@ -735,11 +735,11 @@
 
 		//method to search for gigs and user
 
-		public function findUser($string){
+		public function findGig($string){
 
 		//write query
 
-		$sql = "SELECT user.*, order.* where user_username like '%$string%' OR gig_title like '%$string%' ";
+		$sql = "SELECT user.*, gig.* FROM gig LEFT join user on gig.gig_userid = user.userid where user_username like '%$string%' OR gig_title like '%$string%' LIMIT 5";
 
 		if ($result = $this->udbobj->udbcon->query($sql)){
 

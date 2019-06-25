@@ -192,7 +192,20 @@
 	});
 
 
-	
+	$('#search').keyup(function(){
+
+
+
+				//get value from the input field
+
+				var user = $(this).val();
+
+				//send the data to search.php using jQuery load method
+
+				$('#displaySearch').load("searchplace.php", {userOutput:user});
+
+
+			});
 })
 	</script>
 
