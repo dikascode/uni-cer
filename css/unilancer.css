@@ -296,7 +296,7 @@ a:hover {
 
 #userArea {
 
-	padding: 20px;
+	padding: 10px;
 	box-sizing: border-box;
 	min-height: 700px;
 }
@@ -304,16 +304,17 @@ a:hover {
 #rightPane {
 	
 	box-shadow: 1px 1px 5px grey;
-	margin-left: 1%;
 	box-sizing: border-box;
-	padding: 20px;
+	/*padding: 20px;*/
 	clear: both;
+	min-height: 300px;
+	
 }
 
 .gigBox {
 	width: 230px;
 	height: 290px;
-	background-color: white;
+	background-color:white;
 	box-shadow: 1px 1px 10px grey;
 	margin-bottom: 20px;
 }

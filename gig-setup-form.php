@@ -14,8 +14,10 @@
 
 			$category = $gigobj->getCategories();
 
-			$subcategory = $gigobj->getSubCategories();
+			//$subcategory = $gigobj->getSubCategories();
 			$language = $gigobj->getLanguage();
+
+			// $_SESSION['userid'] = $_GET['id'];
 
 
 	
@@ -27,7 +29,7 @@
 		$gigtitle = User::dataSanitize($_REQUEST['gigtitle']);
 		$category_id = User::dataSanitize($_REQUEST['categoryid']);
 		$subcategory_id = User::dataSanitize($_REQUEST['subcategoryid']);
-		$language_id = User::dataSanitize($_REQUEST['languageid']);
+		$languageid = User::dataSanitize($_REQUEST['languageid']);
 		$p_plantitle = User::dataSanitize($_REQUEST['p_plantitle']);
 		$s_plantitle = User::dataSanitize($_REQUEST['s_plantitle']);
 		$b_plantitle = User::dataSanitize($_REQUEST['b_plantitle']);
@@ -78,7 +80,7 @@
 		}
 
 
-		if (empty($language_id)) {
+		if (empty($languageid)) {
 			
 			$reg_err['language'] = "<span class='text-danger'>Language field is required</span>";
 		}
@@ -151,14 +153,28 @@
 		if (empty($basic_price)) {
 			$reg_err['basic_price'] = "<span class='text-danger'>This field is required</span>";
 		} 
+
+
+		if (count($reg_err) == 0) {
+			
+
+			$gigUploadobj= new Gigs;
+			$mygig = $gigUploadobj->insertGig($gigtitle, $_SESSION['userid'], $p_plantitle, $s_plantitle, $b_plantitle, $p_plandesc, $s_plandesc, $b_plandesc, $p_CD, $s_CD, $b_CD, $p_RD, $s_RD, $b_RD, $p_SC, $s_SC, $b_SC, $p_pages, $s_pages, $b_pages, $p_numrev, $s_numrev, $b_numrev, $p_delivery, $s_delivery, $b_delivery, $premium_price, $standard_price, $basic_price, $requirement, $subcategory_id, $category_id, $languageid);
+
+		}
+
+	//exit;
+	
+// 	echo "<pre>";
+// 	print_r($_SESSION['userid'] );
+// 	echo "</pre>";
 	}
 
 
 		 ?>
 
 		<!-- Submenu listing market options -->
-		<div id="secondmenu" class="row">
-			
+		<div id="secondmenu" class="row">		
 
 			<div class="col-md">
 				<ul class="second-menu-list">
@@ -174,19 +190,6 @@
 				</ul>
 			</div>
 		</div>
-
-		<?php
-
-		if (count($reg_err) == 0) {
-
-			$gigUploadobj= new Gigs;
-			$gig = $gigUploadobj->insertGig($gigtitle, $_GET['id'], $p_plantitle, $s_plantitle, $b_plantitle, $p_plandesc, $s_plandesc, $b_plandesc, $p_CD, $s_CD, $b_CD, $p_RD, $s_RD, $b_RD, $p_SC, $s_SC, $b_SC, $p_pages, $s_pages, $b_pages, $p_numrev, $s_numrev, $b_numrev, $p_delivery, $s_delivery, $b_delivery, $premium_price, $standard_price, $basic_price, $requirement, $subcategory_id, $category_id, $languageid);
-
-			// var_dump($gig);
-			// exit;
-
-		}
-		?>
 
 		<!-- Gig set up form section -->
 
@@ -242,25 +245,10 @@
 						<select id="subcategory" class="form-control marginTop" name="subcategoryid">
 							<option value="">Select a Subcategory</option>
 							<!-- generating service options from database -->
-							<?php
-
-
-						 	foreach ($subcategory as $key => $value) {
-						 			
-						 			$subcategoryid = $value['service_id'];
-						 			$subcategoryname = $value['service_name'];
-						 		
-						 ?>
-
-						 <option <?php if(isset($_REQUEST['subcategoryid']) && $_REQUEST['subcategoryid'] == $languageid  ){ echo "value='$subcategoryid' selected";
-						  }else{echo "value='$subcategoryid'";}?> > <?php echo $subcategoryname; ?> </option>
-
-						 <?php
-						 }
-						 ?>
+							
 
 						</select>
-						<span id="err_subcat"><?php if (isset($reg_err['language'])){echo $reg_err['subcategory'];}?></span>
+						<span id="err_subcat"><?php if (isset($reg_err['subcategory'])){echo $reg_err['subcategory'];}?></span>
 					</div>
 
 
@@ -275,13 +263,13 @@
 
 						 	foreach ($language as $key => $value) {
 						 			
-						 			$languageid = $value['languageid'];
+						 			$language_id = $value['languageid'];
 						 			$languagename = $value['language_title'];
 						 		
 						 ?>
 
-						 <option <?php if(isset($_REQUEST['languageid']) && $_REQUEST['languageid'] == $subcategoryid  ){ echo "value='$languageid' selected";
-						  }else{echo "value='$languageid'";}?> > <?php echo $languagename; ?> </option>
+						 <option <?php if(isset($_REQUEST['languageid']) && $_REQUEST['languageid'] == $language_id  ){ echo "value='$language_id' selected";
+						  }else{echo "value='$language_id'";}?> > <?php echo $languagename; ?> </option>
 
 						 <?php
 						 }
@@ -342,30 +330,30 @@
 
 									<tr>
 										<td>Custom Design</td>
-										<td class="my-textAlign"><input class="" type="checkbox" name="p_CD" value="True"></td>
-										<td class="my-textAlign"><input class="" type="checkbox" name="s_CD" value="True"></td>
-										<td class="my-textAlign"><input class="" type="checkbox" name="b_CD" value="True"></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="p_CD" value="1"></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="s_CD" value="1"></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="b_CD" value="1"></td>
 									</tr>
 
 									<tr>
 										<td>Responsive Design</td>
-										<td class="my-textAlign"><input class="" type="checkbox" name="p_RD" value="True"></td>
-										<td class="my-textAlign"><input class="" type="checkbox" name="s_RD" value="True"></td>
-										<td class="my-textAlign"><input class="" type="checkbox" name="b_RD" value="True"></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="p_RD" value="1"></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="s_RD" value="1"></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="b_RD" value="1"></td>
 									</tr>
 
 									<tr>
 										<td>Include Source Code</td>
-										<td class="my-textAlign"><input class="" type="checkbox" name="p_SC" value="True"></td>
-										<td class="my-textAlign"><input class="" type="checkbox" name="s_SC" value="True"></td>
-										<td class="my-textAlign"><input class="" type="checkbox" name="b_SC" value="True"></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="p_SC" value="1"></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="s_SC" value="1"></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="b_SC" value="1"></td>
 									</tr>
 
 									<tr>
 										<td>Number of Pages</td>
-										<td class="my-textAlign"><input class="form-control-sm" type="number" name="p_pages" value="True"></td>
-										<td class="my-textAlign"><input class="form-control-sm" type="number" name="s_pages" value="True"></td>
-										<td class="my-textAlign"><input class="form-control-sm" type="number" name="b_pages" value="True"></td>
+										<td class="my-textAlign"><input class="form-control-sm" type="number" name="p_pages" value=""></td><?php if (isset($reg_err['p_pages'])){echo $reg_err['p_pages'];}?>
+										<td class="my-textAlign"><input class="form-control-sm" type="number" name="s_pages" value=""></td><?php if (isset($reg_err['s_pages'])){echo $reg_err['s_pages'];}?>
+										<td class="my-textAlign"><input class="form-control-sm" type="number" name="b_pages" value=""></td><?php if (isset($reg_err['b_pages'])){echo $reg_err['b_pages'];}?>
 									</tr>
 
 									<tr>
@@ -495,17 +483,11 @@
 				</div>
 
 				<div class="row ">
-					<div class="col-md">
-						<img class="img-fluid" src=".jpg" style="border:1px lightgrey dotted; width: 200px; height: 120px;">					
+					<div class="col-md-4">
+						<img class="img-fluid" src="" style="border:1px lightgrey dotted; background-color: black; width: 200px; height: 120px;">					
 					</div>
 
-					<div class="col-md">
-						<img class="img-fluid" src=".jpg" style="border:1px lightgrey dotted; width: 200px; height: 120px;">					
-					</div>
-
-					<div class="col-md">
-						<img class="img-fluid" src=".jpg" style="border:1px lightgrey dotted; width: 200px; height: 120px;">					
-					</div>
+					
 				</div>
 
 				<div class="row marginTop">

@@ -2,9 +2,12 @@
 	
 		include_once ('header2.php');
 
-		$gigobj = new Gigs;
+	
+						$gigobj = new Gigs;
 
-		$gigs = $gigobj->getGigs($_SESSION['userid']);
+						$gigs = $gigobj->getGigs($_SESSION['userid']); 
+		
+	
 
 		
 
@@ -27,7 +30,7 @@
 
 			<!-- right pane -->
 
-			<div class="col-md" id="rightPane">
+			<div class="col-md-9" id="rightPane">
 				<div class="row">
 					<div class="col-md purpletext" style="margin-bottom: 20px;">
 						<h4>Gigs</h4>
@@ -37,12 +40,12 @@
 				<!-- Gig profiles -->
 				<div class="row">
 					<div class="col-md d-flex">
-						<?php if (count($gigs) > 0) {?>
+						<?php if (count($gigs) > 0) { ?>
 
-							<h3 class="purpletext animated flash">Welcome, <?php echo $_SESSION['username'] ?>.</h3><a style="margin-left: 5px;" href="gig-setup-form.php?id=<?php echo $_SESSION['userid'] ?>&name=<?php echo $_SESSION['username'] ?>" class="btn join-button">Create a New Gig <i class="fas fa-plus"></i></a>
+							<h3 class="purpletext animated flash">Welcome, <?php echo $_SESSION['username'] ?>.</h3><a style="margin-left:10px;" href="gig-setup-form.php?id=<?php echo $_SESSION['userid'] ?>&name=<?php echo $_SESSION['username'] ?>" class="btn join-button">Create a New Gig <i class="fas fa-plus"></i></a>
 							
 						<?php }else {?>
-						<h3 class="purpletext animated flash">Hello, <?php echo $_SESSION['firstname'] ?> looks like you don't have a gig, yet.</h3><a href="gig-setup-form.php?id=<?php echo $_SESSION['userid'] ?>&name=<?php echo $_SESSION['username'] ?>" class="btn join-button">Create a New Gig <i class="fas fa-plus"></i></a>
+						<h3 class="purpletext animated flash">Hello, <?php echo $_SESSION['firstname'] ?> looks like you don't have a gig, yet.</h3><a style="margin-left:10px;" href="gig-setup-form.php?id=<?php echo $_SESSION['userid'] ?>&name=<?php echo $_SESSION['username'] ?>" class="btn join-button">Create a New Gig <i class="fas fa-plus"></i></a>
 
 					<?php } ?>
 					</div>
@@ -53,16 +56,16 @@
 
 				<!-- Created Gig profiles -->
 				<div class="row">
-					<div class="col-md d-flex justifyForMe">
+					
 						
-
+				
 					<?php foreach ($gigs as $key => $value) {
 						$gigimage = $value['gig_headerpic'];
 						$gigtitle = $value['gig_title'];
 						$gig_basicprice = $value['basic_price'];
 					 ?>
 
-					 	<div class="col-md d-flex justifyForMe">
+					 	<div class="col-md-4 d-flex justifyForMe">
 						<div class="gigBox">
 							<div style="width:230px; height:180px; background-color: black;">
 							<img class="img-fluid" src="<?php if (isset($gigimage)) {
@@ -75,7 +78,7 @@
 							
 							<!-- <hr> -->
 
-						<p style="margin-left:40%">	<a  href="#">For just <b class="badge badge-info">&#8358;<?php if (isset($gig_basicprice)) {
+						<p style="margin-left:50%">	<a  href="#">For just <b class="badge badge-info">&#8358;<?php if (isset($gig_basicprice)) {
 								 echo $gig_basicprice;
 							} ?></b></a></p>
 						</div>

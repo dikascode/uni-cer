@@ -783,3 +783,13 @@ else{
         </div>
 
       </div>
+
+
+
+      <?php
+
+        '$gigTitle', '$gigUserid', '$premium_title', '$standard_title', '$basic_title', '$premium_desc', '$standard_desc', '$basic_desc', '$premium_cd', '$standard_cd', '$basic_cd', '$premium_rd', '$standard_rd', '$basic_rd', '$premium_sc', '$standard_sc', '$basic_sc', '$premium_pages', '$standard_pages', '$basic_pages', '$premium_revisions', '$standard_revisions', '$basic_revisions', '$premium_delivery', '$standard_delivery', '$basic_delivery', '$premium_price', '$standard_price', '$basic_price', '$requirement', '$gig_serviceid', '$gig_marketid', '$languageid'
+
+        //from insert gig
+
+      ?>

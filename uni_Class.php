@@ -202,7 +202,7 @@
 				$_SESSION['usertype'] = $usertype;
 				$_SESSION['date'] = date('j M Y');
 
-				var_dump($_SESSION['usertype']);
+				//var_dump($_SESSION['usertype']);
 
 
 				// redirect to fullregisteration page
@@ -302,7 +302,7 @@
 			if ($_FILES['profilephoto']['error'] == 0) {
 				# start file upload
 
-				$filesize = $_FILES['profilephoto']['size'];
+				$filesize = user::dataSanitize($_FILES['profilephoto']['size']);
 				$filename = $_FILES['profilephoto']['name'];
 				$filetype = $_FILES['profilephoto']['type'];
 				$filetempname = $_FILES['profilephoto']['tmp_name'];
@@ -496,10 +496,10 @@
 
 		//create method to get all subcategories from service table
 
-		public function getSubCategories(){
+		public function getSubCategories($marketid){
 			//write sql query
 
-			$sql = "SELECT * from service";
+			$sql = "SELECT * from service where service_marketplaceid = '$marketid' ";
 
 			//run query
 
@@ -549,13 +549,13 @@
 
 			//write query
 
-			if (!empty($gigTitle)) {
+			// if (!empty($gigTitle)) {
 				
 			
 
-			$sql = "INSERT into gig(gig_title, gig_userid, premium_title, standard_title, basic_title, premium_desc, standard_desc, basic_desc, premium_cd, standard_cd, basic_cd, premium_rd, standard_rd, basic_rd, premium_sc, standard_sc, basic_sc, premium_pages, standard_pages, basic_pages, premium_revisions, standard_revisions, basic_revisions, premium_delivery, standard_delivery, basic_delivery, premium_price, standard_price, basic_price, requirement, gig_serviceid, gig_marketid, $languageid) values('$gigTitle', '$gigUserid', '$premium_title', '$standard_title', '$basic_title', '$premium_desc', '$standard_desc', '$basic_desc', '$premium_cd', '$standard_cd', '$basic_cd', '$premium_rd', '$standard_rd', '$basic_rd', '$premium_sc', '$standard_sc', '$basic_sc', '$premium_pages', '$standard_pages', '$basic_pages', '$premium_revisions', '$standard_revisions', '$basic_revisions', '$premium_delivery', '$standard_delivery', '$basic_delivery', '$premium_price', '$standard_price', '$basic_price', '$requirement', '$gig_serviceid', '$gig_marketid', '$languageid')";
+			$sql = "INSERT into gig(gig_title, gig_userid, premium_title, standard_title, basic_title, premium_desc, standard_desc, basic_desc, premium_cd, standard_cd, basic_cd, premium_rd, standard_rd, basic_rd, premium_sc, standard_sc, basic_sc, premium_pages, standard_pages, basic_pages, premium_revisions, standard_revisions, basic_revisions, premium_delivery, standard_delivery, basic_delivery, premium_price, standard_price, basic_price, requirement, gig_serviceid, gig_marketid, languageid) values('$gigTitle', '$gigUserid', '$premium_title', '$standard_title', '$basic_title', '$premium_desc', '$standard_desc', '$basic_desc', '$premium_cd', '$standard_cd', '$basic_cd', '$premium_rd', '$standard_rd', '$basic_rd', '$premium_sc', '$standard_sc', '$basic_sc', '$premium_pages', '$standard_pages', '$basic_pages', '$premium_revisions', '$standard_revisions', '$basic_revisions', '$premium_delivery', '$standard_delivery', '$basic_delivery', '$premium_price', '$standard_price', '$basic_price', '$requirement', '$gig_serviceid', '$gig_marketid', '$languageid')";
 
-			// var_dump($gig_marketid);
+			//  var_dump($sql);
 			// exit;
 
 			//check if the query() runs //data is inserted into gig table
@@ -572,8 +572,8 @@
 
 				//redirect to dashboard
 
-				// header('Location: http://localhost/6thprojectphp/newuser.php');
-				// exit;
+				header('Location: http://localhost/6thprojectphp/redirect.php');
+				exit;
 
 			}else{
 
@@ -582,7 +582,7 @@
 
 		}
 
-		}
+		// }
 
 
 		//method to get all gig created by a seller user
@@ -596,7 +596,7 @@
 			$sql = "SELECT  gig.*, user.* from gig
 			 		left join user on gig.gig_userid = user.userid where gig.gig_userid = '$userid' ";
 
-			 		//$row = array();
+			 		$row = array();
 
 
 		//execute the query
@@ -606,9 +606,9 @@
 			$row = $result->fetch_all(MYSQLI_ASSOC);
 		}else{
 
-			echo "Error: .".$this->dbobj->dbcon->error;
+			//echo "Error: .".$this->udbobj->udbcon->error;
 
-			//echo "<div class='alert alert-danger'>No Record Found</div>";
+			echo "<div class='alert alert-info'>Create a gig today.</div>";
 		}
 
 		return $row;
@@ -733,6 +733,32 @@
 		}
 
 
+		//method to search for gigs and user
+
+		public function findUser($string){
+
+		//write query
+
+		$sql = "SELECT user.*, order.* where user_username like '%$string%' OR gig_title like '%$string%' ";
+
+		if ($result = $this->udbobj->udbcon->query($sql)){
+
+				$row= $result->fetch_all(MYSQLI_ASSOC);
+
+				// echo "<pre>";
+				// print_r($row);
+				// echo "</pre>";
+				// exit;
+				
+
+			}else{
+
+				echo "Error: ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+
+	}
 		
 	}
 

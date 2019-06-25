@@ -76,12 +76,50 @@
 		
 
 		
-	
+	<!-- <script type="text/javascript">
+		
+	//dispaly Dev8 once this page load using $.get method
+			$.get("displayDevGig.php", function(data){
+
+				document.getElementById('devgig').innerHTML = data;
+			});
+
+			//display 12 dev gigs once you change the value of  language drop down box
+
+
+	$('#language').change(function(){
+
+
+			//get language value
+
+			var language = $('#language').val();
+
+			//send the parameters to displaydevpro.php using $.ajax method
+
+
+			$.ajax({
+
+				type: "POST",
+				url: "displayDevGig.php",
+				data: "language=" + language,
+				success: function(response){
+
+					document.getElementById('searchgig').innerHTML =response;
+
+				}
+
+			});
+
+
+	});
+	</script> -->
 
 		<!-- Footer section-->
 
 		<?php
 		include 'footer.php';
 		?>
+
+
 
 

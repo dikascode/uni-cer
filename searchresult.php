@@ -8,7 +8,7 @@
 	// $language = $gigobj->getLanguage();
 	$category = $gigobj->getCategories();
 
-	$subcategory = $gigobj->getSubCategories();
+	// $subcategory = $gigobj->getSubCategories();
 ?>
 
 
@@ -57,23 +57,7 @@
 						<select id="subcategory" class="form-control marginTop" name="subcategoryid">
 							<option value="">Select a Subcategory</option>
 							<!-- generating service options from database -->
-							<?php
-
-
-						 	foreach ($subcategory as $key => $value) {
-						 			
-						 			$subcategoryid = $value['service_id'];
-						 			$subcategoryname = $value['service_name'];
-						 		
-						 ?>
-
-						 <option <?php if(isset($_REQUEST['subcategoryid']) && $_REQUEST['subcategoryid'] == $languageid  ){ echo "value='$subcategoryid' selected";
-						  }else{echo "value='$subcategoryid'";}?> > <?php echo $subcategoryname; ?> </option>
-
-						 <?php
-						 }
-						 ?>
-
+							
 						</select>
 						
 					</div>
@@ -96,7 +80,7 @@
 		<!-- section for sellers profiles -->
 		
 
-			<div class="row" id="devgig">				
+			<div class="row" id="searchgig">			
 
 					
 
@@ -105,7 +89,48 @@
 
 		
 	
+<!-- <script type="text/javascript">
 
+	$.get("displaysearchGig.php", function(data){
+
+
+				document.getElementById('devgig').innerHTML = data;
+			});
+
+	
+	$('#category').change(function(){
+
+
+			//get category value
+
+			var category = $('#category').val();
+
+			//get subcategory value
+
+			var subcategory = $('#subcategory').val();
+
+			//send the parameters to displaydevpro.php using $.ajax method
+
+
+			$.ajax({
+
+
+				type: "POST",
+				url: "displaysearchGig.php",
+				data: "category=" + category + "&subcategory=" + subcategory,
+				success: function(response){
+
+					document.getElementById('devgig').innerHTML =response;
+
+					////see output at displaysearchgig.php
+
+				}
+
+
+			});
+
+	});
+</script> -->
 		<!-- Footer section-->
 
 		<?php

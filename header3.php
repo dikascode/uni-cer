@@ -18,7 +18,7 @@
 	<link href="fa/css/all.css" rel="stylesheet">
 
 	<!-- google fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Monoton|PT+Sans+Narrow|Righteous|Teko" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Monoton|PT+Sans+Narrow|Righteous|Teko" rel="stylesheet"> -->
 	
 	
 	

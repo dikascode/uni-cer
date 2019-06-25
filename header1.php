@@ -20,7 +20,7 @@
 	<link href="fa/css/all.css" rel="stylesheet">
 
 	<!-- google fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Monoton|PT+Sans+Narrow|Righteous|Teko" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Monoton|PT+Sans+Narrow|Righteous|Teko" rel="stylesheet"> -->
 	
 	
 	
@@ -56,6 +56,7 @@
 				    <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="background-color: #4B0082; color:white">Search</button>
 				  </form>
 				</nav>
+				<div id="displaySearch" style="border: width: 220px; height: 50px; position: absolute; top:50px; z-index: 10;"></div>
 			</div>
 
 			<div class="col-md" id="menubar">

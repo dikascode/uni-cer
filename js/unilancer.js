@@ -75,7 +75,7 @@ $(document).ready(function(){
 
 		if ($('#activity option[value="2"]').prop('selected')) {
 
-			// alert('hi');
+	// alert('hi');
 
 		$('#edu_info').hide();
 	}
@@ -131,8 +131,8 @@ $(document).ready(function(){
 					$('#err_pwd').html('Password field is required').addClass('text-danger');
 				}
 
-				//for phone input
 
+				//for phone input		
 				if ($('input').attr('name','p_num').val().trim()=='') {
 
 					
@@ -153,6 +153,7 @@ $(document).ready(function(){
 					$('#err_text6').html('Select a Course of Study').addClass('text-danger');
 
 				}
+			
 
 				if ($('#university option[value="university"]').prop('selected')){
 
@@ -177,7 +178,7 @@ $(document).ready(function(){
 
 					$('#err_text9').html('Select Year of Admission').addClass('text-danger');
 
-				}
+				} 
 			
 			
 
@@ -296,103 +297,5 @@ $(document).ready(function(){
 	// });
 
 
-	$('#editDesc').click(function(){
 
-		// alert('hi');
-
-		//hide the previous div housing the previous description
-
-
-
-		//get the string from the p tag inner html
-		var user_Desc = $('#userDesc').html();
-		// $('#userDesc').hide();
-
-		// alert(user_Desc);
-
-		$('#userDesc').load("editdesc.php", {output:user_Desc});
-		// $.get("editdesc.php",function(data){
-
-		// 		document.getElementById('userDesc').innerHTML = data;
-		// 	});
-
-	});
-
-
-
-	//dispaly Dev8 once this page load using $.get method
-			$.get("displayDevGig.php", function(data){
-
-				document.getElementById('devgig').innerHTML = data;
-			});
-
-			//display 12 dev gigs once you change the value of  language drop down box
-
-
-	$('#language').change(function(){
-
-			//get language value
-
-			var language = $('#language').val();
-
-			//send the parameters to displaydevpro.php using $.ajax method
-
-
-			$.ajax({
-
-				type: "POST",
-				url: "displayDevGig.php",
-				data: "language=" + language,
-				success: function(response){
-
-					document.getElementById('devgig').innerHTML =response;
-
-				}
-
-			});
-
-	});
-
-
-	//FOR SEARCH RESULTS
-
-
-	//dispaly Dev8 once this page load using $.get method
-			$.get("displaysearchGig.php", function(data){
-
-				document.getElementById('devgig').innerHTML = data;
-			});
-
-			//display 12 dev gigs once you change the value of  language drop down box
-
-
-	$('#category').change(function(){
-
-			//get category value
-
-			var category = $('#category').val();
-
-			//get subcategory value
-
-			var subcategory = $('#subcategory').val();
-
-			//send the parameters to displaydevpro.php using $.ajax method
-
-
-			$.ajax({
-
-				type: "POST",
-				url: "displaysearchGig.php",
-				data: "category=" + category + "&subcategory=" + subcategory,
-				success: function(response){
-
-					document.getElementById('devgig').innerHTML =response;
-
-					////see output at displaysearchgig.php
-
-				}
-
-			});
-
-	});
 })
