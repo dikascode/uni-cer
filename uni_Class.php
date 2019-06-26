@@ -200,7 +200,7 @@
 				$_SESSION['username'] = $username;
 				$_SESSION['gender'] = $gender;
 				$_SESSION['usertype'] = $usertype;
-				$_SESSION['date'] = date('j M Y');
+				// $_SESSION['date'] = date('j M Y');
 
 				//var_dump($_SESSION['usertype']);
 
@@ -420,7 +420,7 @@
 
 				//write query
 
-				$sql = "UPDATE user_profile set userid = '$userid', profile_desc = '$text' where userid='$userid' ";
+				$sql = "UPDATE user set userid = '$userid', user_desc = '$text' where userid='$userid' ";
 
 				//execute myquery
 
@@ -429,7 +429,7 @@
 				//how many rows affected//updated
 
 			if ($this->udbobj->udbcon->affected_rows == 1) {
-				//redirect to showallusers.php page
+				
 				$msg = "<p class='alert alert-successful'>Profile Description updated successfully</p>";
 
 			}elseif ($this->udbobj->udbcon->affected_rows == 0) {
@@ -442,6 +442,8 @@
 			}
 
 			return $msg;
+
+			//check editdesc
 
 			}
 
@@ -545,7 +547,7 @@
 
 		//ceate method to populate gig table
 
-		public function insertGig($gigTitle, $gigUserid, $premium_title, $standard_title, $basic_title, $premium_desc, $standard_desc, $basic_desc, $premium_cd, $standard_cd, $basic_cd, $premium_rd, $standard_rd, $basic_rd, $premium_sc, $standard_sc, $basic_sc, $premium_pages, $standard_pages, $basic_pages, $premium_revisions, $standard_revisions, $basic_revisions, $premium_delivery, $standard_delivery, $basic_delivery, $premium_price, $standard_price, $basic_price, $requirement, $gig_serviceid, $gig_marketid, $languageid){
+		public function insertGig($gigTitle, $gigUserid, $premium_title, $standard_title, $basic_title, $premium_desc, $standard_desc, $basic_desc, $premium_cd, $standard_cd, $basic_cd, $premium_rd, $standard_rd, $basic_rd, $premium_sc, $standard_sc, $basic_sc, $premium_pages, $standard_pages, $basic_pages, $premium_revisions, $standard_revisions, $basic_revisions, $premium_delivery, $standard_delivery, $basic_delivery, $premium_price, $standard_price, $basic_price, $requirement, $gig_serviceid, $gig_marketid, $gigdesc, $languageid){
 
 			//write query
 
@@ -553,7 +555,7 @@
 				
 			
 
-			$sql = "INSERT into gig(gig_title, gig_userid, premium_title, standard_title, basic_title, premium_desc, standard_desc, basic_desc, premium_cd, standard_cd, basic_cd, premium_rd, standard_rd, basic_rd, premium_sc, standard_sc, basic_sc, premium_pages, standard_pages, basic_pages, premium_revisions, standard_revisions, basic_revisions, premium_delivery, standard_delivery, basic_delivery, premium_price, standard_price, basic_price, requirement, gig_serviceid, gig_marketid, languageid) values('$gigTitle', '$gigUserid', '$premium_title', '$standard_title', '$basic_title', '$premium_desc', '$standard_desc', '$basic_desc', '$premium_cd', '$standard_cd', '$basic_cd', '$premium_rd', '$standard_rd', '$basic_rd', '$premium_sc', '$standard_sc', '$basic_sc', '$premium_pages', '$standard_pages', '$basic_pages', '$premium_revisions', '$standard_revisions', '$basic_revisions', '$premium_delivery', '$standard_delivery', '$basic_delivery', '$premium_price', '$standard_price', '$basic_price', '$requirement', '$gig_serviceid', '$gig_marketid', '$languageid')";
+			$sql = "INSERT into gig(gig_title, gig_userid, premium_title, standard_title, basic_title, premium_desc, standard_desc, basic_desc, premium_cd, standard_cd, basic_cd, premium_rd, standard_rd, basic_rd, premium_sc, standard_sc, basic_sc, premium_pages, standard_pages, basic_pages, premium_revisions, standard_revisions, basic_revisions, premium_delivery, standard_delivery, basic_delivery, premium_price, standard_price, basic_price, requirement, gig_serviceid, gig_marketid, gigdesc, languageid) values('$gigTitle', '$gigUserid', '$premium_title', '$standard_title', '$basic_title', '$premium_desc', '$standard_desc', '$basic_desc', '$premium_cd', '$standard_cd', '$basic_cd', '$premium_rd', '$standard_rd', '$basic_rd', '$premium_sc', '$standard_sc', '$basic_sc', '$premium_pages', '$standard_pages', '$basic_pages', '$premium_revisions', '$standard_revisions', '$basic_revisions', '$premium_delivery', '$standard_delivery', '$basic_delivery', '$premium_price', '$standard_price', '$basic_price', '$requirement', '$gig_serviceid', '$gig_marketid', '$gigdesc', '$languageid')";
 
 			//  var_dump($sql);
 			// exit;
@@ -759,6 +761,35 @@
 			return $row;
 
 	}
+
+
+
+	//method to get a particular gig created by a seller user
+
+		public function getSingleGig($gigid){
+
+
+
+			//write query
+
+		$sql = "SELECT  gig.*, user.*, university.* from gig
+			 		left join user on gig.gig_userid = user.userid LEFT JOIN university on user.user_universityid = university.university_id where gig.gig_id = '$gigid' ";
+
+
+		//execute the query
+
+		if ($result = $this->udbobj->udbcon->query($sql)) {
+			$row = $result->fetch_assoc();
+		}else{
+
+			echo "Error: .".$this->udbobj->udbcon->error;
+
+		}
+
+		return $row;
+
+		//see output at gig_publicview.php
+		}
 		
 	}
 

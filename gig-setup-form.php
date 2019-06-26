@@ -57,6 +57,7 @@
 		$premium_price = User::dataSanitize($_REQUEST['premium_price']);
 		$standard_price = User::dataSanitize($_REQUEST['standard_price']);
 		$basic_price = User::dataSanitize($_REQUEST['basic_price']);
+		$gigdesc = User::dataSanitize($_REQUEST['gigdesc']);
 		$requirement = User::dataSanitize($_REQUEST['requirement']);
 
 
@@ -159,7 +160,7 @@
 			
 
 			$gigUploadobj= new Gigs;
-			$mygig = $gigUploadobj->insertGig($gigtitle, $_SESSION['userid'], $p_plantitle, $s_plantitle, $b_plantitle, $p_plandesc, $s_plandesc, $b_plandesc, $p_CD, $s_CD, $b_CD, $p_RD, $s_RD, $b_RD, $p_SC, $s_SC, $b_SC, $p_pages, $s_pages, $b_pages, $p_numrev, $s_numrev, $b_numrev, $p_delivery, $s_delivery, $b_delivery, $premium_price, $standard_price, $basic_price, $requirement, $subcategory_id, $category_id, $languageid);
+			$mygig = $gigUploadobj->insertGig($gigtitle, $_SESSION['userid'], $p_plantitle, $s_plantitle, $b_plantitle, $p_plandesc, $s_plandesc, $b_plandesc, $p_CD, $s_CD, $b_CD, $p_RD, $s_RD, $b_RD, $p_SC, $s_SC, $b_SC, $p_pages, $s_pages, $b_pages, $p_numrev, $s_numrev, $b_numrev, $p_delivery, $s_delivery, $b_delivery, $premium_price, $standard_price, $basic_price, $requirement, $subcategory_id, $category_id, $gigdesc, $languageid);
 
 		}
 
@@ -460,6 +461,10 @@
 						<h3>GIG DESCRIPTION</h3>
 					</div>
 				</div>
+
+				<div class="col-md marginTop"><textarea id="about_" class="form-control" placeholder="Write something captivating about your gig" name="gigdesc"></textarea>
+					<span id="err_gigdesc"><?php if (isset($reg_err['gigdesc'])){echo $reg_err['gigdesc'];}?></span>
+					</div>
 
 				<div class="row">
 					<div class="col-md-3 marginTop"><h3>Requirements</h3></div>

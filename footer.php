@@ -80,9 +80,10 @@
 		// alert(user_Desc);
 
 		$('#userDesc').load("editdesc.php", {output:user_Desc});
+
 		
 
-				document.getElementById('userDesc').innerHTML = data;
+				//document.getElementById('userDesc').innerHTML = data;
 		
 
 	});

@@ -13,7 +13,7 @@
 							?>
 
 								<img class="img-fluid rounded-circle" style="width: 100px; height: 100px;" src="images/male-user.png" ><br>
-								<a href="uploadProfilePic.php">Upload Profile Picture</a>
+								
 								
 							<?php
 
@@ -21,7 +21,7 @@
 							
 							?>
 								<img class="img-fluid rounded-circle" style="width: 100px; height: 100px;" src="images/woman-avatar.png" ><br>
-								<a href="uploadProfilePic.php">Upload Profile Picture</a>	
+									
 
 							<?php
 
@@ -39,18 +39,14 @@
 						<h4 style=""><?php if (isset($_SESSION['username'])) {
 							echo $_SESSION['username'];
 						} ?></h4>
+						<!-- <span>Online status here</span> -->
 						<p>Thank you for stopping by, I can't wait to start work on your project</p>
+						<a href="#" class="btn btn-md purplebg">Message me</a>
 						<hr>
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-md">
-						<button class="btn purplebg form-control">View Public Mode</button>
-						<hr>
-					</div>
-				</div>
-
+				
 				<div class="row">
 					<div class="col-md">
 						<p><i class="fas fa-map-marker-alt purpletext"></i><span> From</span><span style="float: right">FUT</span></p>
@@ -65,12 +61,12 @@
 				<div class="row">
 
 					<div class="col-md">
-						<h5 style="float: left;">Description</h5> <a id="editDesc" class="purpletext" href="#" style="float: right;">Edit Description <i class="fas fa-pen purpletext"></i></a>
+						<h5 style="float: left;">Description</h5>
 						<div style="clear: both;"></div>
 						<!-- <?php if (isset($desc)) {
 							echo $desc;
 						} ?> -->
-						<p id="userDesc">Alright, let's cut to the chase. What do you what to know?
+						<p>Alright, let's cut to the chase. What do you what to know?
 						 I'm a creative writer with several years of experience writing stories and helping businesses make profit with online content.
 						 
 						 I can write sizzling romantic stories with words that will melt your readers heart like the Sun and enchant their eyes to each paragraph like a spell.

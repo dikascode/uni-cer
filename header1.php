@@ -5,13 +5,13 @@
 	session_start();
 
 	
-	if (isset($_REQUEST['search'])) {
-		$_REQUEST['search'] = $_GET['string'];
-	} 
+	// if (isset($_REQUEST['search'])) {
+	// 	$_REQUEST['search'] = $_GET['string'];
+	// } 
 
 
 
-	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_REQUEST['searchbtn'] == 'Search' ) {
 	   
 	   $string = user::dataSanitize($_REQUEST['search']);
 
@@ -83,7 +83,7 @@
 
 				  <form class="form-inline" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);  ?>">
 				    <input autocomplete="off" id="search" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-				    <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="background-color: #4B0082; color:white">Search</button>
+				    <input value="Search" name="searchbtn" class="btn btn-outline-light my-2 my-sm-0" type="submit" style="background-color: #4B0082; color:white">
 				  </form>
 
 				</nav>
