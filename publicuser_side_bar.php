@@ -9,7 +9,7 @@
 
 							<?php
 								
-								if(empty($_SESSION['photo'])){if ($_SESSION['gender'] == 'Male') {
+								if(empty($sellergender)){if ($sellergender == 'Male') {
 							?>
 
 								<img class="img-fluid rounded-circle" style="width: 100px; height: 100px;" src="images/male-user.png" ><br>
@@ -29,18 +29,20 @@
 							}else{
 							?>
 
-								<img class="img-fluid rounded-circle" style="width: 100px; height: 100px;" src="<?php echo $_SESSION['photo']?>" >
+								<img class="img-fluid rounded-circle" style="width: 100px; height: 100px;" src="<?php echo $sellerimage?>" >
 
 							<?php
 							}
 							?>
 
 						</div>
-						<h4 style=""><?php if (isset($_SESSION['username'])) {
-							echo $_SESSION['username'];
-						} ?></h4>
+						<h4 style=""><?php if (isset($username)) {
+									echo $username;
+								} ?></h4>
 						<!-- <span>Online status here</span> -->
-						<p>Thank you for stopping by, I can't wait to start work on your project</p>
+						<p><?php if (isset($signature)) {
+									echo $signature;
+								} ?></p>
 						<a href="#" class="btn btn-md purplebg">Message me</a>
 						<hr>
 					</div>
@@ -49,8 +51,10 @@
 				
 				<div class="row">
 					<div class="col-md">
-						<p><i class="fas fa-map-marker-alt purpletext"></i><span> From</span><span style="float: right">FUT</span></p>
-						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since <?php echo $_SESSION['date']?></span></p>
+						<p><i class="fas fa-map-marker-alt purpletext"></i><span> From</span><span style="float: right"><?php if (isset($uniabbr)) {
+									echo $uniabbr;
+								} ?></span></p>
+						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since <?php echo $datereg; ?></span></p>
 						<p><i class="fas fa-paper-plane purpletext"></i><span> Last Delivery</span><span style="float: right">1 day</span></p>
 						<hr>
 
@@ -66,19 +70,9 @@
 						<!-- <?php if (isset($desc)) {
 							echo $desc;
 						} ?> -->
-						<p>Alright, let's cut to the chase. What do you what to know?
-						 I'm a creative writer with several years of experience writing stories and helping businesses make profit with online content.
-						 
-						 I can write sizzling romantic stories with words that will melt your readers heart like the Sun and enchant their eyes to each paragraph like a spell.
-						 
-						 I can also write web content that will convert visitors to your website into sales.
-						 
-						 And my Ideas are 'MIND-FUCK'
-						 
-						 What's more?
-						 I'm also a talented graphics designer and I write poetry for pleasure.
-						 
-						 Hire me already!
+						<p><?php if (isset($sellerdesc)) {
+							echo $sellerdesc;
+						} ?>
 						</p>
 
 						

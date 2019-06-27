@@ -5,14 +5,36 @@
 	
 						$gigobj = new Gigs;
 
-						$gigs = $gigobj->getGigs($_SESSION['userid']); 
-		
-	
+						$gigs = $gigobj->getGigs($_GET['id']);
 
+						$id = count($gigs) - 1;
+
+						// echo count($gigs);
+
+						// echo "<pre>";
+						// print_r($gigs[0]['user_username']);
+						// echo "<pre>";
+						// exit;
+
+
+						//save some info about seller to varaibles because i can't use session in a public view area
+
+						$sellergender = $gigs[$id]['user_gender'];
+						$sellerimage= $gigs[$id]['user_picture'];
+						$datereg = date('j M Y', strtotime($gigs[$id]['user_datereg']));
+						$sellerdesc= $gigs[$id]['user_desc'];
+						$uniabbr= $gigs[$id]['abbreviation'];
+						$username= $gigs[0]['user_username'];
+						$signature = $gigs[$id]['user_signature'];
+
+
+
+									
+
+
+						
 		
 
-		// var_dump($gigs);
-		// exit;
 
 ?>
 
@@ -33,7 +55,9 @@
 			<div class="col-md-9" id="rightPane">
 				<div class="row" style="margin-top: 20px;">
 					<div class="col-md purpletext" style="margin-bottom: 20px;">
-						<h4><?php echo $_SESSION['username'] ?>'s Gigs</h4>
+						<h4><?php if (isset($username)) {
+									echo $username;
+								} ?>'s Gigs</h4>
 					</div>
 				</div>
 
@@ -72,14 +96,15 @@
 								 echo $gigimage;
 							} ?>">
 						</div>
-						<p style="padding:5px; height: 50px;">	<a href="#"><?php if (isset($gigtitle)) {
+						<p style="padding:5px; height: 50px;">	<a href="gig_publicview.php?gigid=<?php if(isset($value['gig_id'])){ echo $value['gig_id']; }?>&sellerid=<?php if(isset($value['gig_userid'])){echo $value['gig_userid']; } ?>"><?php if (isset($gigtitle)) {
 								 echo $gigtitle;
 							} ?></a></p>
 							
 							<!-- <hr> -->
 
-						<p style="margin-left:50%">	<a  href="#">For just <b class="badge badge-info">&#8358;<?php if (isset($gig_basicprice)) {
+						<p style="margin-left:2%">	<a  href="#">For just <b class="badge badge-info">&#8358;<?php if (isset($gig_basicprice)) {
 								 echo $gig_basicprice;
+						
 							} ?></b></a></p>
 						</div>
 					</div>

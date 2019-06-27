@@ -174,24 +174,7 @@
 
 		 ?>
 
-		<!-- Submenu listing market options -->
-		<div id="secondmenu" class="row">		
-
-			<div class="col-md">
-				<ul class="second-menu-list">
-						<li><a href="#">Writing</a></li>
-						<li><a href="#">Design</a></li>
-						<li><a href="#">Programing & Tech</a></li>
-						<li><a href="#">Digital Marketing</a></li>
-						<li><a href="#">Video & Animation</a></li>
-						<li><a href="#">Music & Audio</a></li>
-						<li><a href="#">Business</a></li>
-						<li><a href="#">Final Year Research</a></li>
-						
-				</ul>
-			</div>
-		</div>
-
+		
 		<!-- Gig set up form section -->
 
 		<div class="row" id="gigform">
@@ -209,7 +192,9 @@
 				<div class="row">
 					<div class="col-md-2 marginTop"><h3>Gig Title</h3>
 					</div>
-					<div class="col-md marginTop"><textarea id="title_" class="form-control" placeholder="Title Here" name="gigtitle"></textarea>
+					<div class="col-md marginTop"><textarea id="title_" class="form-control" placeholder="Title Here" name="gigtitle"><?php if (isset($_POST['gigtitle'])) {
+							echo $_POST['gigtitle'];
+						} ?></textarea>
 					<span id="err_title"><?php if (isset($reg_err['gigtitle'])){echo $reg_err['gigtitle'];}?></span>
 					</div>
 				</div>
@@ -399,11 +384,28 @@
 										<td class="my-textAlign">
 											<select id="premium_time" class="form-control" name="p_delivery">
 												<option value="">Select Days</option>
+												<option value="">Select Days</option>
 												<option value="1">1 Day</option>
 												<option value="2">2 Days</option>
 												<option value="3">3 Days</option>
 												<option value="4">4 Days</option>
 												<option value="5">5 Days</option>
+												<option value="6">6 Days</option>
+												<option value="7">7 Days</option>
+												<option value="8">8 Days</option>
+												<option value="9">9 Days</option>
+												<option value="10">10 Days</option>
+												<option value="11">11 Days</option>
+												<option value="12">12 Days</option>
+												<option value="13">13 Days</option>
+												<option value="14">14 Days</option>
+												<option value="15">15 Days</option>
+												<option value="16">16 Days</option>
+												<option value="17">17 Days</option>
+												<option value="18">18 Days</option>
+												<option value="19">19 Days</option>
+												<option value="20">20 Days</option>
+												<option value="30">30 Days</option>
 												<option value="60">2 Months</option>
 											</select>
 											<span id="err_time1"><?php if (isset($reg_err['p_delivery'])){echo $reg_err['p_delivery'];}?></span>
@@ -411,11 +413,28 @@
 										<td class="my-textAlign">
 											<select id="standard_time" class="form-control" name="s_delivery">
 												<option value="">Select Days</option>
+												<option value="">Select Days</option>
 												<option value="1">1 Day</option>
 												<option value="2">2 Days</option>
 												<option value="3">3 Days</option>
 												<option value="4">4 Days</option>
 												<option value="5">5 Days</option>
+												<option value="6">6 Days</option>
+												<option value="7">7 Days</option>
+												<option value="8">8 Days</option>
+												<option value="9">9 Days</option>
+												<option value="10">10 Days</option>
+												<option value="11">11 Days</option>
+												<option value="12">12 Days</option>
+												<option value="13">13 Days</option>
+												<option value="14">14 Days</option>
+												<option value="15">15 Days</option>
+												<option value="16">16 Days</option>
+												<option value="17">17 Days</option>
+												<option value="18">18 Days</option>
+												<option value="19">19 Days</option>
+												<option value="20">20 Days</option>
+												<option value="30">30 Days</option>
 												<option value="60">2 Months</option>
 											</select>
 											<span id="err_time2"><?php if (isset($reg_err['s_delivery'])){echo $reg_err['s_delivery'];}?></span>
@@ -428,6 +447,22 @@
 												<option value="3">3 Days</option>
 												<option value="4">4 Days</option>
 												<option value="5">5 Days</option>
+												<option value="6">6 Days</option>
+												<option value="7">7 Days</option>
+												<option value="8">8 Days</option>
+												<option value="9">9 Days</option>
+												<option value="10">10 Days</option>
+												<option value="11">11 Days</option>
+												<option value="12">12 Days</option>
+												<option value="13">13 Days</option>
+												<option value="14">14 Days</option>
+												<option value="15">15 Days</option>
+												<option value="16">16 Days</option>
+												<option value="17">17 Days</option>
+												<option value="18">18 Days</option>
+												<option value="19">19 Days</option>
+												<option value="20">20 Days</option>
+												<option value="30">30 Days</option>
 												<option value="60">2 Months</option>
 											</select>
 											<span id="err_time3"><?php if (isset($reg_err['b_delivery'])){echo $reg_err['b_delivery'];}?></span>
@@ -483,13 +518,16 @@
 				<div class="row">
 					<div class="col-md">
 						<h4>Build your Gig gallery</h4>
-						<p>Add captivating pictures that will make your gig stand out</p>
 					</div>
 				</div>
 
 				<div class="row ">
-					<div class="col-md-4">
-						<img class="img-fluid" src="" style="border:1px lightgrey dotted; background-color: black; width: 200px; height: 120px;">					
+					<div class="col-md-2">
+						<label>Add Gig Image</label>				
+					</div>
+
+					<div class="col-md">
+						<input type="file" class="form-control" name="gigimage" placeholder="">				
 					</div>
 
 					

@@ -86,13 +86,13 @@
 							<?php
 								}
 
-							}else{
+							}elseif(($_SESSION['photo'])){
 							?>
 
-								<img class="img-fluid rounded-circle" style="width: 40px; height: 40px; margin-top: 10px" src="<?php echo $_SESSION['photo']?>" >
+								<img class="img-fluid rounded-circle" style="width: 40px; height: 40px; margin-top: 10px" src="<?php if(isset($_SESSION['photo'])){ echo $_SESSION['photo'];}?>" >
 
 							<?php
-							}
+							}else{echo "";}
 							?>
 					 <!--  <button type="button" class="btn btn-danger " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    Action

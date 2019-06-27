@@ -595,8 +595,8 @@
 
 			//write query
 
-			$sql = "SELECT  gig.*, user.* from gig
-			 		left join user on gig.gig_userid = user.userid where gig.gig_userid = '$userid' ";
+			$sql = "SELECT  gig.*, user.*, university.* from gig
+			 		left join user on gig.gig_userid = user.userid LEFT JOIN university on user.user_universityid = university.university_id where gig.gig_userid = '$userid' ";
 
 			 		$row = array();
 
@@ -610,7 +610,7 @@
 
 			//echo "Error: .".$this->udbobj->udbcon->error;
 
-			echo "<div class='alert alert-info'>Create a gig today.</div>";
+			//echo "<div class='alert alert-info'>Create a gig today.</div>";
 		}
 
 		return $row;
@@ -766,14 +766,14 @@
 
 	//method to get a particular gig created by a seller user
 
-		public function getSingleGig($gigid){
+		public function getSingleGig($gigid, $sellerid){
 
 
 
 			//write query
 
 		$sql = "SELECT  gig.*, user.*, university.* from gig
-			 		left join user on gig.gig_userid = user.userid LEFT JOIN university on user.user_universityid = university.university_id where gig.gig_id = '$gigid' ";
+			 		left join user on gig.gig_userid = user.userid LEFT JOIN university on user.user_universityid = university.university_id where gig.gig_id = '$gigid' AND gig.gig_userid = '$sellerid' ";
 
 
 		//execute the query

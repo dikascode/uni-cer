@@ -39,7 +39,9 @@
 						<h4 style=""><?php if (isset($_SESSION['username'])) {
 							echo $_SESSION['username'];
 						} ?></h4>
-						<p>Thank you for stopping by, I can't wait to start work on your project</p>
+						<p><?php if (isset($_SESSION['signature'])) {
+							echo $_SESSION['signature'];
+						} ?></p>
 						<hr>
 					</div>
 				</div>
@@ -70,19 +72,9 @@
 						<!-- <?php if (isset($desc)) {
 							echo $desc;
 						} ?> -->
-						<p id="userDesc">Alright, let's cut to the chase. What do you what to know?
-						 I'm a creative writer with several years of experience writing stories and helping businesses make profit with online content.
-						 
-						 I can write sizzling romantic stories with words that will melt your readers heart like the Sun and enchant their eyes to each paragraph like a spell.
-						 
-						 I can also write web content that will convert visitors to your website into sales.
-						 
-						 And my Ideas are 'MIND-FUCK'
-						 
-						 What's more?
-						 I'm also a talented graphics designer and I write poetry for pleasure.
-						 
-						 Hire me already!
+						<p id="userDesc"><?php if (isset($_SESSION['user_desc'])) {
+							echo $_SESSION['user_desc'];
+						} ?>
 						</p>
 
 						

@@ -5,7 +5,12 @@
 	
 						$gigobj = new Gigs;
 
-						$gigs = $gigobj->getGigs($_SESSION['userid']); 
+						$gigs = $gigobj->getGigs($_SESSION['userid']);
+
+						// echo "<pre>"; 
+						// print_r($gigs);
+						// echo "</pre>";
+						// exit;
 		
 	
 
@@ -63,6 +68,10 @@
 						$gigimage = $value['gig_headerpic'];
 						$gigtitle = $value['gig_title'];
 						$gig_basicprice = $value['basic_price'];
+						$_SESSION['signature'] = $value['user_signature'];
+						$_SESSION['user_desc'] = $value['user_desc'];
+
+						// var_dump($_SESSION['signature'] );
 					 ?>
 
 					 	<div class="col-md-4 d-flex justifyForMe">
@@ -72,7 +81,7 @@
 								 echo $gigimage;
 							} ?>">
 						</div>
-						<p style="padding:5px; height: 50px;">	<a href="#"><?php if (isset($gigtitle)) {
+						<p style="padding:5px; height: 50px;">	<a href="gig_publicview.php?gigid=<?php if(isset($value['gig_id'])){ echo $value['gig_id']; }?>&sellerid=<?php if(isset($value['gig_userid'])){echo $value['gig_userid']; } ?>"><?php if (isset($gigtitle)) {
 								 echo $gigtitle;
 							} ?></a></p>
 							

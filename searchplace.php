@@ -31,7 +31,7 @@
 
 
 <div style="background-color: white; padding: 10px; line-height: 5px; min-width:200px;">
-	<a href="gigdisplay.php?gigid=<?php if(isset($_GET['gig_id'])){ echo $_GET['gig_id']; }?>&sellerid=<?php if(isset($_GET['gig_userid'])){echo $_GET['gig_userid']; } ?>">
+	<a href="gig_publicview.php?gigid=<?php if(isset($value['gig_id'])){ echo $value['gig_id']; }?>&sellerid=<?php if(isset($value['gig_userid'])){echo $value['gig_userid']; } ?>">
 	<p style="font-weight: bold"><?php echo $gigtitle ?></p>
 	<p style="font-style: italic;"><?php echo $gigseller ?></p>
 	<p>starting from <span class="badge badge-info" style="margin-left: 1%;">&#8358;<?php echo $gigprice ?></span></p>

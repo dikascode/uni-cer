@@ -9,8 +9,11 @@
 
 			//instatiate class
 
+			$gigid = $_GET['gigid'];
+			$sellerid = $_GET['sellerid'];
+
 			$gig = new Gigs;
-			$result = $gig->getSingleGig($gigid = '1');
+			$result = $gig->getSingleGig($gigid, $sellerid);
 
 			// echo "<pre>";
 			// print_r($result);
@@ -57,7 +60,9 @@
 
 					<div class="row">
 						<div class="col-md">
-						<img class="img-fluid" style="height: 40px; width: 40px;" src="<?php if(isset($result['user_picture'])){echo $result['user_picture']; } ?>"> <small style="font-weight: bold; margin-right: 5px"><?php if (isset($result['user_username'])) {
+						<img class="img-fluid" alt="<?php if (isset($result['user_username'])) {
+													echo strtolower( $result['user_username']);
+												}  ?>" style="height: 40px; width: 40px;" src="<?php if(isset($result['user_picture'])){echo $result['user_picture']; } ?>"> <small style="font-weight: bold; margin-right: 5px"><?php if (isset($result['user_username'])) {
 													echo strtolower( $result['user_username']);
 												}  ?></small><small>Level 1 seller</small> | <small><a href="#">(20 Orders)</a></small>  <small> | 2 Orders in Queue</small></div>
 						<!-- <div class="col-md-2">
@@ -346,7 +351,7 @@
 								      			<ul style="margin-left: 1%; padding: 1%;">
 								      				<?php if (isset($result['premium_cd'])) {
 													if ($result['premium_cd'] == '1') {
-														echo "<li><i class=\"fas fa-check purpletext\"></i>Custom Design</li>";
+														echo "<li><i class=\"fas fa-check purpletext\"></i> Custom Design</li>";
 													}else{
 														echo "";
 													}
@@ -354,7 +359,7 @@
 
 													<?php if (isset($result['premium_rd'])) {
 													if ($result['premium_rd'] == '1') {
-														echo "<li><i class=\"fas fa-check purpletext\"></i>Responsive Design</li>";
+														echo "<li><i class=\"fas fa-check purpletext\"></i> Responsive Design</li>";
 													}else{
 														echo "";
 													}
@@ -362,7 +367,7 @@
 
 													<?php if (isset($result['premium_sc'])) {
 													if ($result['premium_sc'] == '1') {
-														echo "<li><i class=\"fas fa-check purpletext\"></i>Include Source Code</li>";
+														echo "<li><i class=\"fas fa-check purpletext\"></i> Include Source Code</li>";
 													}else{
 														echo "";
 													}
@@ -436,7 +441,7 @@
 								      			<ul style="margin-left: 1%; padding: 1%;">
 								      				<?php if (isset($result['standard_cd'])) {
 													if ($result['standard_cd'] == '1') {
-														echo "<li><i class=\"fas fa-check purpletext\"></i>Custom Design</li>";
+														echo "<li><i class=\"fas fa-check purpletext\"></i> Custom Design</li>";
 													}else{
 														echo "";
 													}
@@ -444,7 +449,7 @@
 
 													<?php if (isset($result['standard_rd'])) {
 													if ($result['standard_rd'] == '1') {
-														echo "<li><i class=\"fas fa-check purpletext\"></i>Responsive Design</li>";
+														echo "<li><i class=\"fas fa-check purpletext\"></i> Responsive Design</li>";
 													}else{
 														echo "";
 													}
@@ -452,7 +457,7 @@
 
 													<?php if (isset($result['standard_sc'])) {
 													if ($result['standard_sc'] == '1') {
-														echo "<li><i class=\"fas fa-check purpletext\"></i>Include Source Code</li>";
+														echo "<li><i class=\"fas fa-check purpletext\"></i> Include Source Code</li>";
 													}else{
 														echo "";
 													}
@@ -521,7 +526,7 @@
 								      			<ul style="margin-left: 1%; padding: 1%;">
 								      				<?php if (isset($result['basic_cd'])) {
 													if ($result['basic_cd'] == '1') {
-														echo "<li><i class=\"fas fa-check purpletext\"></i>Custom Design</li>";
+														echo "<li><i class=\"fas fa-check purpletext\"></i> Custom Design</li>";
 													}else{
 														echo "";
 													}
@@ -529,7 +534,7 @@
 
 													<?php if (isset($result['basic_rd'])) {
 													if ($result['basic_rd'] == '1') {
-														echo "<li><i class=\"fas fa-check purpletext\"></i>Responsive Design</li>";
+														echo "<li><i class=\"fas fa-check purpletext\"></i> Responsive Design</li>";
 													}else{
 														echo "";
 													}
@@ -537,7 +542,7 @@
 
 													<?php if (isset($result['basic_sc'])) {
 													if ($result['basic_sc'] == '1') {
-														echo "<li><i class=\"fas fa-check purpletext\"></i>Include Source Code</li>";
+														echo "<li><i class=\"fas fa-check purpletext\"></i> Include Source Code</li>";
 													}else{
 														echo "";
 													}
@@ -586,10 +591,14 @@
 						
 						<div class="row">
 							<div class="col-md my-textAlign">
-								<div><img class="img-fluid rounded-circle" src="<?php if(isset($result['user_picture'])){ echo $result['user_picture'];}?>" style='height: 100px; width: 100px;' ></div>
-								<h4 style=""><?php if (isset($result['user_username'])) {
+								<div><img class="img-fluid rounded-circle" alt="<?php if (isset($result['user_username'])) {
 													echo strtolower( $result['user_username']);
-												} ?></h4>
+												}  ?>" src="<?php if(isset($result['user_picture'])){ echo $result['user_picture'];}?>" style='height: 100px; width: 100px;' ></div>
+
+								<h4 style=""><a href="userpublicmode.php?id=<?php echo $result['gig_userid'];  ?>"><?php if (isset($result['user_username'])) {
+													echo strtolower( $result['user_username']);
+												} ?></a></h4>
+
 								<p><?php if (isset($result['user_signature'])) {
 									
 								 echo $result['user_signature']; }?></p>
