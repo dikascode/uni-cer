@@ -549,13 +549,65 @@
 
 		public function insertGig($gigTitle, $gigUserid, $premium_title, $standard_title, $basic_title, $premium_desc, $standard_desc, $basic_desc, $premium_cd, $standard_cd, $basic_cd, $premium_rd, $standard_rd, $basic_rd, $premium_sc, $standard_sc, $basic_sc, $premium_pages, $standard_pages, $basic_pages, $premium_revisions, $standard_revisions, $basic_revisions, $premium_delivery, $standard_delivery, $basic_delivery, $premium_price, $standard_price, $basic_price, $requirement, $gig_serviceid, $gig_marketid, $gigdesc, $languageid){
 
-			//write query
 
-			// if (!empty($gigTitle)) {
-				
+
+			if ($_FILES['gigimage']['error'] == 0) {
+
+
+				$imagesize = $_FILES['gigimage']['size'];
+				$imagename = $_FILES['gigimage']['name'];
+				$imagetype = $_FILES['gigimage']['type'];
+				$imagetempname = $_FILES['gigimage']['tmp_name'];
+
+				//specify the upload folder
+
+				$folder = "gig_image/";
+
+				//get the image extension
+
+				$image_ext = explode(".", $imagename); //convert the string to array 
+				$image_ext = end($image_ext); //to get the last of the array
+				$image_ext = strtolower($image_ext); //convert string to lowercase
+
+				//check for image size
+
+				if ($imagesize > 2097152) {
+					$error[]= "Image size must be exactly or less than 2 mb!";
+				}
+
+				//specify the extentions allowed
+
+				$extentions = array('jpg', 'jpeg', 'png', 'bmp');
+
+				//check if the extention uploaded is valid
+
+				if (in_array($image_ext, $extentions) === false) {
+					$error[] = "Extention not allowed!";
+				}
+
+
+
+				//change the image name
+
+				$imagename = $imagename."_".$_SESSION['username'];
+				$destination = $folder.$imagename.".$image_ext";
+
+				//to chek if there no other error and then upload
+
+				if (!empty($error)) {
+					var_dump($error);
+				}else{
+
+					//move product image to folder
+
+					move_uploaded_file($imagetempname, $destination);
+
+
+
+			//write query
 			
 
-			$sql = "INSERT into gig(gig_title, gig_userid, premium_title, standard_title, basic_title, premium_desc, standard_desc, basic_desc, premium_cd, standard_cd, basic_cd, premium_rd, standard_rd, basic_rd, premium_sc, standard_sc, basic_sc, premium_pages, standard_pages, basic_pages, premium_revisions, standard_revisions, basic_revisions, premium_delivery, standard_delivery, basic_delivery, premium_price, standard_price, basic_price, requirement, gig_serviceid, gig_marketid, gigdesc, languageid) values('$gigTitle', '$gigUserid', '$premium_title', '$standard_title', '$basic_title', '$premium_desc', '$standard_desc', '$basic_desc', '$premium_cd', '$standard_cd', '$basic_cd', '$premium_rd', '$standard_rd', '$basic_rd', '$premium_sc', '$standard_sc', '$basic_sc', '$premium_pages', '$standard_pages', '$basic_pages', '$premium_revisions', '$standard_revisions', '$basic_revisions', '$premium_delivery', '$standard_delivery', '$basic_delivery', '$premium_price', '$standard_price', '$basic_price', '$requirement', '$gig_serviceid', '$gig_marketid', '$gigdesc', '$languageid')";
+			$sql = "INSERT into gig(gig_title, gig_userid, premium_title, standard_title, basic_title, premium_desc, standard_desc, basic_desc, premium_cd, standard_cd, basic_cd, premium_rd, standard_rd, basic_rd, premium_sc, standard_sc, basic_sc, premium_pages, standard_pages, basic_pages, premium_revisions, standard_revisions, basic_revisions, premium_delivery, standard_delivery, basic_delivery, premium_price, standard_price, basic_price, requirement, gig_serviceid, gig_marketid, gigdesc, languageid, gig_headerpic) values('$gigTitle', '$gigUserid', '$premium_title', '$standard_title', '$basic_title', '$premium_desc', '$standard_desc', '$basic_desc', '$premium_cd', '$standard_cd', '$basic_cd', '$premium_rd', '$standard_rd', '$basic_rd', '$premium_sc', '$standard_sc', '$basic_sc', '$premium_pages', '$standard_pages', '$basic_pages', '$premium_revisions', '$standard_revisions', '$basic_revisions', '$premium_delivery', '$standard_delivery', '$basic_delivery', '$premium_price', '$standard_price', '$basic_price', '$requirement', '$gig_serviceid', '$gig_marketid', '$gigdesc', '$languageid', '$destination')";
 
 			//  var_dump($sql);
 			// exit;
@@ -581,10 +633,15 @@
 
 				echo "Error ".$this->udbobj->udbcon->error;
 			}
-
 		}
 
-		// }
+		}
+	}
+
+		
+
+
+
 
 
 		//method to get all gig created by a seller user

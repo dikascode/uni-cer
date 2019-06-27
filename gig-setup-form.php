@@ -59,6 +59,7 @@
 		$basic_price = User::dataSanitize($_REQUEST['basic_price']);
 		$gigdesc = User::dataSanitize($_REQUEST['gigdesc']);
 		$requirement = User::dataSanitize($_REQUEST['requirement']);
+		$gigimage = User::dataSanitize($_REQUEST['gigimage']);
 
 
 
@@ -153,7 +154,12 @@
 
 		if (empty($basic_price)) {
 			$reg_err['basic_price'] = "<span class='text-danger'>This field is required</span>";
-		} 
+		}
+
+
+		// if (empty($gigimage)) {
+		// 	$reg_err['gigimage'] = "<span class='text-danger'>This field is required</span>";
+		// } 
 
 
 		if (count($reg_err) == 0) {
@@ -180,7 +186,7 @@
 		<div class="row" id="gigform">
 			
 			<div class="col-md" >
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?id=<?php echo $_GET['id']; ?>&name= <?php echo $_GET['name'];?>">
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?id=<?php echo $_GET['id']; ?>&name= <?php echo $_GET['name'];?>" enctype="multipart/form-data">
 				<div class="row purplebg">
 					<div class="col-md ">
 						<h3>OVERVIEW</h3>
@@ -297,21 +303,34 @@
 									<tr>
 										<td></td>
 
-										<td><textarea id="premium" class="form-control marginTop" placeholder="Name your plan" name="p_plantitle"></textarea><span id="err_premium"><?php if (isset($reg_err['p_plantitle'])){echo $reg_err['p_plantitle'];}?></span></td>
+										<td><textarea id="premium" class="form-control marginTop" placeholder="Name your plan" name="p_plantitle"><?php if (isset($_POST['p_plantitle'])) {
+												echo $_POST['p_plantitle'];
+										} ?></textarea><span id="err_premium"><?php if (isset($reg_err['p_plantitle'])){echo $reg_err['p_plantitle'];}?></span></td>
 
-										<td> <textarea id="standard" class="form-control marginTop" placeholder="Name your plan" name="s_plantitle"></textarea><span id="err_standard"><?php if (isset($reg_err['s_plantitle'])){echo $reg_err['s_plantitle'];}?></span></td>
+										<td> <textarea id="standard" class="form-control marginTop" placeholder="Name your plan" name="s_plantitle"><?php if (isset($_POST['s_plantitle'])) {
+												echo $_POST['s_plantitle'];
+										} ?></textarea><span id="err_standard"><?php if (isset($reg_err['s_plantitle'])){echo $reg_err['s_plantitle'];}?></span></td>
 
-										<td><textarea id="basic" class="form-control marginTop" placeholder="Name your plan" name="b_plantitle"></textarea><span id="err_basic"><?php if (isset($reg_err['b_plantitle'])){echo $reg_err['b_plantitle'];}?></span></td>
+										<td><textarea id="basic" class="form-control marginTop" placeholder="Name your plan" name="b_plantitle"><?php if (isset($_POST['b_plantitle'])) {
+												echo $_POST['b_plantitle'];
+										} ?></textarea><span id="err_basic"><?php if (isset($reg_err['b_plantitle'])){echo $reg_err['b_plantitle'];}?></span></td>
 									</tr>
 
 									<tr>
 										<td></td>
 
-										<td><textarea id="premium_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="p_plandesc"></textarea><span id="err_premium1"><?php if (isset($reg_err['p_plandesc'])){echo $reg_err['p_plandesc'];}?></span></td>
+										<td><textarea id="premium_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="p_plandesc"><?php if (isset($_POST['p_plandesc'])) {
+												echo $_POST['p_plandesc'];
+										} ?></textarea><span id="err_premium1"><?php if (isset($reg_err['p_plandesc'])){echo $reg_err['p_plandesc'];}?></span></td>
 
-										<td> <textarea id="standard_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="s_plandesc"></textarea><span id="err_standard1"><?php if (isset($reg_err['s_plandesc'])){echo $reg_err['s_plandesc'];}?></span></td>
+										<td><textarea id="standard_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="s_plandesc"><?php if (isset($_POST['s_plandesc'])) {
+												echo $_POST['s_plandesc'];
+										} ?></textarea><span id="err_standard1"><?php if (isset($reg_err['s_plandesc'])){echo $reg_err['s_plandesc'];}?></span></td>
 
-										<td><textarea id="basic_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="b_plandesc"></textarea><span id="err_basic1"><?php if (isset($reg_err['b_plandesc'])){echo $reg_err['b_plandesc'];}?></span></td>
+										<td><textarea id="basic_offer" class="form-control marginTop" placeholder="Describe what you are offering in your basic plan" name="b_plandesc"><?php if (isset($_POST['b_plandesc'])) {
+												echo $_POST['b_plandesc'];
+										} ?>
+										</textarea><span id="err_basic1"><?php if (isset($reg_err['b_plandesc'])){echo $reg_err['b_plandesc'];}?></span></td>
 									</tr>
 
 									<tr>
@@ -337,9 +356,14 @@
 
 									<tr>
 										<td>Number of Pages</td>
-										<td class="my-textAlign"><input class="form-control-sm" type="number" name="p_pages" value=""></td><?php if (isset($reg_err['p_pages'])){echo $reg_err['p_pages'];}?>
-										<td class="my-textAlign"><input class="form-control-sm" type="number" name="s_pages" value=""></td><?php if (isset($reg_err['s_pages'])){echo $reg_err['s_pages'];}?>
-										<td class="my-textAlign"><input class="form-control-sm" type="number" name="b_pages" value=""></td><?php if (isset($reg_err['b_pages'])){echo $reg_err['b_pages'];}?>
+										<td class="my-textAlign"><input class="form-control-sm" type="number" name="p_pages" value="<?php if(isset($_POST['p_pages'])){
+										echo $_POST['p_pages'];} ?>"><span><?php if (isset($reg_err['p_pages'])){echo $reg_err['p_pages'];}?></span></td>
+
+										<td class="my-textAlign"><input class="form-control-sm" type="number" name="s_pages" value="<?php if(isset($_POST['s_pages'])){
+										echo $_POST['s_pages'];} ?>"><span><?php if (isset($reg_err['s_pages'])){echo $reg_err['s_pages'];}?></span></td>
+
+										<td class="my-textAlign"><input class="form-control-sm" type="number" name="b_pages" value="<?php if(isset($_POST['b_pages'])){
+										echo $_POST['b_pages'];} ?>"><span><?php if (isset($reg_err['b_pages'])){echo $reg_err['b_pages'];}?></span></td>
 									</tr>
 
 									<tr>
@@ -472,15 +496,21 @@
 									<tr>
 										
 										<td>Price</td>
-										<td class="my-textAlign"><input name="premium_price" class="form-control-sm" type="text" placeholder="Max of &#8358;500,000">
+										<td class="my-textAlign"><input name="premium_price" class="form-control-sm" type="text" placeholder="Max of &#8358;500,000" value="<?php if(isset($_POST['premium_price'])){
+										echo $_POST['premium_price'];} ?>">
+										
 										<span id="err_price1"><?php if (isset($reg_err['premium_price'])){echo $reg_err['premium_price'];}?></span></td>
 
-										<td class="my-textAlign"><input name="standard_price" class="form-control-sm" type="text" placeholder="Max of &#8358;500,000">
-											<span id="err_price2"><?php if (isset($reg_err['standard_price'])){echo $reg_err['standard_price'];}?></span>
+										<td class="my-textAlign"><input name="standard_price" class="form-control-sm" type="text" placeholder="Max of &#8358;500,000" value="<?php if(isset($_POST['standard_price'])){
+										echo $_POST['standard_price'];} ?>">
+
+										<span id="err_price2"><?php if (isset($reg_err['standard_price'])){echo $reg_err['standard_price'];}?></span>
 										</td>
 
-										<td class="my-textAlign"><input name="basic_price" class="form-control-sm" placeholder="Max of &#8358;500,000"  type="text">
-											<span id="err_price3"><?php if (isset($reg_err['basic_price'])){echo $reg_err['basic_price'];}?></span>
+										<td class="my-textAlign"><input name="basic_price" class="form-control-sm" placeholder="Max of &#8358;500,000" type="text" value="<?php if(isset($_POST['basic_price'])){
+										echo $_POST['basic_price'];} ?>">
+
+										<span id="err_price3"><?php if (isset($reg_err['basic_price'])){echo $reg_err['basic_price'];}?></span>
 										</td>
 									
 									</tr>
@@ -497,7 +527,10 @@
 					</div>
 				</div>
 
-				<div class="col-md marginTop"><textarea id="about_" class="form-control" placeholder="Write something captivating about your gig" name="gigdesc"></textarea>
+				<div class="col-md marginTop"><textarea id="about_" class="form-control" placeholder="Write something captivating about your gig" name="gigdesc"><?php if (isset($_POST['gigdesc'])) {
+							echo $_POST['gigdesc'];
+						} ?></textarea>
+
 					<span id="err_gigdesc"><?php if (isset($reg_err['gigdesc'])){echo $reg_err['gigdesc'];}?></span>
 					</div>
 
@@ -505,7 +538,11 @@
 					<div class="col-md-3 marginTop"><h3>Requirements</h3></div>
 					<div class="col-md marginTop">
 						<span class="myBold">REQUIREMENT <span class="badge purplebg">#1</span></span>
-						<textarea class="form-control" placeholder="Tell your client what you need to get started." name="requirement"></textarea>
+
+						<textarea class="form-control" placeholder="Tell your client what you need to get started." name="requirement"><?php if (isset($_POST['requirement'])) {
+							echo $_POST['requirement'];
+						} ?></textarea>
+
 						<a href="#" class="purpletext"><i class="fa fa-plus"></i> Add another requirement</a></div>
 				</div>
 
@@ -527,7 +564,9 @@
 					</div>
 
 					<div class="col-md">
-						<input type="file" class="form-control" name="gigimage" placeholder="">				
+						<input type="file" class="form-control" name="gigimage" placeholder="" value="<?php if(isset($_POST['gigimage'])){
+							echo $_POST['gigimage'];} ?>">
+						<span id="err_gigimage"><?php if (isset($reg_err['gigimage'])){echo $reg_err['gigimage'];}?></span>			
 					</div>
 
 					

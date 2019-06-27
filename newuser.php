@@ -76,10 +76,12 @@
 
 					 	<div class="col-md-4 d-flex justifyForMe">
 						<div class="gigBox">
-							<div style="width:230px; height:180px; background-color: black;">
-							<img class="img-fluid" src="<?php if (isset($gigimage)) {
+							<div class="img-fluid" style="width:230px; height:180px; background-color: black; background-image: url('<?php if (isset($gigimage)) {
 								 echo $gigimage;
-							} ?>">
+							} ?>'); background-repeat: no-repeat; background-size: cover;">
+							<!-- <img  alt="<?php echo $gigtitle ?>" class="img-fluid" style="width: 230px; height: 180px" src="<?php if (isset($gigimage)) {
+								 echo $gigimage;
+							} ?>"> -->
 						</div>
 						<p style="padding:5px; height: 50px;">	<a href="gig_publicview.php?gigid=<?php if(isset($value['gig_id'])){ echo $value['gig_id']; }?>&sellerid=<?php if(isset($value['gig_userid'])){echo $value['gig_userid']; } ?>"><?php if (isset($gigtitle)) {
 								 echo $gigtitle;
