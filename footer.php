@@ -65,30 +65,6 @@
 		
 		$(document).ready(function(){
 
-				$('#editDesc').click(function(){
-
-		// alert('hi');
-
-		//hide the previous div housing the previous description
-
-
-
-		//get the string from the p tag inner html
-		var user_Desc = $('#userDesc').html();
-		// $('#userDesc').hide();
-
-		// alert(user_Desc);
-
-		$('#userDesc').load("editdesc.php", {output:user_Desc});
-
-		
-
-				//document.getElementById('userDesc').innerHTML = data;
-		
-
-	});
-
-
 
 	//dispaly Dev8 once this page load using $.get method
 			$.get("displayDevGig.php", function(data){

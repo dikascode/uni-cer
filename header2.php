@@ -74,7 +74,7 @@
 
 						<?php
 
-								if(empty($_SESSION['photo'])){if ($_SESSION['gender'] == 'Male') {
+								if(empty($_SESSION['photo'])){if (isset($_SESSION['gender']) == 'Male') {
 									
 							?>
 

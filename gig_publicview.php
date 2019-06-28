@@ -78,7 +78,7 @@
 								<div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel">
 									  <div class="carousel-inner">
 									    <div class="carousel-item active">
-									      <img style="width: 150px; height:250px;" src="<?php if(isset($result['gig_headerpic'])){
+									      <img style="width: 150px; height:300px;" src="<?php if(isset($result['gig_headerpic'])){
 									      	if(strlen($result['gig_headerpic']) == 0){ echo 'images/newdika.jpg'; }else{echo $result['gig_headerpic']; } 
 									      }?>" class="d-block w-100 img-fluid" alt="<?php if (isset($result['user_username'])) {
 													echo strtolower( $result['user_username']);

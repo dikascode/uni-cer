@@ -5,7 +5,7 @@
 	
 						$gigobj = new Gigs;
 
-						$gigs = $gigobj->getGigs($_SESSION['userid']);
+						$gigs = $gigobj->getGigs($_GET['id']);
 
 						// echo "<pre>"; 
 						// print_r($gigs);
@@ -19,7 +19,7 @@
 			<!-- user info area/left pane -->
 			<div class="col-md-3">
 				
-					<?php include_once('user_side_bar.php'); ?>
+					<?php include_once('seller_edit_side_bar.php'); ?>
 
 				
 

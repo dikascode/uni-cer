@@ -793,3 +793,28 @@ else{
         //from insert gig
 
       ?>
+
+<!-- from javasccript fpt edit description in newuser side bar -->
+<script type="text/javascript">
+      $('#editDesc').click(function(){
+
+    // alert('hi');
+
+    //hide the previous div housing the previous description
+
+
+
+    //get the string from the p tag inner html
+    var user_Desc = $('#userDesc').html();
+    // $('#userDesc').hide();
+
+    // alert(user_Desc);
+
+    $('#userDesc').load("editdesc.php", {output:user_Desc});
+
+    
+
+        //document.getElementById('userDesc').innerHTML = data;
+    
+
+  });</script>

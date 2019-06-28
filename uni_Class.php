@@ -416,11 +416,11 @@
 
 			//create method to edit profile description
 
-			public function editDesc($userid, $text){
+			public function editDesc($userid, $text, $signature){
 
 				//write query
 
-				$sql = "UPDATE user set userid = '$userid', user_desc = '$text' where userid='$userid' ";
+				$sql = "UPDATE user set userid = '$userid', user_desc = '$text', user_signature = '$signature' where userid='$userid' ";
 
 				//execute myquery
 
@@ -430,11 +430,14 @@
 
 			if ($this->udbobj->udbcon->affected_rows == 1) {
 				
-				$msg = "<p class='alert alert-successful'>Profile Description updated successfully</p>";
+				$msg = "<p class='alert alert-success'>Profile Description and Signature updated successfully</p>";
+
+				header("Location: http://localhost/6thprojectphp/newuser.php?"."msg=".$msg);
 
 			}elseif ($this->udbobj->udbcon->affected_rows == 0) {
 
-				$msg ="<p class='alert alert-danger'>Profile Description not updated</p>";
+				$msg ="<p class='alert alert-danger'>Profile Description and Signature not updated</p>";
+				header("Location: http://localhost/6thprojectphp/newuser.php?"."msg=".$msg);
 
 			}else{
 
