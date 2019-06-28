@@ -372,11 +372,12 @@
 
 						$result = "<div class ='alert alert-success'> Profile photo uploaded</div>";
 
-						// header("Location: https://localhost/6thprojectphp/userpage.php");
+						 header("Location: https://localhost/6thprojectphp/newuser.php"."result=".$result);
 
 					}else{
 
 					$result = "<div class ='alert alert-danger'> No profile photo uploaded!</div>".$this->udbobj->udbcon->error;
+					header("Location: https://localhost/6thprojectphp/newuser.php"."result=".$result);
 				}
 				
 			}
@@ -630,6 +631,106 @@
 				//redirect to dashboard
 
 				header('Location: http://localhost/6thprojectphp/redirect.php');
+				exit;
+
+			}else{
+
+				echo "Error ".$this->udbobj->udbcon->error;
+			}
+		}
+
+		}
+	}
+
+
+
+
+	//ceate method to update gig table
+
+		public function upDateGig($gigTitle, $gigUserid, $premium_title, $standard_title, $basic_title, $premium_desc, $standard_desc, $basic_desc, $premium_cd, $standard_cd, $basic_cd, $premium_rd, $standard_rd, $basic_rd, $premium_sc, $standard_sc, $basic_sc, $premium_pages, $standard_pages, $basic_pages, $premium_revisions, $standard_revisions, $basic_revisions, $premium_delivery, $standard_delivery, $basic_delivery, $premium_price, $standard_price, $basic_price, $requirement, $gig_serviceid, $gig_marketid, $gigdesc, $languageid){
+
+
+
+			if ($_FILES['gigimage']['error'] == 0) {
+
+
+				$imagesize = $_FILES['gigimage']['size'];
+				$imagename = $_FILES['gigimage']['name'];
+				$imagetype = $_FILES['gigimage']['type'];
+				$imagetempname = $_FILES['gigimage']['tmp_name'];
+
+				//specify the upload folder
+
+				$folder = "gig_image/";
+
+				//get the image extension
+
+				$image_ext = explode(".", $imagename); //convert the string to array 
+				$image_ext = end($image_ext); //to get the last of the array
+				$image_ext = strtolower($image_ext); //convert string to lowercase
+
+				//check for image size
+
+				if ($imagesize > 2097152) {
+					$error[]= "Image size must be exactly or less than 2 mb!";
+				}
+
+				//specify the extentions allowed
+
+				$extentions = array('jpg', 'jpeg', 'png', 'bmp');
+
+				//check if the extention uploaded is valid
+
+				if (in_array($image_ext, $extentions) === false) {
+					$error[] = "Extention not allowed!";
+				}
+
+
+
+				//change the image name
+
+				$imagename = $imagename."_".$_SESSION['username'];
+				$destination = $folder.$imagename.".$image_ext";
+
+				//to chek if there no other error and then upload
+
+				if (!empty($error)) {
+					var_dump($error);
+				}else{
+
+					//move product image to folder
+
+					move_uploaded_file($imagetempname, $destination);
+
+
+
+			//write query
+			
+
+			$sql = "UPDATE gig set gig_title = '$gigTitle', premium_title = '$premium_title', standard_title = '$standard_title', basic_title = '$basic_title', premium_desc = '$premium_desc', standard_desc = '$standard_desc', basic_desc = '$basic_desc', premium_cd = '$premium_cd', standard_cd = '$standard_cd', basic_cd = '$basic_cd', premium_rd = '$premium_rd', standard_rd = '$standard_rd', basic_rd = '$basic_rd', premium_sc = '$premium_sc', standard_sc = '$standard_sc', basic_sc = '$basic_sc', premium_pages = '$premium_pages', standard_pages = '$standard_pages', basic_pages = '$basic_pages', premium_revisions = '$premium_revisions', standard_revisions = '$standard_revisions', basic_revisions = '$basic_revisions', premium_delivery = '$premium_delivery', standard_delivery = '$standard_delivery', basic_delivery = '$basic_delivery', premium_price = '$premium_price', standard_price = '$standard_price', basic_price = '$basic_price', requirement = '$requirement', gig_serviceid = '$gig_serviceid', gig_marketid = '$gig_marketid', gigdesc = '$gigdesc', languageid = '$languageid', gig_headerpic = '$destination' Where gig_Userid = '$gigUserid' ";
+
+			//  var_dump($sql);
+			// exit;
+
+			//check if the query() runs //data is inserted into gig table
+			$this->udbobj->udbcon->query($sql);
+
+			if ($this->udbobj->udbcon->affected_rows == 1) {
+				//get last inserted user_id
+
+				$report = "<div class='alert alert-success'>Record has been updated</div>";
+
+				
+
+				//redirect to dashboard if updated or not
+
+				header('Location: http://localhost/6thprojectphp/newuser.php?'."report=".$report);
+				exit;
+
+			}elseif ($this->udbobj->udbcon->affected_rows == 0){
+
+				$report = "<div class='alert alert-warning'>No Record was updated</div>";
+				header('Location: http://localhost/6thprojectphp/newuser.php?'."report=".$report);
 				exit;
 
 			}else{

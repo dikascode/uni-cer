@@ -58,7 +58,7 @@
 					<li><a href="newuser.php">Dashboard</a></li>
 					<li><a href="#">Messages <span class="badge badge-primary">3</span></a></li>
 					<li><a href="#">Orders</a></li>
-					<li><a href="#">Gigs</a></li>
+					<li><a href="managegig.php?id=<?php echo $_SESSION['userid']; ?>">Gigs</a></li>
 					<li><a href="#">Earnings</a></li>
 				</ul>
 			</div>

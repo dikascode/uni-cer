@@ -29,6 +29,9 @@
 			<!-- right pane -->
 
 			<div class="col-md-9" id="rightPane">
+				<?php if (isset($_GET['report'])) {
+						echo $_GET['report'];
+						}  ?>
 				<div class="row">
 					<div class="col-md purpletext" style="margin-bottom: 20px;">
 						<h4>Gigs</h4>
