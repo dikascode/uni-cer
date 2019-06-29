@@ -186,6 +186,50 @@
 })
 	</script>
 
+	<script src="https://js.paystack.co/v1/inline.js"></script>
+
+
+	<script>
+			  function payWithPaystack(price, orderid){
+			    var handler = PaystackPop.setup({
+			      key: 'pk_test_733c67948e744a72a1b48bf9429764cb1d3c2ca2',
+			      email: 'customer@email.com',
+			      amount: price,
+			      currency: "NGN",
+			      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+			      metadata: {
+			         custom_fields: [
+			            {
+			                display_name: "Mobile Number",
+			                variable_name: "mobile_number",
+			                value: "+2348012345678"
+			            }
+			         ]
+			      },
+			      callback: function(response){
+
+			      	//console.log(response);
+			      	 var status = "Paid";
+			          var userid = "4";
+
+			          if(response.status == 'success'){
+
+			      	window.location = "trans.php?myprice=" + price + "&myproductid=" + productid + "&mystatus=" + status + "&myuserid=" + userid + "&mytransref=" + response.trxref;
+			      	}
+
+			          //alert('success. transaction ref is ' + response.reference);
+			         
+			          //use AJAX to update or insert payment info into database
+			         // $.post("trans.php", {myprice: price, myproductid: productid, mystatus: status, myuserid: userid, mytransref: response.trxref });
+			      },
+			      onClose: function(){
+			          alert('window closed');
+			      }
+			    });
+			    handler.openIframe();
+			  }
+</script>
+
 	</body>
 </html>
 
