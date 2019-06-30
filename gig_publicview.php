@@ -19,6 +19,26 @@
 			// print_r($result);
 			// echo "</pre>";
 			// exit;
+
+
+			if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+				$message = User::dataSanitize($_REQUEST['message']);
+				$file = User::dataSanitize($_REQUEST['file']);
+
+				if (empty($message)) {
+			
+					$reg_err['message'] = "<span class='text-danger'>Message field is required</span>";
+				}
+
+				if (count($reg_err) == 0) {
+
+				$inboxobj = new Message();
+				$inboxobj->insertMessage($sellerid, $_SESSION['userid'], $message);
+
+			}
+
+			}
 		 ?>
 
 		
@@ -64,7 +84,19 @@
 													echo strtolower( $result['user_username']);
 												}  ?>" style="height: 40px; width: 40px;" src="<?php if(isset($result['user_picture'])){echo $result['user_picture']; } ?>"> <small style="font-weight: bold; margin-right: 5px"><?php if (isset($result['user_username'])) {
 													echo strtolower( $result['user_username']);
-												}  ?></small><small>Level 1 seller</small> | <small><a href="#">(20 Orders)</a></small>  <small> | 2 Orders in Queue</small></div>
+												}  ?></small>
+													<!-- //condition for seller level here -->
+												<small><?php if (isset($_SESSION['total_order']) && $_SESSION['total_order'] > 20) {
+													echo "Level 1 seller";
+												}elseif (isset($_SESSION['total_order']) && $_SESSION['total_order'] > 50) {
+													echo "Level 1 seller";
+												}else{
+													echo "New seller";
+												} ?></small> | <small><a href="#">(<?php if (isset($_SESSION['total_order'])) {
+													echo $_SESSION['total_order'];
+												} ?>) orders</a></small> | <span class="badge badge-primary"><?php if (isset($_SESSION['active_total'])) {
+													echo $_SESSION['active_total'];
+												} ?> Orders in Queue</span></div>
 						<!-- <div class="col-md-2">
 						<ul class="gig-public"><li><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></li>
 							
@@ -608,7 +640,7 @@
 
 						<div class="row">
 							<div class="col-md my-textAlign">
-								<button class="btn join-button">Message Me</button>
+								<input type="button" data-toggle="modal" data-target="#messageModal" class="btn btn-md purplebg" value="Message Me">
 								<hr>
 							</div>
 						</div>
@@ -649,6 +681,55 @@
 				</div>
 			</div>
 			</div>	
+
+			<!-- Modal -->
+					<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					  <div  class="modal-dialog modal-dialog-centered" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title" id="exampleModalCenterTitle">Send Me Your Message</h5>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					      </div>
+					      <div class="modal-body">
+					        <div class="row" >
+					        	<div class="col-md-3" style="font-size: 12px;">
+					        		<p><img class="rounded-circle" style="width: 70px; height: 70px;" src="<?php if(isset($result['user_picture'])){ echo $result['user_picture'];}?>"><span style="font-weight: bold"><?php if (isset($result['user_username'])) {
+													echo strtolower( $result['user_username']);
+												} ?></span>
+									</p>
+					        		
+					        		<span style="font-weight: bold;">Please include:</span>
+
+					        		<ol style="padding: 0; margin-left: 5px;">
+					        			<li>Project Description</li>
+					        			<li>Necessary files</li>
+					        			<li>Specific Instructions</li>
+					        			<li>Budget</li>
+					        		</ol>
+					        	</div>
+					        	<div class="col-md-9" style="padding: 0; margin: 0;">
+
+					        		<!-- Message form for gig public view -->
+					        	<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?id=<?php echo $_GET['gigid']; ?>&name= <?php echo $_GET['sellerid'];?>" enctype="multipart/form-data">
+
+					        		<textarea name="message" class="form-control"  style="width: 350px; height: 200px;"></textarea><span><?php if (isset($reg_err['message'])){echo $reg_err['message'];}?></span>
+					        		<input class="marginTop" type="file" name="file">
+
+					        	</form>
+					        		
+					        	</div>
+					        </div>
+					      </div>
+					      <div class="modal-footer">
+					       
+					        <button type="button" class="btn join-button">Send</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+
 
 		<!-- Footer section-->
 

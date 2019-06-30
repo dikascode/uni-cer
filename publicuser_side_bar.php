@@ -43,7 +43,7 @@
 						<p><?php if (isset($signature)) {
 									echo $signature;
 								} ?></p>
-						<a href="#" class="btn btn-md purplebg">Message me</a>
+						<input type="button" data-toggle="modal" data-target="#messageModal" class="btn btn-md purplebg" value="Message Me">
 						<hr>
 					</div>
 				</div>
@@ -103,3 +103,48 @@
 						<a href="#" class="badge badge-primary">SQL</a>
 					</div>
 				</div>
+
+
+				<!-- Modal -->
+					<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					  <div  class="modal-dialog modal-dialog-centered" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title" id="exampleModalCenterTitle">Send Me Your Message</h5>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					      </div>
+					      <div class="modal-body">
+					        <div class="row" >
+					        	<div class="col-md-3" style="font-size: 12px;">
+					        		<p><img class="rounded-circle" style="width: 70px; height: 70px;" src="<?php if(isset($sellerimage)){ echo $sellerimage;}?>"><span style="font-weight: bold"><?php if (isset($username)) {
+													echo strtolower( $username);
+												} ?></span>
+									</p>
+					        		
+					        		<span style="font-weight: bold;">Please include:</span>
+
+					        		<ol style="padding: 0; margin-left: 5px;">
+					        			<li>Project Description</li>
+					        			<li>Necessary files</li>
+					        			<li>Specific Instructions</li>
+					        			<li>Budget</li>
+					        		</ol>
+					        	</div>
+					        	<div class="col-md-9" style="padding: 0; margin: 0;">
+
+					        		<textarea class="form-control"  style="width: 350px; height: 200px;"></textarea>
+					        		<input class="marginTop" type="file" name="file">
+					        		
+					        	</div>
+					        </div>
+					      </div>
+					      <div class="modal-footer">
+					       
+					        <button type="button" class="btn join-button">Send</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+

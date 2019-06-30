@@ -1031,6 +1031,92 @@
 	}
 
 
+	//Class for unilancer messaging system
+
+	class Message{
+
+		//member variable
+		public $udbobj; //object handler for DatabaseConnect class
+		// public static $userid;
+
+		// member functions
+
+		public function __construct(){
+
+			//creating instance of class DatabaseConnect class
+
+			$this->udbobj = new DatabaseConnect;
+
+		}
+
+
+		//method to send message to database
+
+		public function insertMessage($receiverid, $senderid, $text){
+
+			if ($_FILES['file']['error'] == 0) {
+
+
+				$filesize = $_FILES['file']['size'];
+				$filename = $_FILES['file']['name'];
+				$filetype = $_FILES['file']['type'];
+				$filetempname = $_FILES['file']['tmp_name'];
+
+				//specify the upload folder
+
+				$folder = "message_attachment/";
+
+				//get the image extension
+
+				$file_ext = explode(".", $filename); //convert the string to array 
+				$file_ext = end($file_ext); //to get the last of the array
+				$file_ext = strtolower($file_ext); //convert string to lowercase
+
+				//check for image size
+
+				if ($filesize > 2097152) {
+					$error[]= "File size must be exactly or less than 2 mb!";
+				}
+
+				//specify the extentions allowed
+
+				$extentions = array('jpg', 'jpeg', 'png', 'bmp');
+
+				//check if the extention uploaded is valid
+
+				if (in_array($file_ext, $extentions) === false) {
+					$error[] = "Extention not allowed!";
+				}
+
+
+
+				//change the file name
+
+				$filename = $filename.date('j M Y')."_".$_SESSION['username'];
+				$destination = $folder.$filename.".$file_ext";
+
+				//to chek if there no other error and then upload
+
+				if (!empty($error)) {
+					var_dump($error);
+				}else{
+
+					//move product image to folder
+
+					move_uploaded_file($filetempname, $destination);
+
+			//write query
+
+			$sql = "INSERT into inbox(inbox_receiverid, inbox_senderid, inbox_message, inbox_attachment)";
+
+		}
+	}
+
+
+
+	}
+}
+
 
 	
 

@@ -12,6 +12,8 @@
 
 
 
+
+
 			// echo "<pre>";
 			// print_r($result);
 			// echo "</pre>";
@@ -83,6 +85,8 @@
 				    				<?php 
 				    					$num = 0;
 				    					foreach ($result as $key => $value) {
+				    						$_SESSION['total_order'] = count($result);
+				    						// var_dump($_SESSION['total_gig']); exit;
 
 				    						if ( date('j M Y', strtotime($value['order_deadline'])) > date('j M Y')) {
 				    						

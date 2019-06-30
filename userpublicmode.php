@@ -120,12 +120,6 @@
 				</div>
 			</div>
 		</div>
-
-		
-		
-		
-
-		
 	
 
 		<!-- Footer section-->

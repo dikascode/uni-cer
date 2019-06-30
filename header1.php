@@ -11,7 +11,7 @@
 
 
 
-	if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_REQUEST['searchbtn'] == 'Search' ) {
+	if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['searchbtn']) && $_REQUEST['searchbtn'] == 'Search' ) {
 	   
 	   $string = user::dataSanitize($_REQUEST['search']);
 
