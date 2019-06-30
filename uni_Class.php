@@ -980,13 +980,16 @@
 
 		//function to save order transaction into order table
 
-	public function orderTrans($gigid, $sellerid, $buyerid, $price, $orderdesc, $trans_ref, $status ){
+	public function orderTrans($gigid, $sellerid, $buyerid, $price, $orderdesc, $trans_ref, $status, $ordertime ){
 
 		//write query
 
 		$price = $price/100;
 
-		$sql = "INSERT into gigorder(order_gigid, order_sellerid, order_buyerid, order_amount, order_description, order_deadline, trans_ref, payment_status) values('$gigid', '$sellerid', '$buyerid', '$price', '$orderdesc', date_add(now(), interval 10 day), '$trans_ref', '$status')";
+		$sql = "INSERT into gigorder(order_gigid, order_sellerid, order_buyerid, order_amount, order_description, order_deadline, trans_ref, payment_status) values('$gigid', '$sellerid', '$buyerid', '$price', '$orderdesc', date_add(now(), interval '$ordertime' day), '$trans_ref', '$status')";
+
+		// var_dump($sql);
+		// exit;
 
 		//run query
 

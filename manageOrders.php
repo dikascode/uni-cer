@@ -68,6 +68,7 @@
 				    	<div class="col-md">
 				    		<table class="table table-bordered table-hover">
 				    			<thead class="thead-dark">
+				    				<th>S/N</th>
 				    				<th>BUYER</th>
 				    				<th>GIG</th>
 				    				<th>ORDER DATE</th>
@@ -80,11 +81,10 @@
 				    			<tbody>
 
 				    				<?php 
-
+				    					$num = 0;
 				    					foreach ($result as $key => $value) {
 
 				    						if ( date('j M Y', strtotime($value['order_deadline'])) > date('j M Y')) {
-				    						
 				    						
 				    						$username = strtolower($value['user_username']);
 											$buyerpic = $value['user_picture'];
@@ -92,15 +92,14 @@
 											$gigtitle = $value['gig_title'];
 											$orderdate = date('j M Y', strtotime($value['order_date']));
 											$orderdue = date('j M Y', strtotime($value['order_deadline']));
-											$orderprice = number_format($value['order_amount'], 2);
+											$orderprice = number_format($value['order_amount'] - 100, 2);
 
 
 											//$orderstatus = $value['order_status'];
-				    					
-
 				    				?>
 
 				    				<tr>
+				    					<td><?php echo ++$num ?></td>
 				    					<td><img class="img-fluid rounded-circle" src="<?php echo $buyerpic; ?>" style="margin-right: 1%; height: 50px; width: 50px;"> <?php echo $username; ?></td>
 				    					<td><img src="<?php echo $gigimage; ?>" style="margin-right: 1%; width: 100px; height: 50px;"><a href="gig_publicview.php?gigid=<?php if(isset($value['gig_id'])){ echo $value['gig_id']; }?>&sellerid=<?php if(isset($value['gig_userid'])){echo $value['gig_userid']; } ?>"><?php echo $gigtitle; ?></a></td>
 				    					<td><?php echo $orderdate; ?></td>
@@ -111,7 +110,7 @@
 				    					
 				    				</tr>
 
-				    				<?php }} $_SESSION['active_total'] = count($result[$value][$key]); ?>
+				    				<?php }} $_SESSION['active_total'] = $num; ?>
 
 				    				
 				    				
