@@ -168,7 +168,10 @@
 			$gigUploadobj= new Gigs;
 			$mygig = $gigUploadobj->insertGig($gigtitle, $_SESSION['userid'], $p_plantitle, $s_plantitle, $b_plantitle, $p_plandesc, $s_plandesc, $b_plandesc, $p_CD, $s_CD, $b_CD, $p_RD, $s_RD, $b_RD, $p_SC, $s_SC, $b_SC, $p_pages, $s_pages, $b_pages, $p_numrev, $s_numrev, $b_numrev, $p_delivery, $s_delivery, $b_delivery, $premium_price, $standard_price, $basic_price, $requirement, $subcategory_id, $category_id, $gigdesc, $languageid);
 
+			
+
 		}
+
 
 	//exit;
 	
@@ -574,7 +577,7 @@
 
 				<div class="row marginTop">
 					<div class="col-md">
-						<button id="gig_create_btn" type="submit" class="btn join-button purpletext">Continue</button>
+						<button id="gig_create_btn" type="submit" class="btn join-button">Continue</button>
 					</div>
 				</div>
 			</form>

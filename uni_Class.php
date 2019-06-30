@@ -1107,14 +1107,34 @@
 
 			//write query
 
-			$sql = "INSERT into inbox(inbox_receiverid, inbox_senderid, inbox_message, inbox_attachment)";
+			$sql = "INSERT into inbox(inbox_receiverid, inbox_senderid, inbox_message, inbox_attachment) values('$receiverid', '$senderid', '$text', '$destination')";
 
-		}
+			
+			$this->udbobj->udbcon->query($sql);
+			var_dump($sql);
+			//run query
+
+			//check if the query() runs //data is inserted into inbox table
+			
+
+			if ($this->udbobj->udbcon->affected_rows == 1) {
+				echo "<div class='alert alert-success'>Message Sent</div>";
+
+		}else{
+
+				echo "Error ".$this->udbobj->udbcon->error;
+			}
+
+			//return $report;
+
 	}
 
+			
+
 
 
 	}
+}
 }
 
 

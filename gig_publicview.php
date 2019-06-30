@@ -19,31 +19,9 @@
 			// print_r($result);
 			// echo "</pre>";
 			// exit;
+		?>
 
-
-			if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-				$message = User::dataSanitize($_REQUEST['message']);
-				$file = User::dataSanitize($_REQUEST['file']);
-
-				if (empty($message)) {
-			
-					$reg_err['message'] = "<span class='text-danger'>Message field is required</span>";
-				}
-
-				if (count($reg_err) == 0) {
-
-				$inboxobj = new Message();
-				$inboxobj->insertMessage($sellerid, $_SESSION['userid'], $message);
-
-			}
-
-			}
-		 ?>
-
-		
-		
-
+	
 		<!-- Gig Public view section -->
 
 		<div class="row" style="border-bottom: 1px solid lightgrey; padding-bottom: 10px;">
@@ -640,7 +618,7 @@
 
 						<div class="row">
 							<div class="col-md my-textAlign">
-								<input type="button" data-toggle="modal" data-target="#messageModal" class="btn btn-md purplebg" value="Message Me">
+								<a href="quickmessage.php?sellerid=<?php echo $sellerid; ?>&userid=<?php echo $_SESSION['userid']; ?>&gigid=<?php echo $gigid; ?>" class="btn btn-md purplebg">Message Me</a>
 								<hr>
 							</div>
 						</div>
@@ -682,54 +660,7 @@
 			</div>
 			</div>	
 
-			<!-- Modal -->
-					<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-					  <div  class="modal-dialog modal-dialog-centered" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <h5 class="modal-title" id="exampleModalCenterTitle">Send Me Your Message</h5>
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					          <span aria-hidden="true">&times;</span>
-					        </button>
-					      </div>
-					      <div class="modal-body">
-					        <div class="row" >
-					        	<div class="col-md-3" style="font-size: 12px;">
-					        		<p><img class="rounded-circle" style="width: 70px; height: 70px;" src="<?php if(isset($result['user_picture'])){ echo $result['user_picture'];}?>"><span style="font-weight: bold"><?php if (isset($result['user_username'])) {
-													echo strtolower( $result['user_username']);
-												} ?></span>
-									</p>
-					        		
-					        		<span style="font-weight: bold;">Please include:</span>
-
-					        		<ol style="padding: 0; margin-left: 5px;">
-					        			<li>Project Description</li>
-					        			<li>Necessary files</li>
-					        			<li>Specific Instructions</li>
-					        			<li>Budget</li>
-					        		</ol>
-					        	</div>
-					        	<div class="col-md-9" style="padding: 0; margin: 0;">
-
-					        		<!-- Message form for gig public view -->
-					        	<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?id=<?php echo $_GET['gigid']; ?>&name= <?php echo $_GET['sellerid'];?>" enctype="multipart/form-data">
-
-					        		<textarea name="message" class="form-control"  style="width: 350px; height: 200px;"></textarea><span><?php if (isset($reg_err['message'])){echo $reg_err['message'];}?></span>
-					        		<input class="marginTop" type="file" name="file">
-
-					        	</form>
-					        		
-					        	</div>
-					        </div>
-					      </div>
-					      <div class="modal-footer">
-					       
-					        <button type="button" class="btn join-button">Send</button>
-					      </div>
-					    </div>
-					  </div>
-					</div>
-
+			
 
 		<!-- Footer section-->
 
