@@ -22,7 +22,7 @@
 							
 							?>
 								<img class="img-fluid rounded-circle" style="width: 100px; height: 100px;" src="images/woman-avatar.png" ><br>
-								<a href="uploadProfilePic.php">Upload Profile Picture</a>	
+								<a href="buyer_uploadProfilePic.php">Upload Profile Picture</a>	
 
 							<?php
 

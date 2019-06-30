@@ -4,9 +4,18 @@
 		
 		<?php
 
-		// Included header from php header1
+		// check is if a user is signed in or not to display the approapriate header
 
-			include_once ('header1.php');
+			 include_once ('header1.php');
+
+			// if (!isset($_COOKIE['userid'])) {	
+		
+	
+			// 	include_once ('header1.php');
+			// }else{
+
+			// 	include_once ('header2.php');
+			// }
 
 
 		?>

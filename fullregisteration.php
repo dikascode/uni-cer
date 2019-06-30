@@ -128,33 +128,6 @@
 			
 	}
 
-	?>
-	
-		
-
-		<!-- second menu bar -->
-	
-		
-		<div id="secondmenu" class="row">
-			
-
-			<div class="col-md">
-				<ul class="second-menu-list">
-						<li><a href="#">Writing</a></li>
-						<li><a href="#">Design</a></li>
-						<li><a href="#">Programing & Tech</a></li>
-						<li><a href="#">Digital Marketing</a></li>
-						<li><a href="#">Video & Animation</a></li>
-						<li><a href="#">Music & Audio</a></li>
-						<li><a href="#">Business</a></li>
-						<li><a href="#">Final Year Research</a></li>
-						
-				</ul>
-			</div>
-
-		</div>
-
-		<?php
 
 						//instatiate class user
 

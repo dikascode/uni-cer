@@ -258,26 +258,3 @@
 		?>
 
 
-
-	</div>
-
-
-	<!-- External javacript -->
-	
-
-	<!-- jQuery -->
-	<script type="text/javascript" src="bootstrap/js/jquery-3.3.1.js"></script>
-	
-	<!-- Popper -->
-	<script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
-	
-	<!-- Bootstrap Js -->
-	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-
-	<script type="text/javascript" src="js/unilancer.js"></script>
-
-
-
-
-</body>
-</html>

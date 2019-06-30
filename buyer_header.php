@@ -53,7 +53,7 @@
 
 			<div class="col-md-5">
 				<ul id="menulist"  style="margin-top: 2%;">
-					<li><a href="#">Dashboard</a></li>
+					<li><a href="buyerpage.php">Dashboard</a></li>
 					<li><a href="#">Messages <span class="badge badge-primary">3</span></a></li>
 					<li><a href="#">Orders</a></li>
 					<li><a href="#">Expense Report</a></li>

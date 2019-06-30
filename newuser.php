@@ -46,7 +46,7 @@
 							<h3 class="purpletext animated flash">Welcome, <?php echo $_SESSION['username'] ?>.</h3><a style="margin-left:10px;" href="gig-setup-form.php?id=<?php echo $_SESSION['userid'] ?>&name=<?php echo $_SESSION['username'] ?>" class="btn join-button">Create a New Gig <i class="fas fa-plus"></i></a>
 							
 						<?php }else {?>
-						<h3 class="purpletext animated flash">Hello, <?php echo $_SESSION['firstname'] ?> looks like you don't have a gig, yet.</h3><a style="margin-left:10px;" href="gig-setup-form.php?id=<?php echo $_SESSION['userid'] ?>&name=<?php echo $_SESSION['username'] ?>" class="btn join-button">Create a New Gig <i class="fas fa-plus"></i></a>
+						<h3 class="purpletext animated flash">Hello, <?php echo $_SESSION['username'] ?> looks like you don't have a gig, yet.</h3><a style="margin-left:10px;" href="gig-setup-form.php?id=<?php echo $_SESSION['userid'] ?>&name=<?php echo $_SESSION['username'] ?>" class="btn join-button">Create a New Gig <i class="fas fa-plus"></i></a>
 
 					<?php } ?>
 					</div>

@@ -818,3 +818,125 @@ else{
     
 
   });</script>
+
+
+
+<!-- From unilancer js -->
+
+  <script type="text/javascript">
+    
+  //validation for create gig form
+
+  // $('#gig_create_btn').click(function() {
+
+  //  // alert('We are here');
+
+  //  if($('#title_').html('')){
+
+  //    $('#err_title').html('Title Field is required').addClass('text-danger');
+  //  }
+
+//category validation
+    // if ($('#category option[value="category"]').prop('selected')){
+
+
+    //  $('#err_cat').html('Select a Category').addClass('text-danger');
+
+    // }
+
+//subcatogory validation
+
+    // if ($('#subcategory option[value="subcategory"]').prop('selected')){
+
+
+    //  $('#err_subcat').html('Select a Subcategory').addClass('text-danger');
+
+    // }
+
+//plan title n offer validation
+
+    // if($('#premium').html('')){
+
+    //  $('#err_premium').html('Plan title is required').addClass('text-danger');
+    // }
+
+    // if($('#standard').html('')){
+
+    //  $('#err_standard').html('Plan title is required').addClass('text-danger');
+    // }
+
+    // if($('#basic').html('')){
+
+    //  $('#err_basic').html('Plan title is required').addClass('text-danger');
+    // }
+
+    // if($('#premium_offer').html('')){
+
+    //  $('#err_premium1').html('Plan offer is required').addClass('text-danger');
+    // }
+
+    // if($('#standard_offer').html('')){
+
+    //  $('#err_standard1').html('Plan offer is required').addClass('text-danger');
+    // }
+
+    // if($('#basic_offer').html('')){
+
+    //  $('#err_basic1').html('Plan offer is required').addClass('text-danger');
+    // }
+
+
+
+//time and amount validation
+
+    // if ($('#premium_time option[value="days"]').prop('selected')){
+
+    //  $('#err_time1').html('Select delivery time').addClass('text-danger');
+
+    // }
+
+    // if ($('#standard_time option[value="days"]').prop('selected')){
+
+    //  $('#err_time2').html('Select delivery time').addClass('text-danger');
+
+    // }
+
+    // if ($('#basic_time option[value="days"]').prop('selected')){
+
+    //  $('#err_time3').html('Select delivery time').addClass('text-danger');
+
+    // }
+
+
+
+    // if ($('input').attr('name','premium_price').val() =='') {
+        
+      
+    //  $('#err_price1').html('Price field required').addClass('text-danger');
+    // }
+
+    // if ($('input').attr('name','standard_price').val() =='') {
+        
+      
+    //  $('#err_price2').html('Price field required').addClass('text-danger');
+    // }
+
+    // if ($('input').attr('name','basic_price').val() =='') {
+        
+      
+    //  $('#err_price3').html('Price field required').addClass('text-danger');
+    // }
+
+
+from paystack 
+
+ // (<?php echo $orderprice; ?>, <?php echo $gigid; ?>, <?php echo $buyer_email; ?>, <?php echo $sellerid ?>, <?php echo $buyerid; ?>, <?php echo $desc; ?>, <?php echo $ordertime; ?>)
+
+
+
+
+
+      
+
+  // });
+  </script>

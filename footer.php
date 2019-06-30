@@ -190,10 +190,10 @@
 
 
 	<script>
-			  function payWithPaystack(price, orderid){
+			  function payWithPaystack(price, gigid){
 			    var handler = PaystackPop.setup({
 			      key: 'pk_test_733c67948e744a72a1b48bf9429764cb1d3c2ca2',
-			      email: 'customer@email.com',
+			      email:'<?php echo $buyer_email; ?>',
 			      amount: price,
 			      currency: "NGN",
 			      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
@@ -202,25 +202,26 @@
 			            {
 			                display_name: "Mobile Number",
 			                variable_name: "mobile_number",
-			                value: "+2348012345678"
+			                value: ""
 			            }
 			         ]
 			      },
 			      callback: function(response){
 
-			      	//console.log(response);
+			      	console.log(response);
+			      	
 			      	 var status = "Paid";
-			          var userid = "4";
+			      	 var orderdesc = '<?php echo $desc; ?>';
+			      	 var sellerid = '<?php echo $sellerid ?>';
+			      	 var buyerid = '<?php echo $buyerid; ?>';
+			      	 var ordertime = '<?php echo $ordertime; ?>';	
 
 			          if(response.status == 'success'){
 
-			      	window.location = "trans.php?myprice=" + price + "&myproductid=" + productid + "&mystatus=" + status + "&myuserid=" + userid + "&mytransref=" + response.trxref;
+			      	window.location = "ordertrans.php?price=" + price + "&gigid=" + gigid + "&orderdesc=" + orderdesc + "&status=" + status + "&sellerid=" + sellerid + "&buyerid=" + buyerid + "&ordertime=" + ordertime + "&transref=" + response.trxref;
 			      	}
 
-			          //alert('success. transaction ref is ' + response.reference);
-			         
-			          //use AJAX to update or insert payment info into database
-			         // $.post("trans.php", {myprice: price, myproductid: productid, mystatus: status, myuserid: userid, mytransref: response.trxref });
+			          
 			      },
 			      onClose: function(){
 			          alert('window closed');
@@ -233,4 +234,4 @@
 	</body>
 </html>
 
-<?php ob_end_flush() ?>
+<?php ob_end_flush(); ?>

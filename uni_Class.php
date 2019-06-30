@@ -200,6 +200,7 @@
 				$_SESSION['username'] = $username;
 				$_SESSION['gender'] = $gender;
 				$_SESSION['usertype'] = $usertype;
+				// $_SESSION['date'] = date('j M Y', strtotime($row['user_datereg']));
 				// $_SESSION['date'] = date('j M Y');
 
 				//var_dump($_SESSION['usertype']);
@@ -261,6 +262,9 @@
 				$_SESSION['username'] = strtolower($row['user_username']);
 				$_SESSION['date'] = date('j M Y', strtotime($row['user_datereg']));
 				$_SESSION['usertype'] = $row['user_typeid'];
+				$_SESSION['buyeremail'] = $row['user_email'];
+
+				setcookie("userid",  $row['userid'], time()+ 3600,'/'); 
 
 
 				// echo $_SESSION['username'];
@@ -372,13 +376,15 @@
 
 						$result = "<div class ='alert alert-success'> Profile photo uploaded</div>";
 
-						 header("Location: https://localhost/6thprojectphp/newuser.php"."result=".$result);
+						 // header("Location: https://localhost/6thprojectphp/newuser.php");
 
 					}else{
 
 					$result = "<div class ='alert alert-danger'> No profile photo uploaded!</div>".$this->udbobj->udbcon->error;
-					header("Location: https://localhost/6thprojectphp/newuser.php"."result=".$result);
+					// header("Location: https://localhost/6thprojectphp/newuser.php"."result=".$result);
 				}
+
+				return $result;
 				
 			}
 
@@ -953,6 +959,74 @@
 		}
 		
 	}
+
+
+	class Order{
+
+		//member variable
+		public $udbobj; //object handler for DatabaseConnect class
+		// public static $userid;
+
+		// member functions
+
+		public function __construct(){
+
+			//creating instance of class DatabaseConnect class
+
+			$this->udbobj = new DatabaseConnect;
+
+		}
+
+
+		//function to save order transaction into order table
+
+	public function orderTrans($gigid, $sellerid, $buyerid, $price, $orderdesc, $trans_ref, $status ){
+
+		//write query
+
+		$price = $price/100;
+
+		$sql = "INSERT into gigorder(order_gigid, order_sellerid, order_buyerid, order_amount, order_description, order_deadline, trans_ref, payment_status) values('$gigid', '$sellerid', '$buyerid', '$price', '$orderdesc', date_add(now(), interval 10 day), '$trans_ref', '$status')";
+
+		//run query
+
+		if($this->udbobj->udbcon->query($sql) === true){
+
+			//redirect to thank you page
+
+			header("Location: http://localhost/6thprojectphp/thankyou.php");
+			exit;
+		}else{
+
+			echo "Error.".$this->udbobj->udbcon->error;
+		}
+	}
+
+
+	//write method to fetch all orders for a specific seller
+
+	public function getOrdersForUser($sellerid){
+
+		//write sql syntax
+
+		$sql = "SELECT gigorder.*, user.*, gig.* from gigorder LEFT JOIN user on gigorder.order_buyerid=user.userid LEFT JOIN gig on gigorder.order_gigid = gig.gig_id where order_sellerid = '$sellerid' ";
+
+
+		//check if the query runs the sql syntax/statement
+
+			if ($result = $this->udbobj->udbcon->query($sql)) {
+				
+				$row = $result->fetch_all(MYSQLI_ASSOC);
+			}else{
+
+				echo "Error: ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+		}
+
+	}
+
 
 
 	

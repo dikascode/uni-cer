@@ -3,9 +3,15 @@
 <?php
 
 	ob_start();
-	
+	session_start();
 		include_once ('uni_Class.php');
-		session_start();
+		if (!isset($_SESSION['userid'])) {
+		
+		//redirect to login page
+
+		header("Location: http://localhost/6thprojectphp/signin.php");
+	}
+		
 
 ?>
 <!DOCTYPE html>
@@ -57,7 +63,7 @@
 				<ul id="menulist"  style="margin-top: 2%;">
 					<li><a href="newuser.php">Dashboard</a></li>
 					<li><a href="#">Messages <span class="badge badge-primary">3</span></a></li>
-					<li><a href="#">Orders</a></li>
+					<li><a href="manageOrders.php?id=<?php echo $_SESSION['userid']; ?>">Orders</a></li>
 					<li><a href="managegig.php?id=<?php echo $_SESSION['userid']; ?>">Gigs</a></li>
 					<li><a href="#">Earnings</a></li>
 				</ul>
@@ -100,7 +106,7 @@
 					    Action
 					  </button> -->
 					  <div class="dropdown-menu">
-					    <a class="dropdown-item" href="userpage.php">My Profile</a>
+					    <a class="dropdown-item" href="newuser.php">My Profile</a>
 					    <a class="dropdown-item" href="settings.php">Settings</a>
 					    <a class="dropdown-item purpletext" href="#">Refer & get N5000</a>
 					    <div class="dropdown-divider"></div>
