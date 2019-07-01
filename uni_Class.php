@@ -1028,6 +1028,61 @@
 			return $row;
 		}
 
+
+
+	//write method to fetch all orders for a specific buyer
+
+	public function getOrdersForUser($buyerid){
+
+		//write sql syntax
+
+		$sql = "SELECT gigorder.*, user.*, gig.* from gigorder LEFT JOIN user on gigorder.order_buyerid=user.userid LEFT JOIN gig on gigorder.order_gigid = gig.gig_id where order_buyerid = '$buyerid' ";
+
+
+		//check if the query runs the sql syntax/statement
+
+			if ($result = $this->udbobj->udbcon->query($sql)) {
+				
+				$row = $result->fetch_all(MYSQLI_ASSOC);
+			}else{
+
+				echo "Error: ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+		}
+
+
+
+
+		//method to update a order as submitted in gigorder table
+
+		public function updateOrder($submit, $orderid){
+
+
+			$sql = "UPDATE gigorder set order_status = '$submit' where  order_id = '$orderid' ";
+		
+
+
+		//execute myquery
+
+			$this->udbobj->udbcon->query($sql);
+
+			//how many rows affected//updated
+
+			if ($this->udbobj->udbcon->affected_rows == 1) {
+				//redirect to showallusers.php page
+				echo "<p class='alert alert-info'>Order has been sucessully been updated as SUBMITTED. Now Awaiting approval from seller.</p>";
+				
+
+			}else{
+
+				echo "Error: ".$this->dbobj->dbcon->error;
+			}
+		}
+
+
+
 	}
 
 
@@ -1053,6 +1108,38 @@
 		//method to send message to database
 
 		public function insertMessage($receiverid, $senderid, $text){
+
+			//write query
+
+			$sql = "INSERT into inbox(inbox_receiverid, inbox_senderid, inbox_message) values('$receiverid', '$senderid', '$text')";
+
+			
+			$this->udbobj->udbcon->query($sql);
+			// var_dump($sql);
+			//run query
+
+			//check if the query() runs //data is inserted into inbox table
+			
+
+			if ($this->udbobj->udbcon->affected_rows == 1) {
+				 echo "<div class='alert alert-success'>Message Sent</div>";
+
+		}else{
+
+				echo "Error ".$this->udbobj->udbcon->error;
+			}
+
+			//return $report;
+
+		}
+
+				
+	
+
+
+
+	//to update message file attachment
+public function insertMessageFile($receiverid, $senderid, $text = ''){
 
 			if ($_FILES['file']['error'] == 0) {
 
@@ -1107,7 +1194,7 @@
 
 			//write query
 
-			$sql = "INSERT into inbox(inbox_receiverid, inbox_senderid, inbox_message) values('$receiverid', '$senderid', '$text')";
+			$sql = "INSERT into inbox(inbox_receiverid, inbox_senderid, inbox_message, inbox_attachment) values('$receiverid', '$senderid', '$text', '$destination')";
 
 			
 			$this->udbobj->udbcon->query($sql);
@@ -1118,7 +1205,7 @@
 			
 
 			if ($this->udbobj->udbcon->affected_rows == 1) {
-				 echo "<div class='alert alert-success'>Message Sent</div>";
+				 echo "<div class='alert alert-success'>Attachment Sent</div>";
 
 		}else{
 
@@ -1135,6 +1222,9 @@
 
 		}
 	}
+
+
+
 
 
 	//method to select a unique sender
@@ -1182,6 +1272,7 @@
 
 
 	}
+
 
 
 	

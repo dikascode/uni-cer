@@ -184,6 +184,8 @@
 
 			});
 
+
+
 	//hide the form by default. SHow it when [id^=sender] is clicked
 
 
@@ -191,7 +193,7 @@
 
 	$('[id^=sender]').click(function(){
 
-		$('#formarea').show();
+		//$('#formarea').show();
 		//alert('hi');
 
 		//get the value of the textarea
@@ -204,8 +206,9 @@
 
 			//console.log(response);
 			$('#message_view_port').html(response);
-		});
 
+
+		});
 
 				// $('#message_view_port').load("messageview.php", {msgview:msg});
 	});

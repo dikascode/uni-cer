@@ -77,6 +77,7 @@
 				    				<th>DUE ON</th>
 				    				<th>TOTAL</th>
 				    				<th>STATUS</th>
+				    				<th></th>
 				    				
 				    			</thead>
 
@@ -88,7 +89,10 @@
 				    						$_SESSION['total_order'] = count($result);
 				    						// var_dump($_SESSION['total_gig']); exit;
 
-				    						if ( date('j M Y', strtotime($value['order_deadline'])) > date('j M Y')) {
+
+				    						// date('j M Y', strtotime($value['order_deadline'])) > date('j M Y')
+
+				    						if ($value['payment_status'] == 'Paid' && $value['order_status'] != 'Completed'  && $value['order_status'] != 'Submitted') {
 				    						
 				    						$username = strtolower($value['user_username']);
 											$buyerpic = $value['user_picture'];
@@ -110,6 +114,7 @@
 				    					<td><?php echo $orderdue; ?></td>
 				    					<td>&#8358;<?php echo $orderprice; ?></td>
 				    					<td><p class="badge badge-warning">Active</p></td>
+				    					<td><a href="submitorder.php?orderid=<?php echo $value['order_id'];?>&sellerid=<?php echo $value['order_sellerid']?>&buyerid=<?php echo $value['order_buyerid']; ?>" class="btn btn-primary">Submit Order</a></td>
 				    					
 				    					
 				    				</tr>

@@ -87,6 +87,8 @@
 				  </form>
 
 				</nav>
+
+				<!-- Display search -->
 				<div id="displaySearch" style="border: width: 220px; height: 50px; position: absolute; top:50px; z-index: 10;"></div>
 			</div>
 

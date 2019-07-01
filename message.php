@@ -10,12 +10,16 @@
 
 		$output = $inboxobj->distinctSender($_SESSION['userid']);
 
+
+
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		// $msg = $_POST['msgview'];
 		$message = User::dataSanitize($_REQUEST['messagearea']);
 
 			$input= $inboxobj->insertMessage($_SESSION['senderid'], $_SESSION['userid'], $message);
+
+			$inboxobj->insertMessageFile($_SESSION['senderid'], $_SESSION['userid']);
 
 		}
 

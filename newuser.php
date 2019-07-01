@@ -96,6 +96,13 @@
 
 
 				</div>
+
+
+				<div class="row">
+					<div class="col-md purplebg">
+						<h6 style="text-align: center; margin-top: 1%">Activity Area</h6>
+					</div>
+				</div>
 			</div>
 		</div>
 

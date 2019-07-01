@@ -29,9 +29,9 @@
 		<div>
 			<img class="rounded-circle" style="width: 30px; height: 30px;" src="<?php echo $senderimage; ?>"> <small style="margin-left: 5px;"><?php echo $sender; ?></small><small style="margin-left: 5px;"><?php echo $msgtime; ?></small>
 			<p class="" style="margin-left: 5%;"><?php echo $msg; ?></p>
-			<!-- <span><?php if (isset($attachment)) {
-				echo "<img style='height: 100px; width:100px' src='$attachment'>";
-			} ?></span> -->
+			<span><?php if (isset($attachment)) {
+				echo "<iframe class='embed-responsive embed-responsive-4by3' style='height: 200px; width:400px' src='$attachment'</iframe>";
+			} ?></span> 
 		</div>
 
 <?php }?>
