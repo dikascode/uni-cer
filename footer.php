@@ -183,6 +183,32 @@
 
 
 			});
+
+	//hide the form by default. SHow it when [id^=sender] is clicked
+
+
+	$('#formarea').hide();
+
+	$('[id^=sender]').click(function(){
+
+		$('#formarea').show();
+		//alert('hi');
+
+		//get the value of the textarea
+		var senderid = $(this).data('senderid');
+		//var msg = $('#msgarea').html();
+
+		//send data to cart.php using jquery post method
+
+			$.post("messageview.php", {senderid:senderid}, function(response){
+
+			//console.log(response);
+			$('#message_view_port').html(response);
+		});
+
+
+				// $('#message_view_port').load("messageview.php", {msgview:msg});
+	});
 })
 	</script>
 

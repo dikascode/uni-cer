@@ -1080,7 +1080,7 @@
 
 				//specify the extentions allowed
 
-				$extentions = array('jpg', 'jpeg', 'png', 'bmp');
+				$extentions = array('jpg', 'jpeg', 'png', 'bmp', 'docx', 'pdf', 'zip', 'winrar', 'txt', 'mp3', 'mp4');
 
 				//check if the extention uploaded is valid
 
@@ -1092,7 +1092,7 @@
 
 				//change the file name
 
-				$filename = $filename.date('j M Y')."_".$_SESSION['username'];
+				$filename = $filename."_".$_SESSION['username'];
 				$destination = $folder.$filename.".$file_ext";
 
 				//to chek if there no other error and then upload
@@ -1107,18 +1107,18 @@
 
 			//write query
 
-			$sql = "INSERT into inbox(inbox_receiverid, inbox_senderid, inbox_message, inbox_attachment) values('$receiverid', '$senderid', '$text', '$destination')";
+			$sql = "INSERT into inbox(inbox_receiverid, inbox_senderid, inbox_message) values('$receiverid', '$senderid', '$text')";
 
 			
 			$this->udbobj->udbcon->query($sql);
-			var_dump($sql);
+			// var_dump($sql);
 			//run query
 
 			//check if the query() runs //data is inserted into inbox table
 			
 
 			if ($this->udbobj->udbcon->affected_rows == 1) {
-				echo "<div class='alert alert-success'>Message Sent</div>";
+				 echo "<div class='alert alert-success'>Message Sent</div>";
 
 		}else{
 
@@ -1127,15 +1127,61 @@
 
 			//return $report;
 
+		}
+
+				
+
+
+
+		}
 	}
 
-			
+
+	//method to select a unique sender
+
+	public function distinctSender($receiverid){
+		//query
+
+		$sql = "SELECT distinct(inbox_senderid), inbox_receiverid, user.user_username, user.user_picture from inbox right join user on inbox_senderid=user.userid where inbox_receiverid = '$receiverid' order by message_time ";
+
+		//run query
+		if($result = $this->udbobj->udbcon->query($sql)){
+
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+
+		}else{
+
+			echo "Oops ".$this->udbobj->udbcon->error;
+		}
+
+		return $row;
+
+	}
+
+
+	//method to select all message between sender and receiver
+
+	public function selectMesssages($receiverid, $senderid){
+
+		$sql = "SELECT inbox.*, user.* from inbox left join user on inbox_senderid=user.userid where inbox_receiverid = '$receiverid' AND inbox_senderid = '$senderid' order by message_time";
+	
+
+
+	if ($result = $this->udbobj->udbcon->query($sql)) {
+				$row = $result->fetch_all(MYSQLI_ASSOC);
+			}else{
+
+				echo "Error: ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+
+			//see process at messageview.php n output at message.php
+		}
 
 
 
 	}
-}
-}
 
 
 	

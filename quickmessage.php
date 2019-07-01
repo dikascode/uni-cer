@@ -56,7 +56,7 @@
 
 					 
 					        <div class="row" >
-					        	<div class="col-md-3" style="font-size: 12px;">
+					        	<div class="col-md-3" style="font-size: 15px;">
 					        		<p><img class="rounded-circle" style="width: 70px; height: 70px;" src="<?php if(isset($result['user_picture'])){ echo $result['user_picture'];}?>"><br><span style="font-weight: bold"><?php if (isset($result['user_username'])) {
 													echo strtolower( $result['user_username']);
 												} ?></span>
@@ -70,6 +70,7 @@
 					        			<li>Specific Instructions</li>
 					        			<li>Budget</li>
 					        		</ol>
+					        		<a href="gig_publicview.php?gigid=<?php echo $_GET['gigid']; ?>&sellerid=<?php echo $_GET['sellerid'];?>">Back to Previous Page</a>
 					        	</div>
 					        	<div class="col-md-9" style="padding: 0; margin: 0;">
 
