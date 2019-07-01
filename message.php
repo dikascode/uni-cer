@@ -15,18 +15,18 @@
 		// $msg = $_POST['msgview'];
 		$message = User::dataSanitize($_REQUEST['messagearea']);
 
-			$input= $inboxobj->insertMessage(1, $_SESSION['userid'], $message);
+			$input= $inboxobj->insertMessage($_SESSION['senderid'], $_SESSION['userid'], $message);
 
 		}
 
 
 		// echo "<pre>";
-		// print_r($output);
+		// print_r($input);
 		// echo "</pre>";
 
 	?>
 
-<div class="container" style="min-height: 500px; margin-top: 5%">
+<div class="container" style="min-height: 400px; margin-top: 5%">
 	<div class="row boxshadow">
 		<div id="newMessage" class="col-md-3">
 			<!-- New messages section -->
@@ -61,7 +61,7 @@
 					<!-- Texting area -->
 					<div class="row"  style="border-right: 1px solid lightgrey;">
 						<div class="col-md" id="formarea">
-							<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data">
+							<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?id=<?php echo $_GET['id']; ?>" enctype="multipart/form-data">
 								<div class="form-group">
 									<textarea id="msgarea" class="form-control boxshadow" name="messagearea"></textarea>
 									<input class="marginTop " type="file" name="file">

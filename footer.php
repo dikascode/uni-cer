@@ -187,7 +187,7 @@
 	//hide the form by default. SHow it when [id^=sender] is clicked
 
 
-	$('#formarea').hide();
+	//$('#formarea').hide();
 
 	$('[id^=sender]').click(function(){
 
