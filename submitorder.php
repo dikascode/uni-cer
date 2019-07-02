@@ -1,4 +1,10 @@
-<?php include_once('header2.php');
+
+
+
+<?php 
+		session_start();
+
+		include_once('header2.php');
 
 		$inboxobj = new Message;
 

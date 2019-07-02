@@ -1,6 +1,11 @@
 <?php
-	
-		include_once ('header2.php');
+		session_start();
+		if ($_SESSION['usertype'] == '1') {
+				include_once('header2.php');
+			 }else{
+
+			 	include_once('buyer_header.php');
+			 }
 
 	
 						$gigobj = new Gigs;

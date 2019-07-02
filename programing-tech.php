@@ -2,7 +2,7 @@
 		
 		<?php
 		// Included header from php header1
-
+			session_start();
 			include_once ('header1.php');
 
 		?>

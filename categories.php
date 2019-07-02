@@ -1,5 +1,5 @@
 <?php
-	
+	session_start();
 	include_once 'header1.php';
 
 	$catobj = new Gigs;

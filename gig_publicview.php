@@ -4,8 +4,14 @@
 
 
 		<?php
+			session_start();
+			if ($_SESSION['usertype'] == '1') {
+				include_once('header2.php');
+			 }else{
 
-			include_once  ('header2.php');
+			 	include_once('buyer_header.php');
+			 }
+
 
 			//instatiate class
 

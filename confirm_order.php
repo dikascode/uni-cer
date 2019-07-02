@@ -1,6 +1,12 @@
 <?php
-	
-	include_once('header2.php');
+	session_start();
+	if ($_SESSION['usertype'] == '1') {
+		include_once('header2.php');
+	 }else{
+
+	 	include_once('buyer_header.php');
+	 }
+
 
 	$gigid = $_GET['gigid'];
 	$sellerid = $_GET['sellerid'];
@@ -94,7 +100,8 @@
 
 						$orderprice = $orderprice * 100; //convert naira to kobo
 
-						$buyer_email = $_SESSION['buyeremail'];
+						$buyer_email = $_SESSION['email']
+						// $buyer_email = $_SESSION['buyeremail'];
 						$buyerid = $_SESSION['userid'];
 						//  var_dump($buyerid);
 						// exit;

@@ -1,7 +1,13 @@
 <?php
 
-	
-	include_once('header2.php');
+	session_start();
+	if ($_SESSION['usertype'] == '1') {
+		include_once('header2.php');
+	 }else{
+
+	 	include_once('buyer_header.php');
+	 }
+
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
@@ -21,7 +27,13 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-3">
-				<?php include_once('user_side_bar.php'); ?>
+				<?phpif ($_SESSION['usertype'] == '1') {
+					include_once('user_side_bar.php');
+				 }else{
+
+				 	include_once('buyer_side_bar.php');
+				 }
+			 ; ?>
 			</div>
 			<div class="col-md-9">
 				<h1>Upload Profile Photo</h1>

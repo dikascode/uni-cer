@@ -1,7 +1,14 @@
 <?php
-	
-	include_once('header1.php');
+	session_start();
 
+	if ($_SESSION['usertype'] == '1') {
+				include_once('header2.php');
+			 }elseif($_SESSION['usertype'] == '2'){
+
+			 	include_once('buyer_header.php');
+			 }else{
+			include_once('header1.php');
+			}
 	//instatiate class
 
 	$gigobj = new Gigs;

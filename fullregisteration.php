@@ -3,8 +3,9 @@
 
 
 	<?php
-
+	session_start();
 	include_once 'header1.php';
+
 
 	$reg_err = array();
 	
@@ -409,7 +410,7 @@
 
 				<div class="row">
 					<div class="col-md">
-						<button type="submit" id="reg_btn"  class="btn btn-lg btn-block join-button purple-text">Join</button>
+						<button type="submit" id="reg_btn"  class="btn btn-lg btn-block join-button">Join</button>
 					</div>
 				</div>
 			</div>

@@ -3,6 +3,7 @@
 		<!-- Menu bar -->
 
 		<?php
+			session_start();
 
 			include_once  ('header2.php');
 		 ?>

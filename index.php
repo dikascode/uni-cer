@@ -3,19 +3,23 @@
 
 		
 		<?php
-
+			session_start();
 		// check is if a user is signed in or not to display the approapriate header
 
-			 include_once ('header1.php');
+			 //include_once ('header1.php');
 
-			// if (!isset($_COOKIE['userid'])) {	
+			if (!isset($_SESSION['userid'])) {	
 		
 	
-			// 	include_once ('header1.php');
-			// }else{
+			 	include_once ('header1.php');
+			 }else{
+				if ($_SESSION['usertype'] == '1') {
+						include_once('header2.php');
+					 }else{
 
-			// 	include_once ('header2.php');
-			// }
+					 	include_once('buyer_header.php');
+					 }
+			 }
 
 
 		?>

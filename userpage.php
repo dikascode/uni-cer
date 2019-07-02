@@ -3,7 +3,7 @@
 		<!-- header section -->
 
 		<?php
-
+			session_start();
 			include_once 'header2.php';
 			// var_dump ($_SESSION);
 				

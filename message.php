@@ -1,10 +1,12 @@
 <?php 
-	// if ($_SESSION['usertype'] == 'Seller') {
-		include_once('header2.php');
-	// }else{
+session_start();
 
-	// 	include_once('buyer_header.php');
-	// }
+	 if ($_SESSION['usertype'] == '1') {
+		include_once('header2.php');
+	 }else{
+
+	 	include_once('buyer_header.php');
+	 }
 
 		$inboxobj = new Message;
 

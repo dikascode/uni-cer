@@ -1,9 +1,16 @@
 
 
 <?php
-	
-		include_once ('uni_Class.php');
-		session_start();
+	ob_start();
+	include_once ('uni_Class.php');
+
+		if (!isset($_SESSION['userid'])) {
+		
+		//redirect to login page
+
+		header("Location: http://localhost/6thprojectphp/signin.php");
+	}
+		
 
 ?>
 <!DOCTYPE html>
@@ -54,13 +61,27 @@
 			<div class="col-md-5">
 				<ul id="menulist"  style="margin-top: 2%;">
 					<li><a href="buyerpage.php">Dashboard</a></li>
-					<li><a href="#">Messages <span class="badge badge-primary"></span></a></li>
+					<li><a href="message.php?id=<?php echo $_SESSION['userid']; ?>">Messages <span class="badge badge-primary"></span></a></li>
 					<li><a href="#">Orders</a></li>
 					<li><a href="#">Expense Report</a></li>
 				</ul>
 			</div>
 
-			<div class="col-md-5">
+			<div class="col-md-4">
+				<nav class="navbar navbar-light" style="display:">
+
+				  <form class="form-inline" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);  ?>">
+				    <input autocomplete="off" id="search" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				    <input value="Search" name="searchbtn" class="btn btn-outline-light my-2 my-sm-0" type="submit" style="background-color: #4B0082; color:white">
+				  </form>
+
+				</nav>
+
+				<!-- Display search -->
+				<div id="displaySearch" style="border: width: 220px; height: 50px; position: absolute; top:50px; z-index: 10;"></div>
+			</div>
+
+			<div class="col-md-1">
 
 				<div class="btn-group dropleft" style="float: right;">
 					<a href="fullregisteration.php" class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -104,4 +125,26 @@
 				
 				<div style="clear: both;"></div>
 			</div>
+		</div>
+
+
+		<!-- Submenu listing market options -->
+
+		<div id="secondmenu" class="row">
+			
+
+			<div class="col-md">
+				<ul class="second-menu-list">
+						<li><a href="#">Writing</a></li>
+						<li><a href="#">Design</a></li>
+						<li><a href="#">Programing & Tech</a></li>
+						<li><a href="#">Digital Marketing</a></li>
+						<li><a href="#">Video & Animation</a></li>
+						<li><a href="#">Music & Audio</a></li>
+						<li><a href="#">Business</a></li>
+						<li><a href="#">Final Year Research</a></li>
+						
+				</ul>
+			</div>
+
 		</div>

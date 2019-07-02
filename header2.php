@@ -3,7 +3,6 @@
 <?php
 
 	ob_start();
-	session_start();
 		include_once ('uni_Class.php');
 		if (!isset($_SESSION['userid'])) {
 		
@@ -70,10 +69,20 @@
 			</div>
 
 			<div class="col-md">
-				<a href="#"><h5 class="purpletext" style="margin-top: 10px; float: right;">Switch to Buying</h5></a>
+				<nav class="navbar navbar-light" style="display:">
+
+				  <form class="form-inline" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);  ?>">
+				    <input autocomplete="off" id="search" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				    <input value="Search" name="searchbtn" class="btn btn-outline-light my-2 my-sm-0" type="submit" style="background-color: #4B0082; color:white">
+				  </form>
+
+				</nav>
+
+				<!-- Display search -->
+				<div id="displaySearch" style="border: width: 220px; height: 50px; position: absolute; top:50px; z-index: 10;"></div>
 			</div>
 
-			<div class="col-md-2">
+			<div class="col-md-1">
 
 				<div class="btn-group dropleft" style="float: right;">
 					<a href="" class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

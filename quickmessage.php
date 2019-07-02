@@ -1,12 +1,13 @@
 
 <?php
+	session_start();
 
-		// if ($_SESSION['usertype'] == 'Seller') {
+	 if ($_SESSION['usertype'] == 'Seller') {
 		include_once('header2.php');
-	// }else{
+	 }else{
 
-	// 	include_once('buyer_header.php');
-	// }
+	 	include_once('buyer_header.php');
+	}
 
 
 		$gigid = $_GET['gigid'];

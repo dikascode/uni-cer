@@ -2,7 +2,6 @@
 	
 	include_once ('uni_Class.php');
 
-	session_start();
 
 	
 	// if (isset($_REQUEST['search'])) {
