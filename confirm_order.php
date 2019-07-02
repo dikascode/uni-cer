@@ -100,7 +100,7 @@
 
 						$orderprice = $orderprice * 100; //convert naira to kobo
 
-						$buyer_email = $_SESSION['email']
+						$buyer_email = $_SESSION['email'];
 						// $buyer_email = $_SESSION['buyeremail'];
 						$buyerid = $_SESSION['userid'];
 						//  var_dump($buyerid);

@@ -200,7 +200,7 @@
 				$_SESSION['username'] = $username;
 				$_SESSION['gender'] = $gender;
 				$_SESSION['usertype'] = $usertype;
-				// $_SESSION['date'] = date('j M Y', strtotime($row['user_datereg']));
+				$_SESSION['date'] = date('j M Y', strtotime($row['user_datereg']));
 				// $_SESSION['date'] = date('j M Y');
 
 				//var_dump($_SESSION['usertype']);
@@ -823,7 +823,7 @@
 	public function getDev8(){
 
 		//write query  
-		$sql = "SELECT  gig.*, user.*, language.* from gig left join user on gig.gig_userid = user.userid left join language on gig.languageid = language.languageid /*WHERE gig.gig_serviceid = '65'*/ order by rand() limit 8 ";
+		$sql = "SELECT  gig.*, user.*, language.* from gig left join user on gig.gig_userid = user.userid left join language on gig.languageid = language.languageid /*WHERE gig.gig_serviceid = '65'*/ order by user_datereg desc";
 		$row = array();
 
 		//execute the query
