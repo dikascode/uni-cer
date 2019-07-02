@@ -44,14 +44,21 @@
 						} ?></h4>
 						<p><?php if (isset($_SESSION['signature'])) {
 							echo $_SESSION['signature'];
-						} ?></p>
+						}?></p>
 						<hr>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-md">
-						<a href="userpublicmode.php?id=<?php echo $_SESSION['userid']; ?>" class="btn purplebg form-control">View Public Mode</a>
+						<?php
+
+						 if (count($gigs) == 0) {
+
+							echo '<a style="display: none;" hidden="" href="#" class="btn purplebg form-control">View Public Mode</a>';
+							}else{
+
+							echo '<a href="userpublicmode.php?id=<?php echo $_SESSION[\'userid\']; ?>" class="btn purplebg form-control">View Public Mode</a>';} ?>
 						<hr>
 					</div>
 				</div>
@@ -91,8 +98,8 @@
 
 				<div class="row">
 					<div class="col-md">
-						<h5>Skills</h5>
+					<!-- 	<h5>Skills</h5>
 						<a href="#" class="badge badge-primary">JQuery</a> <a href="#" class="badge badge-warning">PHP</a> <a href="#" class="badge badge-success">HTML&CSS</a>
-						<a href="#" class="badge badge-primary">SQL</a>
+						<a href="#" class="badge badge-primary">SQL</a> -->
 					</div>
 				</div>

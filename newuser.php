@@ -7,10 +7,37 @@
 
 						$gigs = $gigobj->getGigs($_SESSION['userid']);
 
+
+						$orderobj = new Order;
+
+						$result = $orderobj->getOrdersForBuyer($_SESSION['userid']);
+
 						// echo "<pre>"; 
-						// print_r($gigs);
+						// print_r($result);
 						// echo "</pre>";
 						// exit;
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$selection = $_REQUEST['selection'];
+
+			if (isset($selection) && $selection == '1') {
+				$status = 'Completed';
+			}
+
+
+			if (isset($selection) && $selection == '2') {
+				$status = 'Revision Requested';
+			}
+
+			if (isset($selection) && $selection == '3') {
+				$status = 'Cancelled';
+			}
+
+
+			$orderobj->updateStatus($status, $_SESSION['orderid_status']);
+
+
+
+		}
 		
 ?>
 
@@ -101,6 +128,43 @@
 				<div class="row">
 					<div class="col-md purplebg">
 						<h6 style="text-align: center; margin-top: 1%">Activity Area</h6>
+
+						<?php 
+
+							foreach ($result as $key => $value) {
+								
+								$gigdesc = $value['order_description'];
+								$gigimg = $value['user_picture'];
+								$sellername = $value['user_username'];
+								$orderdate = date('j M Y', strtotime($value['order_date']));
+								$orderdue = date('j M Y', strtotime($value['order_deadline']));
+								$orderprice = number_format(($value['order_amount']-100), 2);
+								$_SESSION['orderid_status'] = $value['order_id'];
+
+								if ($value['order_status'] == 'Submitted') {
+									
+								
+							
+						?>
+
+						<!-- display orders that has been delivered -->
+
+							<div class="purpletext" style="min-height: 70px; margin-top: 2%; margin-bottom: 2%; border: 1px solid tomato; padding: 1%; min-width: 600px; background-color: white;">
+								<img class="rounded-circle" style="width: 40px; height: 40px" src="<?php if(isset($gigimg)){echo $gigimg;} ?>"><span style="margin-left: 1%;"><?php if(isset($sellername)){echo $sellername;} ?> | </span><span  style="margin-left: 1%;"><?php if(isset($gigdesc)){echo $gigdesc;} ?> | </span><span class="badge badge-primary" style="margin-left: 1%;">&#8358;<?php if(isset($orderprice)){echo $orderprice;} ?></span> |<span style="margin-left: 1%;"><?php if(isset($orderdue)){echo $orderdue;} ?></span>
+								<small style="font-weight: bold; margin-left: 1%;"><?php if(isset($sellername)){echo $sellername;} ?> has delivered your order.</small><br><span style="margin-left: 1%; font-weight: bold;">Mark as:</span>
+												<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+													<select style="margin-left: 1%;" name="selection">
+														<option value="">Make Selection</option>
+														<option value="1">Completed</option>
+														<option value="2">Revision Required</option>
+														<option value="3">Cancelled</option>
+													</select>
+												
+													<input style="margin-left: 2%" class="btn btn-sm join-button" type="submit" name="submit" value="Proceed">
+												</form>
+							</div>
+
+						<?php } } ?>
 					</div>
 				</div>
 			</div>

@@ -1032,11 +1032,11 @@
 
 	//write method to fetch all orders for a specific buyer
 
-	public function getOrdersForUser($buyerid){
+	public function getOrdersForBuyer($buyerid){
 
 		//write sql syntax
 
-		$sql = "SELECT gigorder.*, user.*, gig.* from gigorder LEFT JOIN user on gigorder.order_buyerid=user.userid LEFT JOIN gig on gigorder.order_gigid = gig.gig_id where order_buyerid = '$buyerid' ";
+		$sql = "SELECT gigorder.*, user.*, gig.* from gigorder LEFT JOIN user on gigorder.order_sellerid=user.userid LEFT JOIN gig on gigorder.order_gigid = gig.gig_id where order_buyerid = '$buyerid' ";
 
 
 		//check if the query runs the sql syntax/statement
@@ -1057,10 +1057,10 @@
 
 		//method to update a order as submitted in gigorder table
 
-		public function updateOrder($submit, $orderid){
+		public function updateOrder($status, $orderid){
 
 
-			$sql = "UPDATE gigorder set order_status = '$submit' where  order_id = '$orderid' ";
+			$sql = "UPDATE gigorder set order_status = '$status' where  order_id = '$orderid' ";
 		
 
 
@@ -1077,7 +1077,39 @@
 
 			}else{
 
-				echo "Error: ".$this->dbobj->dbcon->error;
+				echo "Error: ".$this->udbobj->udbcon->error;
+			}
+		}
+
+
+
+		//method to update the status of an order in gigorder table
+
+		public function updateStatus($status, $orderid){
+
+
+			$sql = "UPDATE gigorder set order_status = '$status' where  order_id = '$orderid' ";
+		
+
+
+		//execute myquery
+
+			$this->udbobj->udbcon->query($sql);
+
+			//how many rows affected//updated
+
+			if ($this->udbobj->udbcon->affected_rows == 1) {
+				//redirect to order_reponse.php page
+
+				//echo "<p class='alert alert-info'>Thank you for your response.</p>";
+
+				header("Location: http://localhost/6thprojectphp/order_response.php");
+				exit;
+				
+
+			}else{
+
+				echo "Error: ".$this->udbobj->udbcon->error;
 			}
 		}
 

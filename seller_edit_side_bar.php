@@ -49,6 +49,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 							?>
 
 								<img class="img-fluid rounded-circle" style="width: 100px; height: 100px;" src="<?php echo $_SESSION['photo']?>" >
+								<!-- <a href="uploadProfilePic.php">Upload Profile Picture</a> -->
 
 							<?php
 							}
@@ -75,12 +76,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 					</div>
 				</div>
 
-				<div class="row">
+			<!-- 	<div class="row">
 					<div class="col-md">
 						<a href="userpublicmode.php?id=<?php echo $_SESSION['userid']; ?>" class="btn purplebg form-control">View Public Mode</a>
 						<hr>
 					</div>
-				</div>
+				</div> -->
 
 				<div class="row">
 					<div class="col-md">
@@ -125,9 +126,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 				<div class="row">
 					<div class="col-md">
-						<h5>Skills</h5>
+						<!-- <h5>Skills</h5>
 						<a href="#" class="badge badge-primary">JQuery</a> <a href="#" class="badge badge-warning">PHP</a> <a href="#" class="badge badge-success">HTML&CSS</a>
-						<a href="#" class="badge badge-primary">SQL</a>
+						<a href="#" class="badge badge-primary">SQL</a> -->
 					</div>
 				</div>
 			
