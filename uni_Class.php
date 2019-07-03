@@ -299,6 +299,37 @@
 		}
 
 
+
+		public function updateSettings($fname, $lname, $number, $pwd, $new_pwd){
+
+
+			//write the query
+
+			$sql = "update users set lastname = '$lname', firstname= '$fname', emailaddress= '$email', gender = '$gender', biography = '$bio', dateofbirth='$dateofbirth', role_id='$roleid' where user_id='$userid' ";
+
+			//execute myquery
+
+			$this->udbobj->udbcon->query($sql);
+
+			//how many rows affected//updated
+
+			if ($this->udbobj->udbcon->affected_rows == 1) {
+
+				echo "<div class='alert alert-success'>Tour Record has been updated</div>";
+				
+			}else{
+
+				echo "Error: ".$this->udbobj->udbcon->error;
+			}
+
+
+		}
+
+
+
+		//function to uplaod image
+
+
 		public function uploadProfileImage(){
 
 			//check if global varaible $_FILES has a value;
