@@ -1,5 +1,5 @@
 <?php
-	
+	ob_start();	
 	include_once ('uni_Class.php');
 
 

@@ -17,8 +17,8 @@
 			    <div class="list-group" id="list-tab" role="tablist">
 			      <a class="list-group-item active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" style="">Account</a>
 			      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Security</a>
-			      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Notification</a>
-			      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Billing</a>
+			     <!--  <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Notification</a>
+			      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Billing</a> -->
 			 </div>
 			</div>
 
@@ -70,7 +70,7 @@
 		      	 		</div>
 		      	 	</div>
 
-		      	 	<div class="row">
+		      	 	<!-- <div class="row">
 		      	 		<div class="col-md-4"><h4>Account Deactivation</h4></div>
 		      	 		<form>
 		      	 		<div class="col-md">
@@ -87,15 +87,15 @@
 								    <a class="dropdown-item" href="#">I need to concentrate on studies</a>
 								    <a class="dropdown-item" href="#">Orders are overwhelming</a>
 								    <a class="dropdown-item" href="#">Negative experience with buyers</a>
-								    <!-- <a class="dropdown-item" href="#">Negative experience with sellers</a> -->
-								  </div>
+								    <a class="dropdown-item" href="#">Negative experience with sellers</a> -->
+								<!--   </div>
 								</div>
 								<button type="submit" class="btn purplebg" disabled="">Deactivate Account</button>
-						  </div>
+						  </div> -->
 
-		      	 		</div>
+		      	 		<!-- </div>
 		      	 		</form>
-		      	 	</div>
+		      	 	</div> -->
 		      	 </div>
 		      	 </div>
 		      </div>

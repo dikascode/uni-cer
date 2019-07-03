@@ -264,7 +264,7 @@
 				$_SESSION['usertype'] = $row['user_typeid'];
 				$_SESSION['buyeremail'] = $row['user_email'];
 
-				setcookie("userid",  $row['userid'], time()+ 3600,'/'); 
+				//setcookie("userid",  $row['userid'], time()+ 3600,'/'); 
 
 
 				// echo $_SESSION['username'];
@@ -823,7 +823,7 @@
 	public function getDev8(){
 
 		//write query  
-		$sql = "SELECT  gig.*, user.*, language.* from gig left join user on gig.gig_userid = user.userid left join language on gig.languageid = language.languageid /*WHERE gig.gig_serviceid = '65'*/ order by user_datereg desc";
+		 $sql = "SELECT  gig.*, user.*, language.* from gig left join user on gig.gig_userid = user.userid left join language on gig.languageid = language.languageid order by user_datereg desc";
 		$row = array();
 
 		//execute the query
@@ -871,6 +871,31 @@
 
 		//see output at displayDevgig.php
 		}
+
+
+//get service gigs
+
+		public function getServiceDev($serviceid){
+
+		//write query  
+		$sql = "SELECT  gig.*, service.*, user.*, university.* from gig left join user on gig.gig_userid = user.userid left join service on gig.gig_serviceid = service.service_id LEFT JOIN university on user.user_universityid = university.university_id WHERE gig.gig_serviceid = '$serviceid' order by user_datereg desc";
+		$row = array();
+
+		//execute the query
+
+		$result = $this->udbobj->udbcon->query($sql);
+		if ($this->udbobj->udbcon->affected_rows > 0) {
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+			
+		}else{
+
+			//echo "Error: .".$this->udbobj->udbcon->error;
+
+		}
+
+		return $row;
+	}
+
 
 
 

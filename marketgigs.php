@@ -48,19 +48,21 @@
 		</div>
 
 		<div class="row">
-			<div style="border-right: 1px solid grey" class="col-md-3" id="techlist">
+			<div class="col-md" id="techlist">
 				
 						<h5><?php if (isset($result['0']['marketplace_name'])) {
 							echo $result['0']['marketplace_name'];
 						}  ?></h5>
 
-						<h6 style="color: grey;">Find gigs by services</h6>
-						<ul>
+						<h6 style="color: grey;"><span class="badge badge-primary">Find gigs by services</span></h6>
+						<ul class="second-menu-list">
 
 							<?php foreach ($market as $key => $value) {
 						
 							?>
-						<li><a href=""><?php echo $value['service_name']; ?></a></li>
+						<li>
+							<a href="servicegigs.php?id=<?php echo $value['service_id']; ?>"><?php echo $value['service_name']; ?></a>
+						</li>
 
 					<!-- 	$value['service_id']; -->
 
@@ -69,6 +71,11 @@
 						
 						</ul>
 			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
 
 
 			<?php
@@ -82,7 +89,7 @@
 						
 					 ?>
 
-					 	<div class="col-md">
+					 	<div class="col-md-3">
 						
 						<div class="gigBox">
 							<div style="width:230px; height:150px; background-color: black;">
@@ -97,9 +104,9 @@
 						<p style="padding:5px; height: 50px;">	<a href="gig_publicview.php?gigid=<?php if(isset($value['gig_id'])){ echo $value['gig_id']; }?>&sellerid=<?php if(isset($value['gig_userid'])){echo $value['gig_userid']; } ?>"><?php if (isset($gigtitle)) {
 								 echo $gigtitle;
 							} ?></a></p>
-						<p style="margin-left:40%">	<a  href="#">For just <b class="badge badge-info">&#8358;<?php if (isset($gig_basicprice)) {
+						<p style="margin-left:40%">	For just <b class="badge badge-info">&#8358;<?php if (isset($gig_basicprice)) {
 								 echo $gig_basicprice;
-							} ?></b></a></p>
+							} ?></b></p>
 							
 						</div>
 						</div>
