@@ -22,6 +22,11 @@
 			 }
 
 
+			 $marketobj = new Gigs;
+
+			$market = $marketobj->getCategories();
+
+
 		?>
 
 
@@ -225,56 +230,22 @@
 				</div>
 
 				<div class="row">
+
+					<?php
+						foreach ($market as $key => $value) {
+						
+					 ?>
 					<div class="col-md d-flex justifyForMe">
-						<a href="#"><div class="marketbox my-textAlign box1">
+						<a href="marketgigs.php?id=<?php echo $value['marketplace_id']; ?>"><div class="marketbox my-textAlign box1">
 							<!-- <img src="images/13522.jpg" width="250" height="120"> -->
-							<p class="marketext ">Writing</p>
+							<p class="marketext "><?php echo $value['marketplace_name']; ?></p>
 						</div></a>
 					</div>
 
-					<div class="col-md d-flex justifyForMe">
-						<a href="#"><div class="marketbox my-textAlign box2">
-							<p class="marketext ">Design & Creative</p>
-						</div></a>
-					</div>
 
-					<div class="col-md d-flex justifyForMe">
-						<a href="#"><div class="marketbox my-textAlign box3">
-							<p class="marketext ">Programing & Tech</p>
-						</div></a>
-					</div>
+					<?php } ?>
 
-					<div class="col-md d-flex justifyForMe">
-						<a href="#"><div class="marketbox my-textAlign box4">
-							<p  class="marketext ">Digital Marketing</p>
-						</div></a>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md d-flex justifyForMe">
-						<a href="#"><div class="marketbox my-textAlign box5">
-							<p class="marketext ">Video & Animation</p>
-						</div></a>
-					</div>
-
-					<div class="col-md d-flex justifyForMe">
-						<a href="#"><div class="marketbox my-textAlign box6">
-							<p class="marketext ">Music & Audio</p>
-						</div></a>
-					</div>
-
-					<div class="col-md d-flex justifyForMe">
-						<a href="#"><div class="marketbox my-textAlign box7">
-							<p class="marketext">Business</p>
-						</div></a>
-					</div>
-
-					<div class="col-md d-flex justifyForMe">
-						<a href="#"><div class="marketbox my-textAlign box8">
-							<p class="marketext">Final Year Project</p>
-						</div></a>
-					</div>
+					
 				</div>
 			</div>
 		</div>

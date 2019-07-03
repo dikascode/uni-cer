@@ -1,14 +1,19 @@
 <?php
 	session_start();
 
-	if ($_SESSION['usertype'] == '1') {
-				include_once('header2.php');
-			 }elseif($_SESSION['usertype'] == '2'){
-
-			 	include_once('buyer_header.php');
+	
+			if (!isset($_SESSION['userid'])) {	
+		
+	
+			 	include_once ('header1.php');
 			 }else{
-			include_once('header1.php');
-			}
+				if ($_SESSION['usertype'] == '1') {
+						include_once('header2.php');
+					 }else{
+
+					 	include_once('buyer_header.php');
+					 }
+			 }
 	//instatiate class
 
 	$gigobj = new Gigs;
@@ -81,6 +86,7 @@
 
 			</div>
 		
+		<!-- see displayDevGig.php -->
 
 		
 	<!-- <script type="text/javascript">

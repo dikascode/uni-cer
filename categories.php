@@ -18,14 +18,15 @@
 	</div>
 
 	<div class="row">
-		<?php foreach ($category as $key => $value) {
+		<?php foreach ($category as $key => $value) {$gigimage = $value['gig_headerpic'];
+						$gigtitle = $value['gig_title'];
+						$gig_basicprice = $value['basic_price'];
 			
 		 ?>
 		<div class="col-md">
-						$gigimage = $value['gig_headerpic'];
-						$gigtitle = $value['gig_title'];
-						$gig_basicprice = $value['basic_price'];
-					 ?>
+			
+						
+	
 
 					 	<div class="col-md d-flex justifyForMe">
 						<div class="gigBox">

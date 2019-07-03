@@ -34,6 +34,15 @@
 	}
 
 
+	$marketobj = new Gigs;
+
+	$market = $marketobj->getCategories();
+
+	// echo "<pre>";
+	// print_r($market);
+	// echo "</pre>";
+
+
 ?>
 
 <!-- header1 with search bar for my unilancer project
@@ -136,14 +145,16 @@
 
 			<div class="col-md">
 				<ul class="second-menu-list">
-						<li><a href="#">Writing</a></li>
-						<li><a href="#">Design</a></li>
-						<li><a href="#">Programing & Tech</a></li>
-						<li><a href="#">Digital Marketing</a></li>
-						<li><a href="#">Video & Animation</a></li>
-						<li><a href="#">Music & Audio</a></li>
-						<li><a href="#">Business</a></li>
-						<li><a href="#">Final Year Research</a></li>
+
+					<?php foreach ($market as $key => $value) {
+						
+					?>
+						<li><a href="marketgigs.php?id=<?php echo $value['marketplace_id']; ?>"><?php echo $value['marketplace_name']; ?></a></li>
+
+					<!-- 	$value['marketplace_id']; -->
+
+					<?php }  ?>
+						
 						
 				</ul>
 			</div>

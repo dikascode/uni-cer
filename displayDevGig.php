@@ -27,7 +27,7 @@
 						
 						<div class="gigBox">
 							<div style="width:230px; height:150px; background-color: black;">
-							<img class="img-fluid" src="<?php if (isset($gigimage)) {
+							<img class="img-fluid" style="height: 150px; width: 230px; " src="<?php if (isset($gigimage)) {
 								 echo $gigimage;
 							} ?>">
 							</div>
