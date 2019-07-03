@@ -91,8 +91,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 						<p><i class="fas fa-map-marker-alt purpletext"></i><span> From</span><span style="float: right"><?php if (isset($gigs[0]['abbreviation'])) {
 									echo $gigs[0]['abbreviation'];
 								} ?></span></p>
-						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since <?php echo $_SESSION['date'];?></span></p>
-						<p><i class="fas fa-paper-plane purpletext"></i><span> Last Delivery</span><span style="float: right">1 day</span></p>
+						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since <?php if (isset($output['user_datereg'])) {
+							echo date('j M Y', strtotime($output['user_datereg']));
+						} ?></span></p>
+						<!-- <p><i class="fas fa-paper-plane purpletext"></i><span> Last Delivery</span><span style="float: right">1 day</span></p> -->
 						<hr>
 
 					</div>

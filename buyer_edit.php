@@ -8,6 +8,10 @@
 
 						$result = $orderobj->getOrdersForBuyer($_SESSION['userid']);
 
+						 $infobj = new User;
+
+						 $output = $infobj->getSigDesc($_SESSION['userid']);
+
 						// echo "<pre>"; 
 						// print_r($result);
 						// echo "</pre>";
@@ -49,10 +53,10 @@
 
 			<div class="col-md" id="rightPane">
 
-				<h4 style="margin-top: 5%;">Hello <?php echo $_SESSION['username'] ?>, what would you love to do today?</h4>
-				<h5 style="color: grey">You can start by searching for the most talented Nigerian students.</h5>
+				<h4 style="margin-top: 5%;">Hello <?php echo $_SESSION['username'] ?>, welcome back. We can't wait to help you complete your next project.</h4>
+				<!-- <h5 style="color: grey">You can start by searching for the most talented Nigerian students.</h5> -->
 
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-md">
 						<form style="margin-top: 2%;" class="form-inline" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);  ?>">
 						    <input autocomplete="off" id="search" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -61,7 +65,8 @@
 
 						<div id="displaySearch" style="border: width: 220px; height: 50px; position: absolute; top:50px; z-index: 10;"></div>
 					</div>
-				</div>
+				</div> -->
+
 
 				<hr>
 

@@ -530,6 +530,26 @@
 
 
 
+			//get desc, signature and datereg table for a particular
+
+			public function getSigDesc($userid){
+
+				$sql = "SELECT user_desc, user_signature, user_datereg FROM `user` WHERE userid = '$userid'";
+
+			if ($result = $this->udbobj->udbcon->query($sql)) {
+				$row = $result->fetch_assoc();
+			}else{
+
+				echo "Error: ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+
+
+			}
+
+
+
 		
 	}
 
