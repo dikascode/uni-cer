@@ -13,7 +13,7 @@
 					 $output = $infobj->getSigDesc($_SESSION['userid']);
 
 					 // echo "<pre>";
-					 // print_r($output['user_datereg']);
+					 // print_r($output);
 					 // echo "</pre>";
 					 // exit;
 

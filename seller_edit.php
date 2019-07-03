@@ -7,6 +7,11 @@
 
 						$gigs = $gigobj->getGigs($_GET['id']);
 
+
+						 $infobj = new User;
+
+					 $output = $infobj->getSigDesc($_SESSION['userid']);
+
 						// echo "<pre>"; 
 						// print_r($gigs);
 						// echo "</pre>";

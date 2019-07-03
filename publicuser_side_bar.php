@@ -43,7 +43,7 @@
 						<p><?php if (isset($signature)) {
 									echo $signature;
 								} ?></p>
-						<input type="button" data-toggle="modal" data-target="#messageModal" class="btn btn-md purplebg" value="Message Me">
+						<!-- <a class="btn purplebg" href="quickmessage.php?sellerid=<?php echo $sellerid; ?>&userid=<?php echo $_SESSION['userid']; ?>&gigid=<?php echo $gigid; ?>">Message Me</a> -->
 						<hr>
 					</div>
 				</div>
@@ -55,7 +55,7 @@
 									echo $uniabbr;
 								} ?></span></p>
 						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since <?php echo $datereg; ?></span></p>
-						<p><i class="fas fa-paper-plane purpletext"></i><span> Last Delivery</span><span style="float: right">1 day</span></p>
+						<!-- <p><i class="fas fa-paper-plane purpletext"></i><span> Last Delivery</span><span style="float: right">1 day</span></p> -->
 						<hr>
 
 					</div>
@@ -96,17 +96,17 @@
 					</div>
 				</div> -->
 
-				<div class="row">
+			<!-- 	<div class="row">
 					<div class="col-md">
 						<h5>Skills</h5>
 						<a href="#" class="badge badge-primary">JQuery</a> <a href="#" class="badge badge-warning">PHP</a> <a href="#" class="badge badge-success">HTML&CSS</a>
 						<a href="#" class="badge badge-primary">SQL</a>
 					</div>
-				</div>
+				</div> -->
 
 
 				<!-- Modal -->
-					<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					<!-- <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 					  <div  class="modal-dialog modal-dialog-centered" role="document">
 					    <div class="modal-content">
 					      <div class="modal-header">
@@ -146,5 +146,6 @@
 					      </div>
 					    </div>
 					  </div>
-					</div>
+					</div> -->
 
+ 

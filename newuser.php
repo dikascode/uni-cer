@@ -7,6 +7,15 @@
 					 	header("Location: http://localhost/6thprojectphp/signin.php");
 					 }
 
+					  $infobj = new User;
+
+					 $output = $infobj->getSigDesc($_SESSION['userid']);
+
+					 //  echo "<pre>";
+					 // print_r($output);
+					 // echo "</pre>";
+					 // exit;
+
 	
 						$gigobj = new Gigs;
 

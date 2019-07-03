@@ -66,12 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 						<p>
 							
-							<textarea style="height: 120px;" name="edit_sign" class="form-control">
-								<?php if (isset($_SESSION['signature'])) {
-								echo $_SESSION['signature'];
-								} ?>
-							
-							</textarea>
+							<textarea style="height: 120px;" name="edit_sign" class="form-control"><?php if (isset($_SESSION['signature'])) {echo $_SESSION['signature'];} ?></textarea>
 
 						</p>
 						<hr>
@@ -88,9 +83,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 				<div class="row">
 					<div class="col-md">
 						<p><a href="uploadProfilePic.php"><i class="fas fa-upload purpletext"></i> Upload Profile Picture</a></p>
-						<p><i class="fas fa-map-marker-alt purpletext"></i><span> From</span><span style="float: right"><?php if (isset($gigs[0]['abbreviation'])) {
-									echo $gigs[0]['abbreviation'];
-								} ?></span></p>
+						<p><i class="fas fa-map-marker-alt purpletext"></i><span> From</span><span style="float: right"><?php if (isset($output['abbreviation'])) {
+							echo $output['abbreviation'];
+						} ?></span></p>
 						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since <?php if (isset($output['user_datereg'])) {
 							echo date('j M Y', strtotime($output['user_datereg']));
 						} ?></span></p>
@@ -110,11 +105,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 							echo $desc;
 						} ?> -->
 						<p>
-							<textarea name="edit_desc" class="form-control">
-								<?php if (isset($_SESSION['user_desc'])) {
-							echo $_SESSION['user_desc'];
-							} ?>
-							</textarea>
+							<textarea name="edit_desc" class="form-control"><?php if (isset($_SESSION['user_desc'])) {echo $_SESSION['user_desc'];} ?></textarea>
 							<input type="submit" name="submit" class="btn join-button" value="Update">
 								
 						</p>

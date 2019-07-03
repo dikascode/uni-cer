@@ -22,9 +22,16 @@
 			 }
 
 
-			 $marketobj = new Gigs;
+			 $gigobj = new Gigs;
 
-			$market = $marketobj->getCategories();
+			$market = $gigobj->getCategories();
+
+			$gig = $gigobj->getAllGigs();
+
+			// echo "<pre>";
+			// print_r($gig);
+			// echo "</pre>";
+			// exit;
 
 
 		?>
@@ -219,12 +226,67 @@
 			</div>
 		</div>
 
+
+		<!-- Latest seller section -->
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div style="padding: 5px;" class="col-md d-flex justifyForMe marginTop purplebg marginbott">
+						<h3>Professional Students Ready to be Hired</h3>
+					</div>
+				</div>
+
+				<div class="row">
+
+					<?php 
+
+						foreach ($gig as $key => $value) {
+							$gigimage = $value['gig_headerpic'];
+							$gigtitle = $value['gig_title'];
+							$gig_basicprice = $value['basic_price'];
+							$username = $value['user_username'];
+							$serviceid = $value['gig_serviceid'];
+						
+					?>
+
+						<div class="col-md-3 d-flex justifyForMe">
+						
+						<div class="gigBox">
+							<div style="width:230px; height:150px; background-color: black;">
+							<img class="img-fluid" style="height: 150px; width: 230px; " src="<?php if (isset($gigimage)) {
+								 echo $gigimage;
+							} ?>">
+							</div>
+						<p style="padding:5px; height: 20px;">	<a href="userpublicmode.php?id=<?php echo $value['gig_userid'];  ?>"><?php if (isset($username)) {
+								 echo $username;
+							} ?></a><span class="badge badge-primary" style="float: right;"><?php echo $value['abbreviation']; ?></span><span style="clear: right;"></span></p>
+
+						<p style="padding:5px; height: 50px;">	<a href="gig_publicview.php?gigid=<?php if(isset($value['gig_id'])){ echo $value['gig_id']; }?>&sellerid=<?php if(isset($value['gig_userid'])){echo $value['gig_userid']; } ?>"><?php if (isset($gigtitle)) {
+								 echo $gigtitle;
+							} ?></a></p>
+						<p style="margin-left:40%">	<a  href="#">For just <b class="badge badge-info">&#8358;<?php if (isset($gig_basicprice)) {
+								 echo $gig_basicprice;
+							} ?></b></a></p>
+							
+						</div>
+						</div>
+
+					<?php
+
+						}
+					?>
+					
+				</div>
+			</div>
+		</div>
+
 		<!-- Marketplace section -->
 
 		<div class="row d-flex" style="background-color: #FAF7EB; padding: 5px;">
 			<div class="col-md">
 				<div class="row">
-					<div class="col-md d-flex justifyForMe" style="margin-bottom: 5px;">
+					<div class="col-md" style="margin-bottom: 5px;">
 						<h3 class="my-textAlign" style="padding: 1%; border-bottom: #4B0082 solid 1px;  border-top: #4B0082 solid 1px; color: #4B0082">Explore The Marketplace</h3>
 					</div>
 				</div>

@@ -534,7 +534,7 @@
 
 			public function getSigDesc($userid){
 
-				$sql = "SELECT user_desc, user_signature, user_datereg FROM `user` WHERE userid = '$userid'";
+				$sql = "SELECT user_desc, user_signature, user_datereg, abbreviation from user left join university on user.user_universityid = university.university_id WHERE userid = '$userid'";
 
 			if ($result = $this->udbobj->udbcon->query($sql)) {
 				$row = $result->fetch_assoc();
@@ -1081,12 +1081,39 @@
 
 		public function getMarketGigs($marketid){
 
-
-
 			//write query
 
 		$sql = "SELECT  gig.*, user.*, marketplace.*, university.* from gig
 			 		left join user on gig.gig_userid = user.userid LEFT JOIN marketplace on gig.gig_marketid = marketplace.marketplace_id LEFT JOIN university on user.user_universityid = university.university_id where gig.gig_marketid = '$marketid' order by user_datereg desc";
+
+
+		//execute the query
+
+		if ($result = $this->udbobj->udbcon->query($sql)) {
+			$row = $result->fetch_all(MYSQLI_ASSOC);;
+		}else{
+
+			echo "Error: .".$this->udbobj->udbcon->error;
+
+		}
+
+		return $row;
+
+		//see output at gig_publicview.php
+		}
+
+
+
+
+
+		//method to get all gigs 
+
+		public function getAllGigs(){
+
+			//write query
+
+		$sql = "SELECT  gig.*, user.*, marketplace.*, university.* from gig
+			 		left join user on gig.gig_userid = user.userid LEFT JOIN marketplace on gig.gig_marketid = marketplace.marketplace_id LEFT JOIN university on user.user_universityid = university.university_id order by user_datereg desc limit 8";
 
 
 		//execute the query
