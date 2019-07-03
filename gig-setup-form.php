@@ -6,10 +6,10 @@
 			session_start();
 			if ($_SESSION['usertype'] == '1') {
 				include_once('header2.php');
-			 }else{
+			}else{
 
-			 	include_once('buyer_header.php');
-			 }
+			header("Location: http://localhost/6thprojectphp/signin.php");
+			}
 
 
 			$reg_err = array();
@@ -42,15 +42,28 @@
 		$p_plandesc = User::dataSanitize($_REQUEST['p_plandesc']);
 		$s_plandesc = User::dataSanitize($_REQUEST['s_plandesc']);
 		$b_plandesc = User::dataSanitize($_REQUEST['b_plandesc']);
-		$p_CD = User::dataSanitize($_REQUEST['p_CD']);
-		$s_CD = User::dataSanitize($_REQUEST['s_CD']);
-		$b_CD = User::dataSanitize($_REQUEST['b_CD']);
-		$p_RD = User::dataSanitize($_REQUEST['p_RD']); 
-		$s_RD = User::dataSanitize($_REQUEST['s_RD']); 
-		$b_RD = User::dataSanitize($_REQUEST['b_RD']); 
-		$p_SC = User::dataSanitize($_REQUEST['p_SC']); 
-		$s_SC = User::dataSanitize($_REQUEST['s_SC']); 
-		$b_SC = User::dataSanitize($_REQUEST['b_SC']); 
+		if(isset($_REQUEST['p_CD'])){$p_CD = User::dataSanitize($_REQUEST['p_CD']);}
+		if(isset($_REQUEST['s_CD'])){$s_CD = User::dataSanitize($_REQUEST['s_CD']);}
+		if(isset($_REQUEST['b_CD'])){$b_CD = User::dataSanitize($_REQUEST['b_CD']);}
+		if(isset($_REQUEST['p_RD'])) {
+			$p_RD = User::dataSanitize($_REQUEST['p_RD']); 
+		}
+		if (isset($_REQUEST['s_RD'])) {
+			$s_RD = User::dataSanitize($_REQUEST['s_RD']);
+		} 
+		if (isset($_REQUEST['b_RD'])) {
+			$b_RD = User::dataSanitize($_REQUEST['b_RD']); 
+		}
+		if (isset($_REQUEST['p_SC'])) {
+			$p_SC = User::dataSanitize($_REQUEST['p_SC']); 
+		}
+		if (isset($_REQUEST['s_SC'])) {
+			$s_SC = User::dataSanitize($_REQUEST['s_SC']);
+		}
+		 
+		if (isset($_REQUEST['b_SC'])) {
+			$b_SC = User::dataSanitize($_REQUEST['b_SC']); 
+		}
 		$p_pages = User::dataSanitize($_REQUEST['p_pages']); 
 		$s_pages = User::dataSanitize($_REQUEST['s_pages']); 
 		$b_pages = User::dataSanitize($_REQUEST['b_pages']); 
@@ -65,7 +78,9 @@
 		$basic_price = User::dataSanitize($_REQUEST['basic_price']);
 		$gigdesc = User::dataSanitize($_REQUEST['gigdesc']);
 		$requirement = User::dataSanitize($_REQUEST['requirement']);
-		$gigimage = User::dataSanitize($_REQUEST['gigimage']);
+		if (isset($_REQUEST['gigimage'])) {
+			$gigimage = User::dataSanitize($_REQUEST['gigimage']);
+		}
 
 
 
@@ -337,9 +352,7 @@
 										} ?></textarea><span id="err_standard1"><?php if (isset($reg_err['s_plandesc'])){echo $reg_err['s_plandesc'];}?></span></td>
 
 										<td><textarea id="basic_offer" class="form-control marginTop" placeholder="Describe what you are offering in your basic plan" name="b_plandesc"><?php if (isset($_POST['b_plandesc'])) {
-												echo $_POST['b_plandesc'];
-										} ?>
-										</textarea><span id="err_basic1"><?php if (isset($reg_err['b_plandesc'])){echo $reg_err['b_plandesc'];}?></span></td>
+												echo $_POST['b_plandesc'];} ?></textarea><span id="err_basic1"><?php if (isset($reg_err['b_plandesc'])){echo $reg_err['b_plandesc'];}?></span></td>
 									</tr>
 
 									<tr>

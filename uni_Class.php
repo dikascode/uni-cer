@@ -475,7 +475,47 @@
 			}elseif ($this->udbobj->udbcon->affected_rows == 0) {
 
 				$msg ="<p class='alert alert-danger'>Profile Description and Signature not updated</p>";
+
 				header("Location: http://localhost/6thprojectphp/newuser.php?"."msg=".$msg);
+
+			}else{
+
+				echo "Error: ".$this->udbobj->udbcon->error;
+			}
+
+			return $msg;
+
+			//check editdesc
+
+			}
+
+
+
+
+
+			public function editBuyerDesc($userid, $text, $signature){
+
+				//write query
+
+				$sql = "UPDATE user set userid = '$userid', user_desc = '$text', user_signature = '$signature' where userid='$userid' ";
+
+				//execute myquery
+
+				$this->udbobj->udbcon->query($sql);
+
+				//how many rows affected//updated
+
+			if ($this->udbobj->udbcon->affected_rows == 1) {
+				
+				$msg = "<p class='alert alert-success'>Profile Description and Signature updated successfully</p>";
+
+				header("Location: http://localhost/6thprojectphp/buyerpage.php?"."msg=".$msg);
+
+			}elseif ($this->udbobj->udbcon->affected_rows == 0) {
+
+				$msg ="<p class='alert alert-danger'>Profile Description and Signature not updated</p>";
+				
+				header("Location: http://localhost/6thprojectphp/buyerpage.php?"."msg=".$msg);
 
 			}else{
 

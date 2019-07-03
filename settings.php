@@ -15,6 +15,33 @@
 
 
 
+		if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+		$fname = dataSanitize($_REQUEST['firstname']);
+
+		$lname = dataSanitize($_REQUEST['lastname']);
+
+		$lname = dataSanitize($_REQUEST['lastname']);
+		
+
+		//check if there is no validation error
+
+		if ($regerror== 0) {
+
+			//create object of user class and reference register() method
+
+			$regobj = new User;
+
+			$regobj->updateUser($lname, $fname, $email, $gender, $biography, $dateofbirth, $role, $userid);
+		}
+
+		
+
+
+	}
+
+
+
 
 		$userobj = class User;
 		$userobj->updateSettings();

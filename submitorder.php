@@ -15,7 +15,9 @@
 
 		if (empty($message)) {
 			
-			$err_msg = "<span class='text-danger'>Message field is required</span>";
+			if (isset($err_msg)) {
+				$err_msg = "<span class='text-danger'>Message field is required</span>";
+			}
 		}
 
 

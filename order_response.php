@@ -1,10 +1,10 @@
 <?php
 	session_start();
-	if ($_SESSION['usertype'] == '1') {
+	if ($_SESSION['usertype'] == '2') {
 		include_once('header2.php');
 	 }else{
 
-	 	include_once('buyer_header.php');
+	 	header("Location: http://localhost/6thprojectphp/signin.php");
 	 }
 
 	

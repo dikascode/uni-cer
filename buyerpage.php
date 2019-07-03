@@ -1,6 +1,12 @@
 <?php
 	session_start();
-		include_once ('buyer_header.php');
+			if ($_SESSION['usertype'] == '2') {
+						include_once('buyer_header.php');
+					 }else{
+
+					 	header("Location: http://localhost/6thprojectphp/signin.php");
+					 }
+
 
 
 
@@ -43,13 +49,15 @@
 
 			<div class="row">
 					<div class="col-md">
-						<h5 style="float: left;">Description</h5> <a class="purpletext" href="#" style="float: right;">Edit Description <i class="fas fa-pen purpletext"></i></a>
+						<h5 style="float: left;">Description</h5> <a class="purpletext" href="buyer_edit.php?id=<?php echo $_SESSION['userid'] ?>" style="float: right;">Edit Description <i class="fas fa-pen purpletext"></i></a>
 						<div style="clear: both;"></div>
 						
 						 <hr>
 						
 					</div>
 			</div>
+
+			
 
 				
 	<!-- right pane -->

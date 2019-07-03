@@ -7,10 +7,11 @@
 			session_start();
 			if ($_SESSION['usertype'] == '1') {
 				include_once('header2.php');
-			 }else{
+			}else{
 
-			 	include_once('buyer_header.php');
-			 }
+			header("Location: http://localhost/6thprojectphp/signin.php");
+			}
+
 
 
 			//creating the object of the class that recalls all gigs from database
