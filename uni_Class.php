@@ -300,12 +300,12 @@
 
 
 
-		public function updateSettings($fname, $lname, $number, $pwd, $new_pwd){
+		public function updateSettings($userid,$fname, $lname, $number, $pwd){
 
-
+				$pwd = md5($pwd);
 			//write the query
 
-			$sql = "update users set lastname = '$lname', firstname= '$fname', emailaddress= '$email', gender = '$gender', biography = '$bio', dateofbirth='$dateofbirth', role_id='$roleid' where user_id='$userid' ";
+			$sql = "update user set user_fname = '$fname', user_lname= '$lname', user_phone= '$number', user_password = '$pwd' where userid='$userid' ";
 
 			//execute myquery
 
@@ -315,7 +315,7 @@
 
 			if ($this->udbobj->udbcon->affected_rows == 1) {
 
-				echo "<div class='alert alert-success'>Tour Record has been updated</div>";
+				echo "<div class='alert alert-success'>Your Record has been updated</div>";
 				
 			}else{
 

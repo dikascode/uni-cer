@@ -13,6 +13,14 @@
 				include_once('header1.php');
 		}
 
+
+
+
+		$userobj = class User;
+		$userobj->updateSettings();
+
+		$password = md5($password);
+
 		 ?>
 
 		<!-- Settings section -->
@@ -23,10 +31,10 @@
 		      	 	<div class="col-md">
 		      	 		<div class="row purplebg marginbott">
 							<div class="col-md">
-								<h3 class="">Change Detials</h3>
+								<h3 class="">Change Details</h3>
 							</div>
 					</div>
-		      	 		<form>
+		      	 		<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);  ?>">
 						  <div class="form-group">
 						    <label >First Name</label>
 						    <input type="text" class="form-control"  placeholder="First Name">
