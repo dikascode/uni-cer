@@ -969,7 +969,7 @@
 		public function getServiceDev($serviceid){
 
 		//write query  
-		$sql = "SELECT  gig.*, service.*, user.*, university.* from gig left join user on gig.gig_userid = user.userid left join service on gig.gig_serviceid = service.service_id LEFT JOIN university on user.user_universityid = university.university_id WHERE gig.gig_serviceid = '$serviceid' order by user_datereg desc";
+		$sql = "SELECT  gig.*, service.*, user.*, university.* from gig left join user on gig.gig_userid = user.userid left join service on gig.gig_serviceid = service.service_id LEFT JOIN university on user.user_universityid = university.university_id WHERE gig.gig_serviceid = '$serviceid' order by gigdate desc";
 		$row = array();
 
 		//execute the query
@@ -1084,7 +1084,7 @@
 			//write query
 
 		$sql = "SELECT  gig.*, user.*, marketplace.*, university.* from gig
-			 		left join user on gig.gig_userid = user.userid LEFT JOIN marketplace on gig.gig_marketid = marketplace.marketplace_id LEFT JOIN university on user.user_universityid = university.university_id where gig.gig_marketid = '$marketid' order by user_datereg desc";
+			 		left join user on gig.gig_userid = user.userid LEFT JOIN marketplace on gig.gig_marketid = marketplace.marketplace_id LEFT JOIN university on user.user_universityid = university.university_id where gig.gig_marketid = '$marketid' order by gigdate desc";
 
 
 		//execute the query
@@ -1113,7 +1113,7 @@
 			//write query
 
 		$sql = "SELECT  gig.*, user.*, marketplace.*, university.* from gig
-			 		left join user on gig.gig_userid = user.userid LEFT JOIN marketplace on gig.gig_marketid = marketplace.marketplace_id LEFT JOIN university on user.user_universityid = university.university_id order by user_datereg desc limit 8";
+			 		left join user on gig.gig_userid = user.userid LEFT JOIN marketplace on gig.gig_marketid = marketplace.marketplace_id LEFT JOIN university on user.user_universityid = university.university_id order by gigdate desc limit 8";
 
 
 		//execute the query

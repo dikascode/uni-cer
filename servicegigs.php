@@ -33,6 +33,9 @@
 
 		<div class="row">
 			<div class="col-md">
+				<?php if(count($gigs)== 0) {
+					echo "<p class='text-danger'>Oops, we are so sorry, there is no registered gig in this category, yet.</p>";
+				}else{ ?>
 				<div class="row">
 					<div class="col-md">
 						<h1><?php if (isset($gigs[0]['service_name'])) {
@@ -150,6 +153,7 @@
 		<!-- Footer section-->
 
 		<?php
+	}
 		include 'footer.php';
 		?>
 

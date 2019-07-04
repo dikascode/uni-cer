@@ -20,8 +20,9 @@
 	//flat charge from unilancer
 
 	$serviceFee = 100;
-
-	// var_dump($_GET['gigplan']);
+	// echo "<pre>";
+	// print_r($result);
+	// echo "<pre>";
 	// exit;
 
 ?>
@@ -46,6 +47,8 @@
 						<p ><span class="myBold">Title:</span> <?php if (isset($result['gig_title'])) {
 							echo $result['gig_title'];
 						} ?></p>
+						<p><span class="myBold">Seller: </span><?php if (isset($result['user_username'])) {
+							echo $result['user_username']; } ?></p>
 
 						<p><span class="myBold">Plan Description:</span> 
 
@@ -73,7 +76,7 @@
 								$ordertime = $result['basic_delivery'];
 								echo $ordertime;
 						}  ?> Days</p>
-						<p><span class="myBold">Price:</span> <span class="badge badge-primary">&#8358;<?php 
+						<p><span class="myBold">Price:</span> <span class="badge badge-info">&#8358;<?php 
 							if ($gigplan == $result['premium_title']) {
 								$price = $result['premium_price'];
 								echo number_format($price,2);
@@ -100,15 +103,34 @@
 
 						$orderprice = $orderprice * 100; //convert naira to kobo
 
-						$buyer_email = $_SESSION['email'];
-						// $buyer_email = $_SESSION['buyeremail'];
-						$buyerid = $_SESSION['userid'];
+						if (isset($_SESSION['email'])) {
+							$buyer_email = $_SESSION['email'];
+						}
+
+						if (is_string($_SESSION['buyeremail'])) {
+							$buyer_email = $_SESSION['buyeremail'];
+						}
+						
+						if (isset($_SESSION['userid'])) {
+							$buyerid = $_SESSION['userid'];
+						}
+						
 						//  var_dump($buyerid);
 						// exit;
 						
 					?>
 					<div class="col-md-5"></div>
-					<div class="col-md-7"><input style="margin-bottom: 5%; margin-top: 5%;" class="btn btn-md join-button" type="button" value="Order" name="submit" onclick="payWithPaystack(<?php echo $orderprice; ?>, <?php echo $gigid; ?>)"></div>
+					<div class="col-md-7">
+						<?php if ($sellerid == $_SESSION['userid']) {	
+						 ?>
+						<input style="display: none; margin-bottom: 5%; margin-top: 5%;" class="btn btn-md join-button" type="button" value="Order" name="submit" onclick="payWithPaystack(<?php echo $orderprice; ?>, <?php echo $gigid; ?>)">
+
+						<?php }else{ ?>
+
+							<input style="margin-bottom: 5%; margin-top: 5%;" class="btn btn-md join-button" type="button" value="Order" name="submit" onclick="payWithPaystack(<?php echo $orderprice; ?>, <?php echo $gigid; ?>)">
+
+						<?php } ?>
+					</div>
 
 				</div>
 				

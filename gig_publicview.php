@@ -76,7 +76,7 @@
 													echo strtolower( $result['user_username']);
 												}  ?></small>
 													<!-- //condition for seller level here -->
-												<small><?php if (isset($_SESSION['total_order']) && $_SESSION['total_order'] > 20) {
+												<!-- <small><?php if (isset($_SESSION['total_order']) && $_SESSION['total_order'] > 20) {
 													echo "Level 1 seller";
 												}elseif (isset($_SESSION['total_order']) && $_SESSION['total_order'] > 50) {
 													echo "Level 1 seller";
@@ -86,7 +86,7 @@
 													echo $_SESSION['total_order'];
 												} ?>) orders</a></small> | <span class="badge badge-primary"><?php if (isset($_SESSION['active_total'])) {
 													echo $_SESSION['active_total'];
-												} ?> Orders in Queue</span></div>
+												} ?> Orders in Queue</span> --></div>
 						<!-- <div class="col-md-2">
 						<ul class="gig-public"><li><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></li>
 							
@@ -630,8 +630,16 @@
 
 						<div class="row">
 							<div class="col-md my-textAlign">
-								<a href="quickmessage.php?sellerid=<?php echo $sellerid; ?>&userid=<?php echo $_SESSION['userid']; ?>&gigid=<?php echo $gigid; ?>" class="btn btn-md purplebg">Message Me</a>
+								<?php if ($sellerid == $_SESSION['userid']) {
+								 ?>
+								<a hidden href="quickmessage.php?sellerid=<?php echo $sellerid; ?>&userid=<?php echo $_SESSION['userid']; ?>&gigid=<?php echo $gigid; ?>" class="btn btn-md purplebg">Message Me</a>
 								<hr>
+								<?php }else{ ?>
+
+									<a href="quickmessage.php?sellerid=<?php echo $sellerid; ?>&userid=<?php echo $_SESSION['userid']; ?>&gigid=<?php echo $gigid; ?>" class="btn btn-md purplebg">Message Me</a>
+								<hr>
+
+								<?php }?>
 							</div>
 						</div>
 
@@ -658,7 +666,7 @@
 							
 								</p>
 								<!-- link to show the rest of the text -->
-								<a href="#">See More</a>
+								<!-- <a href="#">See More</a> -->
 
 								
 								 <hr>

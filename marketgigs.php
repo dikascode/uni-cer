@@ -33,6 +33,10 @@
 		<!-- market aith its sub services section  -->
 		<div class="row">
 			<div class="col-md">
+				<?php if(count($result)== 0) {
+					echo "<p class='text-danger'>Oops, we are so sorry, there is no registered gig in this category, yet.</p>";
+				}else{ ?>
+
 				<h1><?php if (isset($result[0]['marketplace_name'])) {
 							echo $result[0]['marketplace_name'];
 						}  ?>
@@ -140,6 +144,7 @@
 
 	<!-- footer section -->
 	<?php
+	}
 		include 'footer.php';
 	?>
 	

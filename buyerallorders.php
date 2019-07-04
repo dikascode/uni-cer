@@ -149,7 +149,7 @@
 				    					
 				    				</tr>
 
-				    				<?php } $_SESSION['all_total'] = $num; ?>
+				    				<?php }  ?>
 
 				    				
 				    				

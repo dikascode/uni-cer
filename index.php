@@ -134,7 +134,7 @@
 						<div class="row ">
 							<div class="col-md my-textAlign">
 								<h5>Find the Best Unilancer</h5>
-								<p>Pick from an array of the services you can find on our site that best suits your need</p>
+								<p>You can only find the best here. This means you are in a pool of high quality. Just take a deep breath and choose.</p>
 							</div>
 						</div>
 
@@ -151,7 +151,7 @@
 						<div class="row">
 							<div class="col-md my-textAlign">
 								<h5>Collaborate Easily</h5>
-								<p>Pick from an array of the services you can find on our site that best suits your need</p>
+								<p>Bring on any IT related project you have got and enjoy a professional relationship with our sellers.</p>
 							</div>
 						</div>
 
@@ -170,7 +170,7 @@
 						<div class="row">
 							<div class="col-md my-textAlign">
 								<h5>Secured Payment</h5>
-								<p>Pick from an array of the services you can find on our site that best suits your need</p>
+								<p>Our platform has a secured payment intergration that's got your back. You need not worry about your wallet's safety.</p>
 							</div>
 						</div>
 
@@ -217,12 +217,8 @@
 
 			</div>
 
-			<div class="col-md embed-responsive embed-responsive-16by9">
-				<video class="embed-responsive-item" style="margin-left: 5%"  controls>
-				 <!--  <source src="../videos/acrimony.mp4" type="video/mp4"> -->
-				 <!--  <source src="movie.ogg" type="video/ogg"> -->
-				Your browser does not support the video tag.
-				</video>
+			<div class="col-md" style="margin-left: 2px; background-image: url('images/business.jpg'); background-size: cover;">
+				<!-- <img class="img-responsive" src="images/business.jpg"> -->
 			</div>
 		</div>
 
