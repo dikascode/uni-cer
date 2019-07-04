@@ -120,8 +120,8 @@
 					  </button> -->
 					  <div class="dropdown-menu">
 					    <a class="dropdown-item" href="newuser.php">My Profile</a>
-					    <a class="dropdown-item" href="settings.php">Settings</a>
-					    <a class="dropdown-item purpletext" href="#">Refer & get N5000</a>
+					    <!-- <a class="dropdown-item" href="#">Settings</a> -->
+					    <!-- <a class="dropdown-item purpletext" href="#">Refer & get N5000</a> -->
 					    <div class="dropdown-divider"></div>
 					    <a class="dropdown-item" href="logout.php">Logout</a>
 					  </div>

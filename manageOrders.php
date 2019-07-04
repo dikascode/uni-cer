@@ -21,9 +21,9 @@
 
 
 
-			// echo "<pre>";
-			// print_r($result);
-			// echo "</pre>";
+			echo "<pre>";
+			print_r($result);
+			echo "</pre>";
 
 		?>
 
@@ -43,13 +43,13 @@
 								echo $_SESSION['active_total'];
 							} ?></span></a></li>
 
-							<li><a class="" data-toggle="collapse" href="#collapseActive" role="button" aria-expanded="false" aria-controls="collapseActive">Completed <span class="badge badge-success"></span></a></li>
+							<li><a class="" href="allorders.php?id=<?php echo $_SESSION['userid']; ?>" >All <span class="badge badge-success"></span></a></li>
 
-							<li><a class="" data-toggle="collapse" href="#collapseCompleted" role="button" aria-expanded="false" aria-controls="collapseCompleted">Late <span class="badge badge-warning"></span></a></li>
+							<!-- <li><a class="" data-toggle="collapse" href="#collapseCompleted" role="button" aria-expanded="false" aria-controls="collapseCompleted">Late <span class="badge badge-warning"></span></a></li>
 
 							<li><a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Pending Approval <span class="badge purplebg"></span></a></li>
 
-							<li><a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Cancelled <span class="badge badge-danger"></span></a></li>
+							<li><a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Cancelled <span class="badge badge-danger"></span></a></li> -->
 							
 						</ul>
 					</div>

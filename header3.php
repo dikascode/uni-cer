@@ -65,16 +65,16 @@
 				<ul id="menulist"  style="margin-top: 5%;">
 					<!-- <li><a href="#">Dashboard</a></li> -->
 													<!-- Something hidden here -->
-					<li><a href="#">Messages <span class="badge purplebg">3</span></a></li>
+					<li><a href="#">Messages <span class="badge purplebg"></span></a></li>
 					<li><a href="#">Orders</a></li>
 					<!-- <li><a href="#">Gigs</a></li>
 					<li><a href="#">Earnings</a></li> -->
 				</ul>
 			</div>
 
-			<div class="col-md-2">
+			<!-- <div class="col-md-2">
 				<a href="#"><h5 class="purpletext" style="margin-top: 10px;">Switch to Buying</h5></a>
-			</div>
+			</div> -->
 
 			<div class="col-md">
 				<a href="#"><img style="margin-top: 10px;" class="img-fluid rounded-circle" src="images/a.jpg" width="50"></a>

@@ -68,8 +68,8 @@
 				<ul id="menulist"  style="margin-top: 2%;">
 					<li><a href="buyerpage.php">Dashboard</a></li>
 					<li><a href="message.php?id=<?php echo $_SESSION['userid']; ?>">Messages <span class="badge badge-primary"></span></a></li>
-					<li><a href="#">Orders</a></li>
-					<li><a href="#">Expense Report</a></li>
+					<li><a href="buyerallorders.php?id=<?php echo $_SESSION['userid']; ?>">Orders</a></li>
+					<!-- <li><a href="#">Expense Report</a></li> -->
 				</ul>
 			</div>
 
@@ -120,9 +120,9 @@
 					    Action
 					  </button> -->
 					  <div class="dropdown-menu">
-					    <a class="dropdown-item" href="userpage.php">My Profile</a>
-					    <a class="dropdown-item" href="settings.php">Settings</a>
-					    <a class="dropdown-item purpletext" href="#">Refer & get N5000</a>
+					    <a class="dropdown-item" href="buyerpage.php">My Profile</a>
+					    <!-- <a class="dropdown-item" href="settings.php">Settings</a> -->
+					    <!-- <a class="dropdown-item purpletext" href="#">Refer & get N5000</a> -->
 					    <div class="dropdown-divider"></div>
 					    <a class="dropdown-item" href="logout.php">Logout</a>
 					  </div>

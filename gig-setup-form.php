@@ -272,7 +272,7 @@
 
 
 						<select id="language" class="form-control marginTop" name="languageid">
-							<option value="">Select a Language</option>
+							<option value="">Select a Skill</option>
 							<!-- generating service options from database -->
 							<?php
 

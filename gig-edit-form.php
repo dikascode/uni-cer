@@ -281,7 +281,7 @@
 
 
 						<select id="language" class="form-control marginTop" name="languageid">
-							<option value="">Select a Language</option>
+							<option value="">Select a Skill</option>
 							<!-- generating service options from database -->
 							<?php
 
@@ -352,13 +352,10 @@
 									<tr>
 										<td></td>
 
-										<td><textarea id="premium_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="p_plandesc"><?php if (isset($result['premium_desc'])) {
-												echo $result['premium_desc'];
+										<td><textarea id="premium_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="p_plandesc"><?php if (isset($result['premium_desc'])) {echo $result['premium_desc'];
 										} ?></textarea><span id="err_premium1"><?php if (isset($reg_err['p_plandesc'])){echo $reg_err['p_plandesc'];}?></span></td>
 
-										<td><textarea id="standard_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="s_plandesc"><?php if (isset($result['standard_desc'])) {
-												echo $result['standard_desc'];
-										} ?></textarea><span id="err_standard1"><?php if (isset($reg_err['s_plandesc'])){echo $reg_err['s_plandesc'];}?></span></td>
+										<td><textarea id="standard_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="s_plandesc"><?php if (isset($result['standard_desc'])) {echo $result['standard_desc'];?></textarea><span id="err_standard1"><?php if (isset($reg_err['s_plandesc'])){echo $reg_err['s_plandesc'];}?></span></td>
 
 										<td><textarea id="basic_offer" class="form-control marginTop" placeholder="Describe what you are offering in your basic plan" name="b_plandesc"><?php if (isset($result['basic_desc'])) {
 												echo $result['basic_desc'];
