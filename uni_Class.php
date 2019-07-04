@@ -744,7 +744,7 @@
 
 	//ceate method to update gig table
 
-		public function upDateGig($gigTitle, $gigUserid, $premium_title, $standard_title, $basic_title, $premium_desc, $standard_desc, $basic_desc, $premium_cd, $standard_cd, $basic_cd, $premium_rd, $standard_rd, $basic_rd, $premium_sc, $standard_sc, $basic_sc, $premium_pages, $standard_pages, $basic_pages, $premium_revisions, $standard_revisions, $basic_revisions, $premium_delivery, $standard_delivery, $basic_delivery, $premium_price, $standard_price, $basic_price, $requirement, $gig_serviceid, $gig_marketid, $gigdesc, $languageid){
+		public function upDateGig($gigTitle, $gigid, $gigUserid, $premium_title, $standard_title, $basic_title, $premium_desc, $standard_desc, $basic_desc, $premium_cd, $standard_cd, $basic_cd, $premium_rd, $standard_rd, $basic_rd, $premium_sc, $standard_sc, $basic_sc, $premium_pages, $standard_pages, $basic_pages, $premium_revisions, $standard_revisions, $basic_revisions, $premium_delivery, $standard_delivery, $basic_delivery, $premium_price, $standard_price, $basic_price, $requirement, $gig_serviceid, $gig_marketid, $gigdesc, $languageid){
 
 
 
@@ -804,7 +804,7 @@
 			//write query
 			
 
-			$sql = "UPDATE gig set gig_title = '$gigTitle', premium_title = '$premium_title', standard_title = '$standard_title', basic_title = '$basic_title', premium_desc = '$premium_desc', standard_desc = '$standard_desc', basic_desc = '$basic_desc', premium_cd = '$premium_cd', standard_cd = '$standard_cd', basic_cd = '$basic_cd', premium_rd = '$premium_rd', standard_rd = '$standard_rd', basic_rd = '$basic_rd', premium_sc = '$premium_sc', standard_sc = '$standard_sc', basic_sc = '$basic_sc', premium_pages = '$premium_pages', standard_pages = '$standard_pages', basic_pages = '$basic_pages', premium_revisions = '$premium_revisions', standard_revisions = '$standard_revisions', basic_revisions = '$basic_revisions', premium_delivery = '$premium_delivery', standard_delivery = '$standard_delivery', basic_delivery = '$basic_delivery', premium_price = '$premium_price', standard_price = '$standard_price', basic_price = '$basic_price', requirement = '$requirement', gig_serviceid = '$gig_serviceid', gig_marketid = '$gig_marketid', gigdesc = '$gigdesc', languageid = '$languageid', gig_headerpic = '$destination' Where gig_Userid = '$gigUserid' ";
+			$sql = "UPDATE gig set gig_title = '$gigTitle', premium_title = '$premium_title', standard_title = '$standard_title', basic_title = '$basic_title', premium_desc = '$premium_desc', standard_desc = '$standard_desc', basic_desc = '$basic_desc', premium_cd = '$premium_cd', standard_cd = '$standard_cd', basic_cd = '$basic_cd', premium_rd = '$premium_rd', standard_rd = '$standard_rd', basic_rd = '$basic_rd', premium_sc = '$premium_sc', standard_sc = '$standard_sc', basic_sc = '$basic_sc', premium_pages = '$premium_pages', standard_pages = '$standard_pages', basic_pages = '$basic_pages', premium_revisions = '$premium_revisions', standard_revisions = '$standard_revisions', basic_revisions = '$basic_revisions', premium_delivery = '$premium_delivery', standard_delivery = '$standard_delivery', basic_delivery = '$basic_delivery', premium_price = '$premium_price', standard_price = '$standard_price', basic_price = '$basic_price', requirement = '$requirement', gig_serviceid = '$gig_serviceid', gig_marketid = '$gig_marketid', gigdesc = '$gigdesc', languageid = '$languageid', gig_headerpic = '$destination' Where gig_Userid = '$gigUserid' and gig_id = '$gigid'";
 
 			//  var_dump($sql);
 			// exit;

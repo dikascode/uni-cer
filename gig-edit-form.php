@@ -53,28 +53,27 @@
 		$p_plandesc = User::dataSanitize($_REQUEST['p_plandesc']);
 		$s_plandesc = User::dataSanitize($_REQUEST['s_plandesc']);
 		$b_plandesc = User::dataSanitize($_REQUEST['b_plandesc']);
-		if(isset($_REQUEST['p_CD'])){$p_CD = User::dataSanitize($_REQUEST['p_CD']);}
-		if(isset($_REQUEST['s_CD'])){$s_CD = User::dataSanitize($_REQUEST['s_CD']);}
-		if(isset($_REQUEST['b_CD'])){$b_CD = User::dataSanitize($_REQUEST['b_CD']);}
-		if(isset($_REQUEST['p_RD'])) {
+		$p_CD = User::dataSanitize($_REQUEST['p_CD']);
+		$s_CD = User::dataSanitize($_REQUEST['s_CD']);
+		$b_CD = User::dataSanitize($_REQUEST['b_CD']);
+		
 			$p_RD = User::dataSanitize($_REQUEST['p_RD']); 
-		}
-		if (isset($_REQUEST['s_RD'])) {
+		
+		
 			$s_RD = User::dataSanitize($_REQUEST['s_RD']);
-		} 
-		if (isset($_REQUEST['b_RD'])) {
+
+		
 			$b_RD = User::dataSanitize($_REQUEST['b_RD']); 
-		}
-		if (isset($_REQUEST['p_SC'])) {
+		
+		
 			$p_SC = User::dataSanitize($_REQUEST['p_SC']); 
-		}
-		if (isset($_REQUEST['s_SC'])) {
+		
 			$s_SC = User::dataSanitize($_REQUEST['s_SC']);
-		}
+		
 		 
-		if (isset($_REQUEST['b_SC'])) {
+		
 			$b_SC = User::dataSanitize($_REQUEST['b_SC']); 
-		}
+		
 		$p_pages = User::dataSanitize($_REQUEST['p_pages']); 
 		$s_pages = User::dataSanitize($_REQUEST['s_pages']); 
 		$b_pages = User::dataSanitize($_REQUEST['b_pages']); 
@@ -89,9 +88,9 @@
 		$basic_price = User::dataSanitize($_REQUEST['basic_price']);
 		$gigdesc = User::dataSanitize($_REQUEST['gigdesc']);
 		$requirement = User::dataSanitize($_REQUEST['requirement']);
-		if (isset($_REQUEST['gigimage'])) {
+		
 			$gigimage = User::dataSanitize($_REQUEST['gigimage']);
-		}
+		
 
 
 
@@ -154,14 +153,20 @@
 
 		if (empty($p_pages)) {
 			$reg_err['p_pages'] = "<span class='text-danger'>This field is required</span>";
+		}elseif ($p_pages < 1) {
+			$reg_err['p_pages'] = "<span class='text-danger'>Pages is less than the expected number of pages.</span>";
 		}
 
 		if (empty($s_pages)) {
 			$reg_err['s_pages'] = "<span class='text-danger'>This field is required</span>";
+		}elseif ($s_pages < 1) {
+			$reg_err['s_pages'] = "<span class='text-danger'>Pages is less than the expected number of pages.</span>";
 		}
 
 		if (empty($b_pages)) {
 			$reg_err['b_pages'] = "<span class='text-danger'>This field is required</span>";
+		}elseif ($b_pages < 1) {
+			$reg_err['b_pages'] = "<span class='text-danger'>Pages is less than the expected number of pages.</span>";
 		}
 
 		if (empty($p_delivery)) {
@@ -178,15 +183,22 @@
 
 		if (empty($premium_price)) {
 			$reg_err['premium_price'] = "<span class='text-danger'>This field is required</span>";
-		} 
+		}elseif ($premium_price >500000 || $premium_price <= 500) {
+			$reg_err['premium_price'] = "<span class='text-danger'>Amount is greater than or less than the required amount</span>";
+		}
 
 		if (empty($standard_price)) {
 			$reg_err['standard_price'] = "<span class='text-danger'>This field is required</span>";
-		} 
+		}elseif ($standard_price >500000 || $standard_price <= 500) {
+			$reg_err['standard_price'] = "<span class='text-danger'>Amount is greater than or less than the required amount</span>";
+		}
 
 		if (empty($basic_price)) {
 			$reg_err['basic_price'] = "<span class='text-danger'>This field is required</span>";
+		}elseif ($basic_price > 500000 || $basic_price <= 500) {
+			$reg_err['basic_price'] = "<span class='text-danger'>Amount is greater than or less than the required amount</span>";
 		}
+
 
 
 		// if (empty($gigimage)) {
@@ -198,7 +210,7 @@
 			
 
 			$gigUploadobj= new Gigs;
-			$mygig = $gigUploadobj->upDateGig($gigtitle, $_SESSION['userid'], $p_plantitle, $s_plantitle, $b_plantitle, $p_plandesc, $s_plandesc, $b_plandesc, $p_CD, $s_CD, $b_CD, $p_RD, $s_RD, $b_RD, $p_SC, $s_SC, $b_SC, $p_pages, $s_pages, $b_pages, $p_numrev, $s_numrev, $b_numrev, $p_delivery, $s_delivery, $b_delivery, $premium_price, $standard_price, $basic_price, $requirement, $subcategory_id, $category_id, $gigdesc, $languageid);
+			$mygig = $gigUploadobj->upDateGig($gigtitle, $gigid, $_SESSION['userid'], $p_plantitle, $s_plantitle, $b_plantitle, $p_plandesc, $s_plandesc, $b_plandesc, $p_CD, $s_CD, $b_CD, $p_RD, $s_RD, $b_RD, $p_SC, $s_SC, $b_SC, $p_pages, $s_pages, $b_pages, $p_numrev, $s_numrev, $b_numrev, $p_delivery, $s_delivery, $b_delivery, $premium_price, $standard_price, $basic_price, $requirement, $subcategory_id, $category_id, $gigdesc, $languageid);
 
 		}
 
