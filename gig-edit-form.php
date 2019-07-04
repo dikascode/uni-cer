@@ -233,7 +233,7 @@
 					</div>
 					<div class="col-md marginTop"><textarea id="title_" class="form-control" placeholder="Title Here" name="gigtitle"><?php if (isset($result['gig_title'])) {
 							echo $result['gig_title'];
-						} ?></textarea>
+						}	 ?></textarea>
 					<span id="err_title"><?php if (isset($reg_err['gigtitle'])){echo $reg_err['gigtitle'];}?></span>
 					</div>
 				</div>
@@ -338,11 +338,11 @@
 
 										<td><textarea id="premium" class="form-control marginTop" placeholder="Name your plan" name="p_plantitle"><?php if (isset($result['premium_title'])) {
 												echo $result['premium_title'];
-										} ?></textarea><span id="err_premium"><?php if (isset($reg_err['p_plantitle'])){echo $reg_err['p_plantitle'];}?></span></td>
+										} ?></textarea><span id="err_premium"><?php if (isset($reg_err['p_plantitle'])){echo $reg_err['p_plantitle'];} ?></span></td>
 
 										<td> <textarea id="standard" class="form-control marginTop" placeholder="Name your plan" name="s_plantitle"><?php if (isset($result['standard_title'])) {
 												echo $result['standard_title'];
-										} ?></textarea><span id="err_standard"><?php if (isset($reg_err['s_plantitle'])){echo $reg_err['s_plantitle'];}?></span></td>
+										} ?></textarea><span id="err_standard"><?php if (isset($reg_err['s_plantitle'])){echo $reg_err['s_plantitle'];} ?></span></td>
 
 										<td><textarea id="basic" class="form-control marginTop" placeholder="Name your plan" name="b_plantitle"><?php if (isset($result['basic_title'])) {
 												echo $result['basic_title'];
@@ -355,7 +355,7 @@
 										<td><textarea id="premium_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="p_plandesc"><?php if (isset($result['premium_desc'])) {echo $result['premium_desc'];
 										} ?></textarea><span id="err_premium1"><?php if (isset($reg_err['p_plandesc'])){echo $reg_err['p_plandesc'];}?></span></td>
 
-										<td><textarea id="standard_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="s_plandesc"><?php if (isset($result['standard_desc'])) {echo $result['standard_desc'];?></textarea><span id="err_standard1"><?php if (isset($reg_err['s_plandesc'])){echo $reg_err['s_plandesc'];}?></span></td>
+										<td><textarea id="standard_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="s_plandesc"><?php if (isset($result['standard_desc'])) {echo $result['standard_desc'];}?></textarea><span id="err_standard1"><?php if (isset($reg_err['s_plandesc'])){echo $reg_err['s_plandesc'];}?></span></td>
 
 										<td><textarea id="basic_offer" class="form-control marginTop" placeholder="Describe what you are offering in your basic plan" name="b_plandesc"><?php if (isset($result['basic_desc'])) {
 												echo $result['basic_desc'];
@@ -666,45 +666,45 @@
 						  							}else{echo "value='9'";}?>>9 Days</option>
 
 												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '10'  ){ echo "value='10' selected";
-						  							}else{echo "value='10'";}?>>10 Days</option>
+						  							}else{echo "value='10'";} ?>>10 Days</option>
 
 												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '11'  ){ echo "value='11' selected";
-						  							}else{echo "value='11'";}?>>11 Days</option>
+						  							}else{echo "value='11'";} ?>>11 Days</option>
 
 												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '12'  ){ echo "value='12' selected";
-						  							}else{echo "value='12'";}?>>12 Days</option>
+						  							}else{ echo "value='12'";} ?>>12 Days</option>
 
 												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '13'  ){ echo "value='13' selected";
 						  							}else{echo "value='13'";}?>>13 Days</option>
 
 												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '14'  ){ echo "value='14' selected";
-						  							}else{echo "value='14'";}?>>14 Days</option>
+						  							}else{echo "value='14'";} ?>>14 Days</option>
 
 												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '15'  ){ echo "value='15' selected";
-						  							}else{echo "value='15'";}?>>15 Days</option>
+						  							}else{echo "value='15'";} ?>>15 Days</option>
 
 												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '16'  ){ echo "value='16' selected";
-						  							}else{echo "value='16'";}?>>16 Days</option>
+						  							}else{echo "value='16'";} ?>>16 Days</option>
 
 												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '17'  ){ echo "value='17' selected";
-						  							}else{echo "value='17'";}?>>17 Days</option>
+						  							}else{echo "value='17'";} ?>>17 Days</option>
 
 												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '18'  ){ echo "value='18' selected";
-						  							}else{echo "value='18'";}?>>18 Days</option>
+						  							}else{echo "value='18'";} ?>>18 Days</option>
 
 												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '19'  ){ echo "value='19' selected";
-						  							}else{echo "value='19'";}?>>19 Days</option>
+						  							}else{echo "value='19'";} ?>>19 Days</option>
 
 												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '20'  ){ echo "value='20' selected";
-						  							}else{echo "value='20'";}?>>20 Days</option>
+						  							}else{echo "value='20'";} ?> >20 Days</option>
 
 												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '30'  ){ echo "value='30' selected";
 						  							}else{echo "value='30'";}?>>30 Days</option>
 
 												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '60'  ){ echo "value='60' selected";
-						  							}else{echo "value='60'";}?>>2 Months</option>
+						  							}else{ echo "value='60'";}?>>2 Months</option>
 											</select>
-											<span id="err_time3"><?php if (isset($reg_err['b_delivery'])){echo $reg_err['b_delivery'];}?></span>
+											<span id="err_time3"><?php if (isset($reg_err['b_delivery'])){echo $reg_err['b_delivery']; }?></span>
 										</td>
 									</tr>
 
@@ -715,18 +715,18 @@
 										<td class="my-textAlign"><input name="premium_price" class="form-control-sm" type="text" placeholder="Max of &#8358;500,000" value="<?php if(isset($result['premium_price'])){
 										echo $result['premium_price'];} ?>">
 										
-										<span id="err_price1"><?php if (isset($reg_err['premium_price'])){echo $reg_err['premium_price'];}?></span></td>
+										<span id="err_price1"><?php if (isset($reg_err['premium_price'])){echo $reg_err['premium_price']; }?></span></td>
 
 										<td class="my-textAlign"><input name="standard_price" class="form-control-sm" type="text" placeholder="Max of &#8358;500,000" value="<?php if(isset($result['standard_price'])){
 										echo $result['standard_price'];} ?>">
 
-										<span id="err_price2"><?php if (isset($reg_err['standard_price'])){echo $reg_err['standard_price'];}?></span>
+										<span id="err_price2"><?php if (isset($reg_err['standard_price'])){echo $reg_err['standard_price']; }?></span>
 										</td>
 
 										<td class="my-textAlign"><input name="basic_price" class="form-control-sm" placeholder="Max of &#8358;500,000" type="text" value="<?php if(isset($result['basic_price'])){
 										echo $result['basic_price'];} ?>">
 
-										<span id="err_price3"><?php if (isset($reg_err['basic_price'])){echo $reg_err['basic_price'];}?></span>
+										<span id="err_price3"><?php if (isset($reg_err['basic_price'])){echo $reg_err['basic_price'];} ?></span>
 										</td>
 									
 									</tr>
@@ -747,7 +747,7 @@
 							echo $result['gigdesc'];
 						} ?></textarea>
 
-					<span id="err_gigdesc"><?php if (isset($reg_err['gigdesc'])){echo $reg_err['gigdesc'];}?></span>
+					<span id="err_gigdesc"><?php if (isset($reg_err['gigdesc'])){echo $reg_err['gigdesc'];} ?></span>
 					</div>
 
 				<div class="row">
@@ -782,7 +782,7 @@
 					<div class="col-md">
 						<input type="file" class="form-control" name="gigimage" placeholder="" value="<?php if(isset($result['gig_headerpic'])){
 							echo $result['gig_headerpic'];} ?>">
-						<span id="err_gigimage"><?php if (isset($reg_err['gigimage'])){echo $reg_err['gigimage'];}?></span>			
+						<span id="err_gigimage"><?php if (isset($reg_err['gigimage'])){ echo $reg_err['gigimage'];} ?></span>			
 					</div>
 
 					

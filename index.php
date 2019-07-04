@@ -54,22 +54,22 @@
 				      <div class="carousel-item active">
 				        <img src="images/computer-1245714_1920.jpg" class="d-block w-100" alt="...">
 				        <div class="carousel-caption d-none d-md-block">
-				          <h1 style="z-index: 1; color: white; position: relative;" class="animated bounce">First slide label</h1>
-				          <p class="animated bounceInLeft">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+				          <h1 style="z-index: 1; color: white; position: relative;" class="animated bounce">The Most Talented Coders Work Here</h1>
+				          <p class="animated bounceInLeft">Nigerian students are the most youths in the world, you can only take advantage of that.</p>
 				        </div>
 				      </div>
 				      <div class="carousel-item">
-				        <img src="images/coding-699318_1920.jpg" class="d-block w-100" alt="...">
+				        <img src="images/video1.jpg" class="d-block w-100" alt="...">
 				        <div class="carousel-caption d-none d-md-block">
-				          <h1 style="z-index: 1;" class="animated bounce">Second slide label</h1>
-				          <p class="animated bounceInLeft">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				          <h1 style="z-index: 1;" class="animated bounce">Find Young Professionals Who Keep Honing Their Skills</h1>
+				          <p class="animated bounceInLeft">Did you know a Nigerian student will excel anywhere because of their ability to morph and adapt?</p>
 				        </div>
 				      </div>
 				      <div class="carousel-item">
-				        <img src="images/laptop-3190194_1920.jpg" class="d-block w-100" alt="...">
+				        <img src="images/writing1.jpg" class="d-block w-100" alt="...">
 				        <div class="carousel-caption d-none d-md-block">
-				          <h1 style="z-index: 1;" class="animated bounce">Third slide label</h1>
-				          <p class="animated bounceInLeft">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+				          <h1 style="z-index: 1;" class="animated bounce">The Creativeness You Will Find Here Will Blow Away</h1>
+				          <p class="animated bounceInLeft">Imagine getting the best without having to wory about nothing. That's what we offer you.</p>
 				        </div>
 				      </div>
 				    </div>

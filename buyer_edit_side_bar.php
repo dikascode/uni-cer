@@ -84,8 +84,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_REQUEST['submit'] == 'Update'){
 					<div class="col-md">
 						<p><a href="uploadProfilePic.php"><i class="fas fa-upload purpletext"></i> Upload Profile Picture</a></p>
 						
-						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since <?php if (isset($output['user_datereg'])) {
-							echo date('j M Y', strtotime($output['user_datereg']));
+						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since <?php if (isset( $_SESSION['date'])) {
+							echo ( $_SESSION['date']);
+							// $output['user_datereg']
 						} ?></span></p>
 						
 						<hr>

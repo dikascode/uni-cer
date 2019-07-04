@@ -8,7 +8,7 @@
 			if (!isset($_SESSION['userid'])) {	
 		
 	
-			 	include_once ('header1.php');
+			 	header("Location: http://localhost/6thprojectphp/signin.php");
 			 }else{
 				if ($_SESSION['usertype'] == '1') {
 						include_once('header2.php');

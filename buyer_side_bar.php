@@ -52,8 +52,8 @@
 
 				<div class="row">
 					<div class="col-md">
-						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since <?php if (isset($output['user_datereg'])) {
-							echo date('j M Y', strtotime($output['user_datereg']));
+						<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since <?php if (isset($_SESSION['date'])) {
+							echo date('j M Y', strtotime($_SESSION['date']));
 						} ?></span></p>
 						
 						<hr>

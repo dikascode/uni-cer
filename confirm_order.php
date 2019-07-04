@@ -107,7 +107,7 @@
 							$buyer_email = $_SESSION['email'];
 						}
 
-						if (is_string($_SESSION['buyeremail'])) {
+						if (isset($_SESSION['buyeremail'])) {
 							$buyer_email = $_SESSION['buyeremail'];
 						}
 						

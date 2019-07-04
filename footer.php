@@ -4,7 +4,7 @@
 			<div class="col-md">
 				<div class="row">
 					<div class="col-md">
-						<h4>Unilancer Logo</h4>
+						<h4>UNILANCER</h4>
 					</div>
 
 					<div class="col-md">
@@ -13,12 +13,12 @@
 						<p><a href="">Testimonies</a></p>
 					</div>
 
-					<div class="col-md">
+					<!-- <div class="col-md">
 						<h4>Information</h4>
 						<p><a href="">Terms of service</a></p>
 						<p><a href="">Privacy policy</a></p>
 						<p><a href="">FAQ</a></p>
-					</div>
+					</div> -->
 
 					<div class="col-md">
 						<h4>Information</h4>
@@ -29,19 +29,29 @@
 
 					<div class="col-md">
 						<h4>Social Media</h4>
-						<p><a href="">Terms of service</a></p>
-						<p><a href="">Privacy policy</a></p>
-						<p><a href="">FAQ</a></p>
+						<a href="https://www.facebook.com/login" target="_blank" style="text-decoration:none; margin: 1%;"><img src="images/facebook.png" width="20" height="20"/> </a>
+						<a href="https://twitter.com/login" target="_blank" style="text-decoration:none; margin: 1%;">	<img src="images/twitter.png" width="20" height="20"/> </a>
+						<a href="https://www.youtube.com" target="_blank" style="text-decoration:none; margin: 1%;">	<img src="images/youtube.png" width="20" height="20"/> </a>
+						<a href="https://www.linkedin.com/uas/login" target="_blank" style="text-decoration:none; margin: 1%;">	<img src="images/linkedin.png" width="20" height="20"/> </a>
+						
 					</div>
 				</div>
 
 				<div class="row">
+					<div class="col-md-4"></div>
 					<div class="col-md">
-						
+						&copy; <?php echo date('Y'); ?>, UNILANCER INC. Allrights reserved.
 					</div>
+					<div class="col-md-4"></div>
 				</div>
 			</div>
 		</div>
+
+	<!-- 	<div class="row">
+		<div class="col-md-6">
+			
+		</div>
+	</div> -->
 
 
 <!-- 	</div> -->

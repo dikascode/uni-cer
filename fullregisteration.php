@@ -71,6 +71,8 @@
 		if (empty($phone)) {
 			
 			$reg_err['phone'] = "<span class='text-danger'>Phone Number field is required</span>";
+		}elseif (strlen($phone) != 11 ) {
+			$reg_err['phone'] = "<span class='text-danger'>Your Phone number cannot be less than or greater than 11</span>";
 		}
 
 		// if (empty($state)) {

@@ -143,14 +143,20 @@
 
 		if (empty($p_pages)) {
 			$reg_err['p_pages'] = "<span class='text-danger'>This field is required</span>";
+		}elseif ($p_pages < 1) {
+			$reg_err['p_pages'] = "<span class='text-danger'>Pages is less than the expected number of pages.</span>";
 		}
 
 		if (empty($s_pages)) {
 			$reg_err['s_pages'] = "<span class='text-danger'>This field is required</span>";
+		}elseif ($s_pages < 1) {
+			$reg_err['s_pages'] = "<span class='text-danger'>Pages is less than the expected number of pages.</span>";
 		}
 
 		if (empty($b_pages)) {
 			$reg_err['b_pages'] = "<span class='text-danger'>This field is required</span>";
+		}elseif ($b_pages < 1) {
+			$reg_err['b_pages'] = "<span class='text-danger'>Pages is less than the expected number of pages.</span>";
 		}
 
 		if (empty($p_delivery)) {
@@ -167,14 +173,20 @@
 
 		if (empty($premium_price)) {
 			$reg_err['premium_price'] = "<span class='text-danger'>This field is required</span>";
-		} 
+		}elseif ($premium_price >500000 || $premium_price <= 500) {
+			$reg_err['premium_price'] = "<span class='text-danger'>Amount is greater than or less than the required amount</span>";
+		}
 
 		if (empty($standard_price)) {
 			$reg_err['standard_price'] = "<span class='text-danger'>This field is required</span>";
-		} 
+		}elseif ($standard_price >500000 || $standard_price <= 500) {
+			$reg_err['standard_price'] = "<span class='text-danger'>Amount is greater than or less than the required amount</span>";
+		}
 
 		if (empty($basic_price)) {
 			$reg_err['basic_price'] = "<span class='text-danger'>This field is required</span>";
+		}elseif ($basic_price > 500000 || $basic_price <= 500) {
+			$reg_err['basic_price'] = "<span class='text-danger'>Amount is greater than or less than the required amount</span>";
 		}
 
 
