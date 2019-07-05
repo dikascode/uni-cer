@@ -201,6 +201,7 @@
 				$_SESSION['gender'] = $gender;
 				$_SESSION['usertype'] = $usertype;
 				$_SESSION['date'] = date('j M Y', strtotime($row['user_datereg']));
+
 				// $_SESSION['date'] = date('j M Y');
 
 				//var_dump($_SESSION['usertype']);
@@ -837,6 +838,34 @@
 		}
 
 		}
+	}
+
+
+
+
+	public function deletegig($gigid){
+		//write the query
+
+		$sql = "DELETE FROM gig where gig_id ='$gigid' ";
+
+		//run the query
+
+		$this->udbobj->udbcon->query($sql);
+
+		//to know how many rows affected
+
+		if ($this->udbobj->udbcon->affected_rows == 1) {
+			
+			//rediredirect to show gig page
+
+			header("Location: http://localhost/devpro/index.php");
+			exit;
+		}else{
+
+			$msg = "<div class='alert alert-danger'>Oops, something happened.".$this->udbobj->udbcon->error."</div>";
+		}
+
+		return $msg;
 	}
 
 		

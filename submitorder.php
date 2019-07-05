@@ -12,17 +12,20 @@
 
 		// $msg = $_POST['msgview'];
 		$message = User::dataSanitize($_REQUEST['message']);
+		if (isset($err_msg)) {
+				$err_msg = "<span class='text-danger'>Message field is required</span>";
+			}
 
 		if (empty($message)) {
 			
-			if (isset($err_msg)) {
-				$err_msg = "<span class='text-danger'>Message field is required</span>";
-			}
+		
+				$err_msg ="<span class='text-danger'>Message field is required</span>";
+			
 		}
 
 
 
-		if (isset($_FILES['file']) && strlen($err_msg) == 0) {
+		if (isset($_FILES['file']) && empty($err_msg)) {
 			
 
 			$inboxobj->insertMessageFile($_GET['buyerid'], $_SESSION['userid'], $message);

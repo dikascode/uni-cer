@@ -20,6 +20,8 @@
 
 			$gigs = $gigobj->getGigs($_SESSION['userid']);
 
+			// var_dump($gigs);
+
 		?>
 
 		<!-- Gig manager section -->
@@ -115,9 +117,9 @@
 				    					
 				    					<td><!-- number of cancellations --></td>
 				    					<td>
-				    						<a class="" href="gig-edit-form.php?sellerid=<?php echo $value['gig_userid']; ?>&gigid=<?php echo $value['gig_id']; ?>">EDIT</a> |
+				    						<a class="" href="gig-edit-form.php?sellerid=<?php echo $value['gig_userid']; ?>&gigid=<?php echo $value['gig_id']; ?>">EDIT</a>
 										
-											<a class="" href="#">DELETE</a>
+											<!-- <a class="" href="deletegig.php?gigid=<?php echo $value['gig_id'] ?>&gigtitle=<?php echo $gigtitle; ?>">DELETE</a> -->
 										
 				    					</td>
 				    				</tr>

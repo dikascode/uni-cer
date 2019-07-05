@@ -65,7 +65,7 @@
 
 			<div class="col-md" id="rightPane">
 
-				<h4 style="margin-top: 5%;">Hello <?php echo $_SESSION['username'] ?>, welcome back. We can't wait to help you complete your next project.</h4>
+				<h4 style="margin-top: 5%;">Hello <?php echo $_SESSION['username'] ?>, welcome. We can't wait to help you complete your next project.</h4>
 				<!-- <h5 style="color: grey">You can start by searching for the most talented Nigerian students.</h5> -->
 
 				<!-- <div class="row">
@@ -107,7 +107,7 @@
 
 							<div class="purpletext" style="min-height: 70px; margin-top: 2%; margin-bottom: 2%; border: 1px solid tomato; padding: 1%; min-width: 600px; background-color: white;">
 								<img class="rounded-circle" style="width: 40px; height: 40px" src="<?php if(isset($gigimg)){echo $gigimg;} ?>"><span style="margin-left: 1%;"><?php if(isset($sellername)){echo $sellername;} ?> | </span><span  style="margin-left: 1%;"><?php if(isset($gigdesc)){echo $gigdesc;} ?> | </span><span class="badge badge-primary" style="margin-left: 1%;">&#8358;<?php if(isset($orderprice)){echo $orderprice;} ?></span> |<span style="margin-left: 1%;"><?php if(isset($orderdue)){echo $orderdue;} ?></span>
-								<small style="font-weight: bold; margin-left: 1%;"><?php if(isset($sellername)){echo $sellername;} ?> has delivered your order.</small><br><span style="margin-left: 1%; font-weight: bold;">Mark as:</span>
+								<small style="font-weight: bold; margin-left: 1%;"><?php if(isset($sellername)){echo $sellername;} ?> has delivered your order. See delivery in inbox.</small><br><span style="margin-left: 1%; font-weight: bold;">Mark as:</span>
 												<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 													<select style="margin-left: 1%;" name="selection">
 														<option value="">Make Selection</option>

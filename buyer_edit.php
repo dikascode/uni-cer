@@ -16,7 +16,7 @@
 						// print_r($result);
 						// echo "</pre>";
 						// exit;
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+		if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_REQUEST['submit'] == 'Proceed') {
 			$selection = $_REQUEST['selection'];
 
 			if (isset($selection) && $selection == '1') {

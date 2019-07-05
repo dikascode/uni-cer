@@ -651,7 +651,7 @@
 								<p><i class="fas fa-user purpletext"></i><span> Unilancer</span><span style="float: right">Since <?php if (isset($result['user_datereg'])) {
 									echo date('j M Y', strtotime($result['user_datereg']));
 								} ?></span></p>
-								<p><i class="fas fa-paper-plane purpletext"></i><span> Last Delivery</span><span style="float: right"><!-- 1 day --></span></p>
+								<!-- <p><i class="fas fa-paper-plane purpletext"></i><span> Last Delivery</span><span style="float: right">1 day </span></p>-->
 								<hr>
 
 							</div>

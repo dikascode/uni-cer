@@ -116,7 +116,7 @@
 				    				<tr>
 				    					<td><?php echo ++$num ?></td>
 				    					<td><img class="img-fluid rounded-circle" src="<?php echo $buyerpic; ?>" style="margin-right: 1%; height: 50px; width: 50px;"> <?php echo $username; ?></td>
-				    					<td><img src="<?php echo $gigimage; ?>" alt='<?php if(isset($username)){ echo $username;} ?>' style="margin-right: 1%; width: 100px; height: 50px;"><a href="gig_publicview.php?gigid=<?php if(isset($value['gig_id'])){ echo $value['gig_id']; }?>&sellerid=<?php if(isset($value['gig_userid'])){echo $value['gig_userid']; } ?>"><?php echo $gigtitle; ?></a></td>
+				    					<td><img src="<?php echo $gigimage; ?>" alt='<?php if(isset($gigtitle)){ echo $gigtitle;} ?>' style="margin-right: 1%; width: 100px; height: 50px;"><a href="gig_publicview.php?gigid=<?php if(isset($value['gig_id'])){ echo $value['gig_id']; }?>&sellerid=<?php if(isset($value['gig_userid'])){echo $value['gig_userid']; } ?>"><?php echo $gigtitle; ?></a></td>
 				    					<td><?php echo $orderdate; ?></td>
 				    					<td><?php echo $orderdue; ?></td>
 				    					<td>&#8358;<?php echo $orderprice; ?></td>

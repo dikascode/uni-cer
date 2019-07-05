@@ -42,8 +42,8 @@
 						<h4 style=""><?php if (isset($_SESSION['username'])) {
 							echo $_SESSION['username'];
 						} ?></h4>
-						<p><?php if (isset($_SESSION['signature'])) {
-							echo $_SESSION['signature'];
+						<p><?php if (isset($output['user_signature'])) {
+							echo $output['user_signature'];
 						}?></p>
 						<hr>
 					</div>
@@ -90,8 +90,8 @@
 						<!-- <?php if (isset($desc)) {
 							echo $desc;
 						} ?> -->
-						<p id="userDesc"><?php if (isset($_SESSION['user_desc'])) {
-							echo $_SESSION['user_desc'];
+						<p id="userDesc"><?php if (isset($output['user_desc'])) {
+							echo $output['user_desc'];
 						} ?>
 						</p>
 

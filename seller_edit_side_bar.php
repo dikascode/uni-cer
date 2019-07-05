@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 						<p>
 							
-							<textarea style="height: 120px;" name="edit_sign" class="form-control"><?php if (isset($_SESSION['signature'])) {echo $_SESSION['signature'];} ?></textarea>
+							<textarea style="height: 120px;" name="edit_sign" class="form-control"><?php if (isset($output['user_signature'])) {echo $output['user_signature'];} ?></textarea>
 
 						</p>
 						<hr>
@@ -105,7 +105,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 							echo $desc;
 						} ?> -->
 						<p>
-							<textarea name="edit_desc" class="form-control"><?php if (isset($_SESSION['user_desc'])) {echo $_SESSION['user_desc'];} ?></textarea>
+							<textarea name="edit_desc" class="form-control"><?php if (isset($output['user_desc'])) {echo $output['user_desc'];} ?></textarea>
 							<input type="submit" name="submit" class="btn join-button" value="Update">
 								
 						</p>

@@ -44,13 +44,13 @@
 					</div>
 
 					<div class="col-md-7">
-						<p ><span class="myBold">Title:</span> <?php if (isset($result['gig_title'])) {
+						<p >Title:<span class="myBold"><?php if (isset($result['gig_title'])) {
 							echo $result['gig_title'];
-						} ?></p>
-						<p><span class="myBold">Seller: </span><?php if (isset($result['user_username'])) {
-							echo $result['user_username']; } ?></p>
+						} ?></span> </p>
+						<p>Seller: <span class="myBold"><?php if (isset($result['user_username'])) {
+							echo $result['user_username']; } ?></span></p>
 
-						<p><span class="myBold">Plan Description:</span> 
+						<p>Plan Description: <span class="myBold">
 
 							<?php 
 							if ($gigplan == $result['premium_title']) {
@@ -62,10 +62,10 @@
 							}elseif ($gigplan == $result['basic_title']) {
 								$desc = $result['basic_desc'];
 								echo $desc;
-						}  ?>
+						}  ?></span>
 						</p>
 
-						<p><span class="myBold">Delivery Time:</span> <?php 
+						<p>Delivery Time: <span class="myBold"><?php 
 							if ($gigplan == $result['premium_title']) {
 								$ordertime = $result['premium_delivery'];
 								echo $ordertime;
@@ -75,8 +75,8 @@
 							}elseif ($gigplan == $result['basic_title']) {
 								$ordertime = $result['basic_delivery'];
 								echo $ordertime;
-						}  ?> Days</p>
-						<p><span class="myBold">Price:</span> <span class="badge badge-info">&#8358;<?php 
+						}  ?> Days</span></p>
+						<p>Price: <span class="badge badge-info">&#8358;<?php 
 							if ($gigplan == $result['premium_title']) {
 								$price = $result['premium_price'];
 								echo number_format($price,2);
@@ -87,7 +87,7 @@
 								$price = $result['basic_price'];
 								echo number_format($price,2);
 						}  ?></span></p>
-						<p ><span class="myBold">Service Fee:</span> &#8358;<?php echo number_format($serviceFee, 2); ?></p>
+						<p >Service Fee: <span class="myBold">&#8358;<?php echo number_format($serviceFee, 2); ?></span></p>
 						
 					</div>
 				</div>

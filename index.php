@@ -68,7 +68,7 @@
 				      <div class="carousel-item">
 				        <img src="images/writing1.jpg" class="d-block w-100" alt="...">
 				        <div class="carousel-caption d-none d-md-block">
-				          <h1 style="z-index: 1;" class="animated bounce">The Creativeness You Will Find Here Will Blow Away</h1>
+				          <h1 style="z-index: 1;" class="animated bounce">The Creativeness You Will Find Here Will Blow You Away</h1>
 				          <p class="animated bounceInLeft">Imagine getting the best without having to wory about nothing. That's what we offer you.</p>
 				        </div>
 				      </div>
