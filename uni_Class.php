@@ -1142,7 +1142,7 @@
 			//write query
 
 		$sql = "SELECT  gig.*, user.*, marketplace.*, university.* from gig
-			 		left join user on gig.gig_userid = user.userid LEFT JOIN marketplace on gig.gig_marketid = marketplace.marketplace_id LEFT JOIN university on user.user_universityid = university.university_id order by gigdate desc limit 8";
+			 		left join user on gig.gig_userid = user.userid LEFT JOIN marketplace on gig.gig_marketid = marketplace.marketplace_id LEFT JOIN university on user.user_universityid = university.university_id order by gigdate desc limit 12";
 
 
 		//execute the query
@@ -1274,7 +1274,7 @@
 
 			if ($this->udbobj->udbcon->affected_rows == 1) {
 				//redirect to showallusers.php page
-				echo "<p class='alert alert-info'>Order has been sucessully been updated as SUBMITTED. Now Awaiting approval from seller.</p>";
+				echo "<p class='alert alert-info'>Order has been sucessully been updated as SUBMITTED. Now Awaiting approval from buyer.</p>";
 				
 
 			}else{
