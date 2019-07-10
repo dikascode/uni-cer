@@ -138,7 +138,7 @@
 									<tr>
 										<td>Plan</td>
 										<td class="my-textAlign" width="25%">
-											<p>&#8358;<?php echo $result['premium_price']; ?></p>
+											<p>&#8358;<?php echo number_format($result['premium_price']);  ?></p>
 											<p class="myBold">PREMIUM</p>
 											<p class="myBold"><?php echo $result['premium_title']; ?></p>
 											<p><?php if (isset($result['premium_desc'])) {
@@ -146,7 +146,7 @@
 											} ?></p>
 										</td>
 										<td class="my-textAlign" width="25%">
-											<p>&#8358;<?php echo $result['standard_price']; ?></p>
+											<p>&#8358;<?php echo number_format($result['standard_price']); ?></p>
 											<p class="myBold">STANDARD</p>
 											<p class="myBold"><?php echo $result['standard_title']; ?></p>
 											<p><?php if (isset($result['standard_desc'])) {
@@ -154,7 +154,7 @@
 											} ?></p>
 										</td>
 										<td class="my-textAlign" width="25%">
-											<p>&#8358;<?php echo $result['basic_price']; ?></p>
+											<p>&#8358;<?php echo number_format($result['basic_price']); ?></p>
 											<p class="myBold">BASIC</p>
 											<p class="myBold"><?php echo $result['basic_title']; ?></p>
 											<p><?php if (isset($result['basic_desc'])) {
@@ -283,13 +283,13 @@
 									<tr>
 										<td></td>
 										<td class="my-textAlign"><a href="confirm_order.php?sellerid=<?php echo $result['userid'];?>&gigid=<?php echo $result['gig_id'] ?>&gigplan=<?php echo $result['premium_title']  ?>" name="premium_select" class="btn join-button ">Select &#8358;<?php if (isset($result['premium_price'])) {
-													echo $result['premium_price'];
+													echo number_format($result['premium_price']);
 												}?></a></td>
 										<td class="my-textAlign"><a href="confirm_order.php?sellerid=<?php echo $result['userid'];?>&gigid=<?php echo $result['gig_id'] ?>&gigplan=<?php echo $result['standard_title']  ?>" name="standard_select" class="btn join-button ">Select &#8358;<?php if (isset($result['standard_price'])) {
-													echo $result['standard_price'];
+													echo number_format($result['standard_price']);
 												}?></a></td>
 										<td class="my-textAlign"><a href="confirm_order.php?sellerid=<?php echo $result['userid'];?>&gigid=<?php echo $result['gig_id'] ?>&gigplan=<?php echo $result['basic_title']  ?> " name="basic_select" class="btn join-button">Select &#8358;<?php if (isset($result['basic_price'])) {
-													echo $result['basic_price'];
+													echo number_format($result['basic_price']);
 												}?></a></td>
 									</tr>
 								</tbody>
@@ -346,7 +346,7 @@
 						      			<!-- premium plan -->
 						      			<div class="col-md-9"><p class="myBold"><?php echo $result['premium_title']; ?></p></div>
 						      			<div class="col-md"><p style="float: right;">&#8358;<?php if (isset($result['premium_price'])) {
-													echo $result['premium_price'];
+													echo number_format($result['premium_price']);
 												}?></p></div>
 						      			<div style="clear: right;"></div>
 						      		</div>
@@ -423,7 +423,7 @@
 						      			<div class="row">
 						      				<div class="col-md my-textAlign">
 						      					<a href="confirm_order.php?sellerid=<?php echo $result['userid'];?>&gigid=<?php echo $result['gig_id'] ?>&gigplan=<?php echo $result['premium_title']  ?>" name="premium_select" class="btn join-button form-control ">Select &#8358;<?php if (isset($result['premium_price'])) {
-													echo $result['premium_price'];
+													echo number_format($result['premium_price']);
 												}?></a>
 						      					<a href="#gigplan">Compare Plans</a>
 						      				</div>
@@ -436,7 +436,7 @@
 						      		<div class="row" style="padding: 2%">
 						      			<div class="col-md-9"><p class="myBold"><?php echo $result['standard_title']; ?></p></div>
 						      			<div class="col-md"><p style="float: right;">&#8358;<?php if (isset($result['standard_price'])) {
-													echo $result['standard_price'];
+													echo number_format($result['standard_price']);
 												}?></p></div>
 						      			<div style="clear: right;"></div>
 						      		</div>
@@ -506,7 +506,7 @@
 						      			<div class="row">
 						      				<div class="col-md my-textAlign">
 						      					<a href="confirm_order.php?sellerid=<?php echo $result['userid'];?>&gigid=<?php echo $result['gig_id'] ?>&gigplan=<?php echo $result['standard_title']  ?>" name="standard_select" class="btn join-button form-control ">Select &#8358;<?php if (isset($result['standard_price'])) {
-													echo $result['standard_price'];
+													echo number_format($result['standard_price']);
 												}?></a>
 						      					<a href="#gigplan">Compare Plans</a>
 						      				</div>
@@ -521,7 +521,7 @@
 						      		<div class="row" style="padding: 2%">
 						      			<div class="col-md-9"><p class="myBold"><?php echo $result['basic_title']; ?></p></div>
 						      			<div class="col-md"><p style="float: right;">&#8358;<?php if (isset($result['basic_price'])) {
-													echo $result['basic_price'];
+													echo number_format($result['basic_price']);
 												}?></p></div>
 						      			<div style="clear: right;"></div>
 						      		</div>
@@ -591,7 +591,7 @@
 						      			<div class="row">
 						      				<div class="col-md my-textAlign">
 						      					<a href="confirm_order.php?sellerid=<?php echo $result['userid'];?>&gigid=<?php echo $result['gig_id'] ?>&gigplan=<?php echo $result['basic_title']  ?>" name="basic_select" class="btn join-button form-control ">Select &#8358;<?php if (isset($result['basic_price'])) {
-													echo $result['basic_price'];
+													echo number_format($result['basic_price']);
 												}?></a>
 						      					<a href="#gigplan">Compare Plans</a>
 						      				</div>

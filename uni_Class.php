@@ -858,7 +858,7 @@
 			
 			//rediredirect to show gig page
 
-			header("Location: http://localhost/devpro/index.php");
+			header("Location: http://localhost/6thprojectphp/deleteconfirm.php");
 			exit;
 		}else{
 

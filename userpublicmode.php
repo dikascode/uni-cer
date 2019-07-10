@@ -97,7 +97,7 @@
 					<?php foreach ($gigs as $key => $value) {
 						$gigimage = $value['gig_headerpic'];
 						$gigtitle = $value['gig_title'];
-						$gig_basicprice = $value['basic_price'];
+						$gig_basicprice = number_format($value['basic_price']);
 					 ?>
 
 					 	<div class="col-md-4 d-flex justifyForMe">

@@ -27,7 +27,7 @@
 
 	?>
 
-	<div class="container-fluid">
+	<div class="container-fluid" style="min-height:400px;">
 		<div class="row">
 			
 			<div class="col-md-9">
@@ -38,12 +38,10 @@
 						
 						echo $output;
 				} ?>
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>?id=<?php echo $_GET['gigid']; ?>&name= <?php echo $_GET['gigtitle'];?>" enctype="multipart/form-data">
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>?gigid=<?php echo $_GET['gigid']; ?>&gigtitle= <?php echo $_GET['gigtitle'];?>" enctype="multipart/form-data">
 					
 					<div class="form-group">
 						<div class="col-md">
-							<input type="hidden" name="gigid" value="<?php if (isset($_GET['gigid'])) {
-					echo $_GET['gigid'];} ?>">
 
 							<input class="btn btn-danger" type="submit" name="submit" value="Yes, Delete Gig" />
 						</div>

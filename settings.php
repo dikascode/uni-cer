@@ -43,7 +43,7 @@
 
 
 
-		$userobj = class User;
+		$userobj = new User;
 		$userobj->updateSettings();
 
 		$password = md5($password);

@@ -565,6 +565,8 @@
 											<span id="err_time1"><?php if (isset($reg_err['p_delivery'])){echo $reg_err['p_delivery'];}?></span>
 										</td>
 
+										<!-- stardard time delivery -->
+
 										<td class="my-textAlign">
 											<select id="standard_time" class="form-control" name="s_delivery">
 												<option value="">Select Days</option>
@@ -637,7 +639,7 @@
 											<span id="err_time2"><?php if (isset($reg_err['s_delivery'])){echo $reg_err['s_delivery'];}?></span>
 										</td>
 
-
+										<!-- basic time delivery -->
 
 										<td class="my-textAlign">
 											<select id="basic_time" class="form-control" name="b_delivery">
