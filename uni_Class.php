@@ -645,6 +645,29 @@
 		}
 
 
+		//get datedelivery method
+
+		public function getDateDelivery(){
+			//write sql query
+
+			$sql = "SELECT * from delivery_days order by delivery_id";
+
+			//run query
+
+			if($result = $this->udbobj->udbcon->query($sql)){
+
+			$row = $result->fetch_all(MYSQLI_ASSOC);
+
+			}else{
+
+				echo "Oops ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+
+		}
+
+
 
 
 		//ceate method to populate gig table

@@ -940,3 +940,81 @@ from paystack
 
   // });
   </script>
+
+
+
+<!--   from edit gig
+hard coded delivery time -->
+
+<td>Delivery Time</td>
+                    <td class="my-textAlign">
+                      <select id="premium_time" class="form-control" name="p_delivery">
+                        <option value="">Select Days</option>
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '1'  ){ echo "value='1' selected";
+                            }else{echo "value='1'";}?>>1 Day</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '2'  ){ echo "value='2' selected";
+                            }else{echo "value='2'";}?>>2 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '3'  ){ echo "value='3' selected";
+                            }else{echo "value='3'";}?>>3 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '4'  ){ echo "value='4 ' selected";
+                            }else{echo "value='4'";}?>value="4">4 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '5'  ){ echo "value='5' selected";
+                            }else{echo "value='5'";}?>>5 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '6'  ){ echo "value='6' selected";
+                            }else{echo "value='6'";}?>>6 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '7'  ){ echo "value='7' selected";
+                            }else{echo "value='7'";}?>>7 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '8'  ){ echo "value='' selected";
+                            }else{echo "value='8'";}?>>8 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '9'  ){ echo "value='9' selected";
+                            }else{echo "value='9'";}?>>9 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '10'  ){ echo "value='10' selected";
+                            }else{echo "value='10'";}?>>10 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '11'  ){ echo "value='11' selected";
+                            }else{echo "value='11'";}?>>11 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '12'  ){ echo "value='12' selected";
+                            }else{echo "value='12'";}?>>12 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '13'  ){ echo "value='13' selected";
+                            }else{echo "value='13'";}?>>13 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '14'  ){ echo "value='14' selected";
+                            }else{echo "value='14'";}?>>14 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '15'  ){ echo "value='15' selected";
+                            }else{echo "value='15'";}?>>15 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '16'  ){ echo "value='16' selected";
+                            }else{echo "value='16'";}?>>16 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '17'  ){ echo "value='17' selected";
+                            }else{echo "value='17'";}?>>17 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '18'  ){ echo "value='18' selected";
+                            }else{echo "value='18'";}?>>18 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '19'  ){ echo "value='19' selected";
+                            }else{echo "value='19'";}?>>19 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '20'  ){ echo "value='20' selected";
+                            }else{echo "value='20'";}?>>20 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '30'  ){ echo "value='30' selected";
+                            }else{echo "value='30'";}?>>30 Days</option>
+
+                        <option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '60'  ){ echo "value='60' selected";
+                            }else{echo "value='60'";}?>>2 Months</option>
+                      </select>
+                      <span id="err_time1"><?php if (isset($reg_err['p_delivery'])){echo $reg_err['p_delivery'];}?></span>
+                    </td>
