@@ -1255,6 +1255,28 @@
 
 
 
+	public function getOrdersEarned($sellerid){
+
+		//write sql syntax
+
+		$sql = "SELECT * from gigorder /* gig.* from gigorder LEFT JOIN gig on gigorder.order_gigid = gig.gig_id */ where order_sellerid = '$sellerid' AND order_status = 'Completed' ";
+
+
+		//check if the query runs the sql syntax/statement
+
+			if ($result = $this->udbobj->udbcon->query($sql)) {
+				
+				$row = $result->fetch_all(MYSQLI_ASSOC);
+			}else{
+
+				echo "Error: ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+		}
+
+
+
 	//write method to fetch all orders for a specific buyer
 
 	public function getOrdersForBuyer($buyerid){

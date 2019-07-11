@@ -7,11 +7,18 @@
 			session_start();
 			if ($_SESSION['usertype'] == '1') {
 				include_once('header2.php');
-			 }else{
+			}else{
 
-			 	include_once('buyer_header.php');
-			 }
+			header("Location: http://localhost/6thprojectphp/signin.php");
+			}
 
+			$orderobj = new Order;
+
+			$result = $orderobj->getOrdersEarned($_GET['id']);
+			echo "<pre>";
+			print_r($result);
+			echo "</pre>";
+			exit;
 
 		?>
 
@@ -24,7 +31,9 @@
 		</div>
 
 		<div class="row boxshadow">
-			<div class="col-md my-textAlign"><small>Net Income</small> <p>N400000</p></div>
+			<div class="col-md my-textAlign"><small>Net Income</small> <p><?php if ($value['order_status'] == 'Completed'){
+				number_format($result['order_amount'] - 100, 2);
+			} ?></p></div>
 			<div class="col-md my-textAlign"><small>Pending Clearance</small> <p>N80000</p></div>
 			<div class="col-md my-textAlign"><small>Withdrawn</small> <p>N120000</p></div>
 			<div class="col-md my-textAlign"><small>Used for Purchases</small> <p>N100000</p></div>

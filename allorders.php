@@ -21,9 +21,10 @@
 
 
 
-			// echo "<pre>";
-			// print_r($result);
-			// echo "</pre>";
+			echo "<pre>";
+			print_r(date('j m Y'));
+			echo "</pre>";
+			// exit;
 
 		?>
 
@@ -131,31 +132,35 @@
 				    						<td><p class='badge badge-warning'>Revision Requested</p></td>
 				    						<td><a href="submitorder.php?orderid=<?php echo $value['order_id'];?>&sellerid=<?php echo $value['order_sellerid'];?>&buyerid=<?php echo $value['order_buyerid']; ?>" class="btn btn-sm btn-primary">Submit Order</a></td>
 				    					<?php 
-				    					}elseif($value['order_status'] == 'Cancelled'){?>
+				    					}elseif($value['order_status'] == 'Submitted'){?>
+
+				    					<td><p class='badge badge-info'>Submitted</p></td>
+				    					<td></td>
+				    					<?php }elseif($value['order_status'] == 'Cancelled'){?>
 
 				    					<td><p class='badge badge-danger'>Cancelled</p></td>
 				    					<td></td>
 
 				    					<?php
-				    					}elseif($orderdue < date('j M Y')){?>
+				    					}elseif($value['order_status'] != 'Completed' && $value['order_status'] != 'Revision Requested' && $value['order_status'] != 'Cancelled' && $value['order_status'] != 'Submitted' && date('j m Y', strtotime($value['order_deadline'])) > date('j m Y')){
+
+				    					// var_dump(date('j m Y', strtotime($value['order_deadline']))); exit;	?>
 
 				    					<td><p class='badge badge-warning'>Late</p></td>
                        					<td><a href="submitorder.php?orderid=<?php echo $value['order_id'];?>&sellerid=<?php echo $value['order_sellerid'];?>&buyerid=<?php echo $value['order_buyerid']; ?>" class='btn btn-sm btn-primary'>Submit Order</a></td>
 
 				    					<?php
-				    					}}
+				    					}else{?>
+				    					<td><p class='badge badge-info'>Active</p></td>
+
+                        				<td><a href='submitorder.php?orderid=<?php echo $value['order_id'];?>&sellerid=<?php echo $value['order_sellerid'];?>&buyerid=<?php echo $value['order_buyerid']; ?>' class='btn btn-primary'>Submit Order</a></td>
+				    					<?php
+				    					}$_SESSION['all_total'] = $num;}
 				    					?>
-				    						
-				    				
-				    					
 				    				</tr>
 
-				    				
-
-				    				
-				    				
 				    			</tbody>
-				    		</table>
+				    		</table>	
 				    	</div>
 				    </div>
 

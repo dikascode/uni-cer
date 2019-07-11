@@ -68,7 +68,7 @@
 					<li><a href="message.php?id=<?php echo $_SESSION['userid']; ?>">Messages <span class="badge badge-primary"></span></a></li>
 					<li><a href="manageOrders.php?id=<?php echo $_SESSION['userid']; ?>">Orders</a></li>
 					<li><a href="managegig.php?id=<?php echo $_SESSION['userid']; ?>">Gigs</a></li>
-					<li><a href="#">Earnings</a></li>
+					<li><a href="earningsPage.php?id=<?php echo $_SESSION['userid']; ?>">Earnings</a></li>
 				</ul>
 			</div>
 
