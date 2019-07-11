@@ -1018,3 +1018,31 @@ hard coded delivery time -->
                       </select>
                       <span id="err_time1"><?php if (isset($reg_err['p_delivery'])){echo $reg_err['p_delivery'];}?></span>
                     </td>
+
+
+
+                    <!-- from allorders.php -->
+                     <td><p class='badge badge-info'>Revision Reqested</p></td>
+                         <td><a href="submitorder.php?orderid=<?php echo $value['order_id'];?>&sellerid=<?php echo $value['order_sellerid'];?>&buyerid=<?php echo $value['order_buyerid']; ?>" class='btn btn-primary'>Submit Order</a></td>
+                      <?php}elseif($value['order_status'] == 'Cancelled'){?>
+
+                        <td><p class='badge badge-danger'>Cancelled</p></td>
+                        <td></td>
+                      <?php}elseif(date('j M Y') != $orderdue){?>
+
+                        <td><p class='badge badge-warning'>Late</p></td>
+                        <td><a href="submitorder.php?orderid=<?php echo $value['order_id'];?>&sellerid=<?php echo $value['order_sellerid'];?>&buyerid=<?php echo $value['order_buyerid']; ?>" class='btn btn-primary'>Submit Order</a></td>
+
+                      <?php}else{?>
+
+                        <td><p class='badge badge-info'>Active</p></td>
+
+                        <td><a href='submitorder.php?orderid=<?php echo $value['order_id'];?>&sellerid=<?php echo $value['order_sellerid'];?>&buyerid=<?php echo $value['order_buyerid']; ?>' class='btn btn-primary'>Submit Order</a></td>
+                      <?php
+                      }
+
+                       ?>
+
+
+                       <!-- <?php } $_SESSION['all_total'] = $num; ?> -->
+                       if($value['order_status'] == 'Revision Requested')

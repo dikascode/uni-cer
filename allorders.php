@@ -109,6 +109,9 @@
 											$orderdue = date('j M Y', strtotime($value['order_deadline']));
 											$orderprice = number_format($value['order_amount'] - 100, 2);
 
+											// var_dump(date('j M Y'));
+											// exit;
+
 
 											//$orderstatus = $value['order_status'];
 				    				?>
@@ -125,31 +128,29 @@
 				    						echo "<td><p class='badge badge-success'>Completed</p></td>";
 				    						echo "<td></td>";
 				    					}elseif($value['order_status'] == 'Revision Requested'){ ?>
-				    						 <td><p class='badge badge-info'>Revision Reqested</p></td>
-				    						 <td><a href="submitorder.php?orderid=<?php echo $value['order_id'];?>&sellerid=<?php echo $value['order_sellerid'];?>&buyerid=<?php echo $value['order_buyerid']; ?>" class='btn btn-primary'>Submit Order</a></td>
-				    					<?php}elseif($value['order_status'] == 'Cancelled'){?>
+				    						<td><p class='badge badge-warning'>Revision Requested</p></td>
+				    						<td><a href="submitorder.php?orderid=<?php echo $value['order_id'];?>&sellerid=<?php echo $value['order_sellerid'];?>&buyerid=<?php echo $value['order_buyerid']; ?>" class="btn btn-sm btn-primary">Submit Order</a></td>
+				    					<?php 
+				    					}elseif($value['order_status'] == 'Cancelled'){?>
 
-				    						<td><p class='badge badge-danger'>Cancelled</p></td>
-				    						<td></td>
-				    					<?php}elseif($value['order_status'] != 'Cancelled' && $value['order_status'] != 'Completed' && $value['order_status'] != 'Revision Requested' && date('Y m d')< $orderdue){?>
+				    					<td><p class='badge badge-danger'>Cancelled</p></td>
+				    					<td></td>
 
-				    						<td><p class='badge badge-warning'>Late</p></td>
-				    						<td><a href="submitorder.php?orderid=<?php echo $value['order_id'];?>&sellerid=<?php echo $value['order_sellerid'];?>&buyerid=<?php echo $value['order_buyerid']; ?>" class='btn btn-primary'>Submit Order</a></td>
-
-				    					<?php}elseif($value['order_status'] != 'Cancelled' && $value['order_status'] != 'Completed' && $value['order_status'] != 'Revision Requested' && $value['order_deadline'] > time()){?>
-
-				    						<td><p class='badge badge-info'>Active</p></td>
-
-				    						<td><a href='submitorder.php?orderid=<?php echo $value['order_id'];?>&sellerid=<?php echo $value['order_sellerid'];?>&buyerid=<?php echo $value['order_buyerid']; ?>' class='btn btn-primary'>Submit Order</a></td>
 				    					<?php
-				    					}
+				    					}elseif($orderdue < date('j M Y')){?>
 
-				    					 ?>
+				    					<td><p class='badge badge-warning'>Late</p></td>
+                       					<td><a href="submitorder.php?orderid=<?php echo $value['order_id'];?>&sellerid=<?php echo $value['order_sellerid'];?>&buyerid=<?php echo $value['order_buyerid']; ?>" class='btn btn-sm btn-primary'>Submit Order</a></td>
+
+				    					<?php
+				    					}}
+				    					?>
+				    						
 				    				
 				    					
 				    				</tr>
 
-				    				<?php } $_SESSION['all_total'] = $num; ?>
+				    				
 
 				    				
 				    				

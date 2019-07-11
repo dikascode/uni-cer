@@ -32,6 +32,8 @@
 			$gig = new Gigs;
 			$result = $gig->getSingleGig($gigid, $sellerid);
 
+			$deliveryTime = $gigobj->getDateDelivery();
+
 			// echo "<pre>";
 			// print_r($result);
 			// echo "</pre>";
@@ -369,132 +371,129 @@
 
 										<td><textarea id="standard_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="s_plandesc"><?php if (isset($result['standard_desc'])) {echo $result['standard_desc'];}?></textarea><span id="err_standard1"><?php if (isset($reg_err['s_plandesc'])){echo $reg_err['s_plandesc'];}?></span></td>
 
-										<td><textarea id="basic_offer" class="form-control marginTop" placeholder="Describe what you are offering in your basic plan" name="b_plandesc"><?php if (isset($result['basic_desc'])) {
-												echo $result['basic_desc'];
-										} ?>
-										</textarea><span id="err_basic1"><?php if (isset($reg_err['b_plandesc'])){echo $reg_err['b_plandesc'];}?></span></td>
+										<td><textarea id="basic_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="b_plandesc"><?php if (isset($result['basic_desc'])) {echo $result['basic_desc'];} ?></textarea><span id="err_basic1"><?php if (isset($reg_err['b_plandesc'])){echo $reg_err['b_plandesc'];}?></span></td>
 									</tr>
 
 									<tr>
 										<td>Custom Design</td>
-										<td class="my-textAlign"><input class="" type="checkbox" name="p_CD" <?php if(isset($_REQUEST['p_CD']) && $_REQUEST['p_CD'] == "1"  ){ echo "value='1' checked";
-						  				}else{echo "value='1'";}?>></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="p_CD" <?php if(isset($result['premium_cd']) && $result['premium_cd'] == "1"  ){ echo "value='1' checked";
+						  				}else{echo "value='1'";}?> ></td>
 
-										<td class="my-textAlign"><input class="" type="checkbox" name="s_CD" <?php if(isset($_REQUEST['s_CD']) && $_REQUEST['s_CD'] == "1"  ){ echo "value='1' checked";
-						  				}else{echo "value='1'";}?>></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="s_CD" <?php if(isset($result['standard_cd']) && $result['standard_cd'] == "1"  ){ echo "value='1' checked";
+						  				}else{echo "value='1'";}?> ></td>
 
-										<td class="my-textAlign"><input class="" type="checkbox" name="b_CD" <?php if(isset($_REQUEST['b_CD']) && $_REQUEST['b_CD'] == "1"  ){ echo "value='1' checked";
+										<td class="my-textAlign"><input class="" type="checkbox" name="b_CD" <?php if(isset($result['basic_cd']) && $result['basic_cd'] == "1"  ){ echo "value='1' checked";
 						  				}else{echo "value='1'";}?>></td>
 									</tr>
 
 									<tr>
 										<td>Responsive Design</td>
-										<td class="my-textAlign"><input class="" type="checkbox" name="p_RD" <?php if(isset($_REQUEST['p_RD']) && $_REQUEST['p_RD'] == "1"  ){ echo "value='1' checked";
-						  				}else{echo "value='1'";}?>></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="p_RD" <?php if(isset($result['premium_rd']) && $result['premium_rd'] == "1"  ){ echo "value='1' checked";
+						  				}else{echo "value='1'";}?> ></td>
 
-										<td class="my-textAlign"><input class="" type="checkbox" name="s_RD" <?php if(isset($_REQUEST['s_RD']) && $_REQUEST['s_RD'] == "1"  ){ echo "value='1' checked";
-						  				}else{echo "value='1'";}?>></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="s_RD" <?php if(isset($result['standard_rd']) && $result['standard_rd'] == "1"  ){ echo "value='1' checked";
+						  				}else{echo "value='1'";}?> ></td>
 
-										<td class="my-textAlign"><input class="" type="checkbox" name="b_RD" <?php if(isset($_REQUEST['b_RD']) && $_REQUEST['b_RD'] == "1"  ){ echo "value='1' checked";
-						  				}else{echo "value='1'";}?>></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="b_RD" <?php if(isset($result['basic_rd']) && $result['basic_rd'] == "1"  ){ echo "value='1' checked";
+						  				}else{echo "value='1'";}?> ></td>
 									</tr>
 
 									<tr>
 										<td>Include Source Code</td>
-										<td class="my-textAlign"><input class="" type="checkbox" name="p_SC" <?php if(isset($_REQUEST['p_SC']) && $_REQUEST['p_SC'] == "1"  ){ echo "value='1' checked";
-						  				}else{echo "value='1'";}?>></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="p_SC" <?php if(isset($result['premium_sc']) && $result['premium_sc'] == "1"  ){ echo "value='1' checked";
+						  				}else{echo "value='1'";}?> ></td>
 
-										<td class="my-textAlign"><input class="" type="checkbox" name="s_SC" <?php if(isset($_REQUEST['s_SC']) && $_REQUEST['s_SC'] == "1"  ){ echo "value='1' checked";
-						  				}else{echo "value='1'";}?>></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="s_SC" <?php if(isset($result['standard_sc']) && $result['standard_sc'] == "1"  ){ echo "value='1' checked";
+						  				}else{echo "value='1'";}?> ></td>
 
-										<td class="my-textAlign"><input class="" type="checkbox" name="b_SC" <?php if(isset($_REQUEST['b_SC']) && $_REQUEST['b_SC'] == "1"  ){ echo "value='1' checked";
-						  				}else{echo "value='1'";}?>></td>
+										<td class="my-textAlign"><input class="" type="checkbox" name="b_SC" <?php if(isset($result['basic_sc']) && $result['basic_sc'] == "1"  ){ echo "value='1' checked";
+						  				}else{echo "value='1'";}?> ></td>
 									</tr>
 
 									<tr>
 										<td>Number of Pages</td>
-										<td class="my-textAlign"><input class="form-control-sm" type="number" name="p_pages" value="<?php if(isset($_POST['p_pages'])){
-										echo $_POST['p_pages'];} ?>"><span><?php if (isset($reg_err['p_pages'])){echo $reg_err['p_pages'];}?></span></td>
+										<td class="my-textAlign"><input class="form-control-sm" type="number" name="p_pages" value="<?php if(isset($result['premium_pages'])){
+										echo $result['premium_pages'];} ?>"><span><?php if (isset($reg_err['p_pages'])){echo $reg_err['p_pages'];}?></span></td>
 
-										<td class="my-textAlign"><input class="form-control-sm" type="number" name="s_pages" value="<?php if(isset($_POST['s_pages'])){
-										echo $_POST['s_pages'];} ?>"><span><?php if (isset($reg_err['s_pages'])){echo $reg_err['s_pages'];}?></span></td>
+										<td class="my-textAlign"><input class="form-control-sm" type="number" name="s_pages" value="<?php if(isset($result['standard_pages'])){
+										echo $result['standard_pages'];} ?>"><span><?php if (isset($reg_err['s_pages'])){echo $reg_err['s_pages'];}?></span></td>
 
-										<td class="my-textAlign"><input class="form-control-sm" type="number" name="b_pages" value="<?php if(isset($_POST['b_pages'])){
-										echo $_POST['b_pages'];} ?>"><span><?php if (isset($reg_err['b_pages'])){echo $reg_err['b_pages'];}?></span></td>
+										<td class="my-textAlign"><input class="form-control-sm" type="number" name="b_pages" value="<?php if(isset($result['basic_pages'])){
+										echo $result['basic_pages'];} ?>"><span><?php if (isset($reg_err['b_pages'])){echo $reg_err['b_pages'];}?></span></td>
 									</tr>
 
 									<tr>
 										<td>Number of Revisions</td>
 										<td class="my-textAlign">
 											<select class="form-control" name="p_numrev">
-												<option <?php if(isset($_REQUEST['p_numrev']) && $_REQUEST['p_numrev'] == '0'  ){ echo "value='0' selected";
-						 						 }else{echo "value='0'";}?>>0</option>
+												<option <?php if(isset($result['premium_revisions']) && $result['premium_revisions'] == "0"  ){ echo "value='0' selected";
+						  						}else{echo "value='0'";}?>>0</option>
 
-												<option <?php if(isset($_REQUEST['p_numrev']) && $_REQUEST['p_numrev'] == '1'  ){ echo "value='1' selected";
-						 						 }else{echo "value='1'";}?>>1</option>
+												<option <?php if(isset($result['premium_revisions']) && $result['premium_revisions'] == "1"  ){ echo "value='1' selected";
+						  						}else{echo "value='1'";}?>>1</option>
 
-												<option <?php if(isset($_REQUEST['p_numrev']) && $_REQUEST['p_numrev'] == '2'  ){ echo "value='2' selected";
-						 						 }else{echo "value='2'";}?>>2</option>
+												<option <?php if(isset($result['premium_revisions']) && $result['premium_revisions'] == "2"  ){ echo "value='2' selected";
+						  						}else{echo "value='2'";}?> >2</option>
 
-												<option <?php if(isset($_REQUEST['p_numrev']) && $_REQUEST['p_numrev'] == '3'  ){ echo "value='3' selected";
-						 						 }else{echo "value='3'";}?>>3</option>
+												<option <?php if(isset($result['premium_revisions']) && $result['premium_revisions'] == "3"  ){ echo "value='3' selected";
+						  						}else{echo "value='3'";}?> >3</option>
 
-												<option <?php if(isset($_REQUEST['p_numrev']) && $_REQUEST['p_numrev'] == '4'  ){ echo "value='4' selected";
-						 						 }else{echo "value='4'";}?>>4</option>
+												<option <?php if(isset($result['premium_revisions']) && $result['premium_revisions'] == "4"  ){ echo "value='4' selected";
+						  						}else{echo "value=''4";}?> >4</option>
 
-												<option <?php if(isset($_REQUEST['p_numrev']) && $_REQUEST['p_numrev'] == '5'  ){ echo "value='5' selected";
-						 						 }else{echo "value='5'";}?>>5</option>
+												<option <?php if(isset($result['premium_revisions']) && $result['premium_revisions'] == "5"  ){ echo "value='5' selected";
+						  						}else{echo "value='5'";}?> >5</option>
 
-												<option <?php if(isset($_REQUEST['p_numrev']) && $_REQUEST['p_numrev'] == 'unlimited'  ){ echo "value='unlimited' selected";
-						 						 }else{echo "value='unlimited'";}?>>Unlimited</option>
+												<option <?php if(isset($result['premium_revisions']) && $result['premium_revisions'] == "unlimited"  ){ echo "value='unlimited' selected";
+						  						}else{echo "value='unlimited'";}?> >Unlimited</option>
 											</select>
 										</td>
 										<td class="my-textAlign">
 											<select class="form-control" name="s_numrev">
-												<option <?php if(isset($_REQUEST['s_numrev']) && $_REQUEST['s_numrev'] == '0'  ){ echo "value='0' selected";
-						 						 }else{echo "value='0'";}?>>0</option>
+												<option <?php if(isset($result['standard_revisions']) && $result['standard_revisions'] == "0"  ){ echo "value='0' selected";
+						  						}else{echo "value='0'";}?>>0</option>
 
-												<option <?php if(isset($_REQUEST['s_numrev']) && $_REQUEST['s_numrev'] == '1'  ){ echo "value='1' selected";
-						 						 }else{echo "value='1'";}?>>1</option>
+												<option <?php if(isset($result['standard_revisions']) && $result['standard_revisions'] == "1"  ){ echo "value='1' selected";
+						  						}else{echo "value='1'";}?>>1</option>
 
-												<option <?php if(isset($_REQUEST['s_numrev']) && $_REQUEST['s_numrev'] == '2'  ){ echo "value='2' selected";
-						 						 }else{echo "value='2'";}?>>2</option>
+												<option <?php if(isset($result['standard_revisions']) && $result['standard_revisions'] == "2"  ){ echo "value='2' selected";
+						  						}else{echo "value='2'";}?>>2</option>
 
-												<option <?php if(isset($_REQUEST['s_numrev']) && $_REQUEST['s_numrev'] == '3'  ){ echo "value='3' selected";
-						 						 }else{echo "value='3'";}?>>3</option>
+												<option <?php if(isset($result['standard_revisions']) && $result['standard_revisions'] == "3"  ){ echo "value='3' selected";
+						  						}else{echo "value='3'";}?>>3</option>
 
-												<option <?php if(isset($_REQUEST['s_numrev']) && $_REQUEST['s_numrev'] == '4'  ){ echo "value='4' selected";
-						 						 }else{echo "value='4'";}?>>4</option>
+												<option <?php if(isset($result['standard_revisions']) && $result['standard_revisions'] == "4"  ){ echo "value='4' selected";
+						  						}else{echo "value='4'";}?>>4</option>
 
-												<option <?php if(isset($_REQUEST['s_numrev']) && $_REQUEST['s_numrev'] == '5'  ){ echo "value='5' selected";
-						 						 }else{echo "value='5'";}?>>5</option>
+												<option <?php if(isset($result['standard_revisions']) && $result['standard_revisions'] == "5"  ){ echo "value='5' selected";
+						  						}else{echo "value='5'";}?>>5</option>
 
-												<option <?php if(isset($_REQUEST['s_numrev']) && $_REQUEST['s_numrev'] == 'unlimited'  ){ echo "value='unlimited' selected";
-						 						 }else{echo "value='unlimited'";}?>>Unlimited</option>
+												<option <?php if(isset($result['standard_revisions']) && $result['standard_revisions'] == "unlimited"  ){ echo "value='unlimited' selected";
+						  						}else{echo "value='unlimited'";}?>>Unlimited</option>
 											</select>
 										</td>
 										<td class="my-textAlign">
 											<select class="form-control" name="b_numrev">
-												<option <?php if(isset($_REQUEST['b_numrev']) && $_REQUEST['b_numrev'] == '0'  ){ echo "value='0' selected";
-						 						 }else{echo "value='0'";}?>>0</option>
+												<option <?php if(isset($result['basic_revisions']) && $result['basic_revisions'] == "0"  ){ echo "value='0' selected";
+						  						}else{echo "value='0'";}?> >0</option>
 
-												<option <?php if(isset($_REQUEST['b_numrev']) && $_REQUEST['b_numrev'] == '1'  ){ echo "value='1' selected";
-						 						 }else{echo "value='1'";}?>>1</option>
+												<option <?php if(isset($result['basic_revisions']) && $result['basic_revisions'] == "1"  ){ echo "value=''1 selected";
+						  						}else{echo "value='1'";}?> >1</option>
 
-												<option <?php if(isset($_REQUEST['b_numrev']) && $_REQUEST['b_numrev'] == '2'  ){ echo "value='2' selected";
-						 						 }else{echo "value='2'";}?>>2</option>
+												<option <?php if(isset($result['basic_revisions']) && $result['basic_revisions'] == "2"  ){ echo "value='2' selected";
+						  						}else{echo "value='2'";}?> >2</option>
 
-												<option <?php if(isset($_REQUEST['b_numrev']) && $_REQUEST['b_numrev'] == '3'  ){ echo "value='3' selected";
-						 						 }else{echo "value='3'";}?>>3</option>
+												<option <?php if(isset($result['basic_revisions']) && $result['basic_revisions'] == "3"  ){ echo "value='3' selected";
+						  						}else{echo "value='3'";}?>>3</option>
 
-												<option <?php if(isset($_REQUEST['b_numrev']) && $_REQUEST['b_numrev'] == '4'  ){ echo "value='4' selected";
-						 						 }else{echo "value='4'";}?>>4</option>
+												<option <?php if(isset($result['basic_revisions']) && $result['basic_revisions'] == "4"  ){ echo "value='4' selected";
+						  						}else{echo "value='4'";}?>>4</option>
 
-												<option <?php if(isset($_REQUEST['b_numrev']) && $_REQUEST['b_numrev'] == '5'  ){ echo "value='5' selected";
-						 						 }else{echo "value='5'";}?>>5</option>
+												<option <?php if(isset($result['basic_revisions']) && $result['basic_revisions'] == "5"  ){ echo "value='5' selected";
+						  						}else{echo "value='5'";}?>>5</option>
 
-												<option <?php if(isset($_REQUEST['b_numrev']) && $_REQUEST['b_numrev'] == 'unlimited'  ){ echo "value='unlimited' selected";
-						 						 }else{echo "value='unlimited'";}?>>Unlimited</option>
+												<option <?php if(isset($result['basic_revisions']) && $result['basic_revisions'] == "unlimited"  ){ echo "value='unlimited' selected";
+						  						}else{echo "value='unlimited'";}?>>Unlimited</option>
 											</select>
 										</td>
 									</tr>
@@ -503,218 +502,80 @@
 										<td>Delivery Time</td>
 										<td class="my-textAlign">
 											<select id="premium_time" class="form-control" name="p_delivery">
-												<option value="">Select Days</option>
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '1'  ){ echo "value='1' selected";
-						  							}else{echo "value='1'";}?>>1 Day</option>
+												<option value="">SELECT DAYS</option>
+												<?php
 
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '2'  ){ echo "value='2' selected";
-						  							}else{echo "value='2'";}?>>2 Days</option>
 
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '3'  ){ echo "value='3' selected";
-						  							}else{echo "value='3'";}?>>3 Days</option>
+								 	foreach ($deliveryTime as $key => $value) {
+								 			
+								 			$deliveryid = $value['delivery_id'];
+								 			$deliveryday = $value['delivery_day'];
+								 		
+								 ?>
 
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '4'  ){ echo "value='4 ' selected";
-						  							}else{echo "value='4'";}?>value="4">4 Days</option>
+								 <option <?php if(isset($result['premium_delivery']) && $result['premium_delivery'] == $deliveryid  ){ echo "value='$deliveryid' selected";
+						  }else{echo "value='$deliveryid'";}?> > <?php echo $deliveryday; ?> </option>
 
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '5'  ){ echo "value='5' selected";
-						  							}else{echo "value='5'";}?>>5 Days</option>
+								 <?php
+								 }
+								 ?>
 
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '6'  ){ echo "value='6' selected";
-						  							}else{echo "value='6'";}?>>6 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '7'  ){ echo "value='7' selected";
-						  							}else{echo "value='7'";}?>>7 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '8'  ){ echo "value='' selected";
-						  							}else{echo "value='8'";}?>>8 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '9'  ){ echo "value='9' selected";
-						  							}else{echo "value='9'";}?>>9 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '10'  ){ echo "value='10' selected";
-						  							}else{echo "value='10'";}?>>10 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '11'  ){ echo "value='11' selected";
-						  							}else{echo "value='11'";}?>>11 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '12'  ){ echo "value='12' selected";
-						  							}else{echo "value='12'";}?>>12 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '13'  ){ echo "value='13' selected";
-						  							}else{echo "value='13'";}?>>13 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '14'  ){ echo "value='14' selected";
-						  							}else{echo "value='14'";}?>>14 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '15'  ){ echo "value='15' selected";
-						  							}else{echo "value='15'";}?>>15 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '16'  ){ echo "value='16' selected";
-						  							}else{echo "value='16'";}?>>16 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '17'  ){ echo "value='17' selected";
-						  							}else{echo "value='17'";}?>>17 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '18'  ){ echo "value='18' selected";
-						  							}else{echo "value='18'";}?>>18 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '19'  ){ echo "value='19' selected";
-						  							}else{echo "value='19'";}?>>19 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '20'  ){ echo "value='20' selected";
-						  							}else{echo "value='20'";}?>>20 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '30'  ){ echo "value='30' selected";
-						  							}else{echo "value='30'";}?>>30 Days</option>
-
-												<option <?php if(isset($_REQUEST['p_delivery']) && $_REQUEST['p_delivery'] == '60'  ){ echo "value='60' selected";
-						  							}else{echo "value='60'";}?>>2 Months</option>
+												<option <?php if(isset($result['premium_delivery']) && $result['premium_delivery'] == "60"  ){ echo "value='60' selected";
+						  						}else{echo "value='60'";}?> >2 MONTHS</option>
 											</select>
 											<span id="err_time1"><?php if (isset($reg_err['p_delivery'])){echo $reg_err['p_delivery'];}?></span>
 										</td>
 
+										<!-- Standard delivery -->
+
 										<td class="my-textAlign">
 											<select id="standard_time" class="form-control" name="s_delivery">
-												<option value="">Select Days</option>
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '1'  ){ echo "value='1' selected";
-						  							}else{echo "value='1'";}?>>1 Day</option>
+												<option value="">SELECT DAYS</option>
+												<?php
 
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '2'  ){ echo "value='2' selected";
-						  							}else{echo "value='2'";}?>>2 Days</option>
 
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '3'  ){ echo "value='3' selected";
-						  							}else{echo "value='3'";}?>>3 Days</option>
+								 	foreach ($deliveryTime as $key => $value) {
+								 			
+								 			$deliveryid = $value['delivery_id'];
+								 			$deliveryday = $value['delivery_day'];
+								 		
+									 ?>
 
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '4'  ){ echo "value='4 ' selected";
-						  							}else{echo "value='4'";}?>value="4">4 Days</option>
+								 <option <?php if(isset($result['standard_delivery']) && $result['standard_delivery'] == $deliveryid  ){ echo "value='$deliveryid' selected";
+						  }else{echo "value='$deliveryid'";}?> > <?php echo $deliveryday; ?> </option>
 
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '5'  ){ echo "value='5' selected";
-						  							}else{echo "value='5'";}?>>5 Days</option>
+								 <?php
+								 }
+								 ?>
 
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '6'  ){ echo "value='6' selected";
-						  							}else{echo "value='6'";}?>>6 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '7'  ){ echo "value='7' selected";
-						  							}else{echo "value='7'";}?>>7 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '8'  ){ echo "value='' selected";
-						  							}else{echo "value='8'";}?>>8 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '9'  ){ echo "value='9' selected";
-						  							}else{echo "value='9'";}?>>9 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '10'  ){ echo "value='10' selected";
-						  							}else{echo "value='10'";}?>>10 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '11'  ){ echo "value='11' selected";
-						  							}else{echo "value='11'";}?>>11 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '12'  ){ echo "value='12' selected";
-						  							}else{echo "value='12'";}?>>12 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '13'  ){ echo "value='13' selected";
-						  							}else{echo "value='13'";}?>>13 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '14'  ){ echo "value='14' selected";
-						  							}else{echo "value='14'";}?>>14 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '15'  ){ echo "value='15' selected";
-						  							}else{echo "value='15'";}?>>15 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '16'  ){ echo "value='16' selected";
-						  							}else{echo "value='16'";}?>>16 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '17'  ){ echo "value='17' selected";
-						  							}else{echo "value='17'";}?>>17 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '18'  ){ echo "value='18' selected";
-						  							}else{echo "value='18'";}?>>18 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '19'  ){ echo "value='19' selected";
-						  							}else{echo "value='19'";}?>>19 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '20'  ){ echo "value='20' selected";
-						  							}else{echo "value='20'";}?>>20 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '30'  ){ echo "value='30' selected";
-						  							}else{echo "value='30'";}?>>30 Days</option>
-
-												<option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == '60'  ){ echo "value='60' selected";
-						  							}else{echo "value='60'";}?>>2 Months</option>
+												<option <?php if(isset($result['standard_delivery']) && $result['stardard_delivery'] == "60"  ){ echo "value='60' selected";
+						  						}else{echo "value='60'";}?>>2 MONTHS</option>
 											</select>
 											<span id="err_time2"><?php if (isset($reg_err['s_delivery'])){echo $reg_err['s_delivery'];}?></span>
 										</td>
 
 
+										<!-- Basic delivery time -->
 
 										<td class="my-textAlign">
 											<select id="basic_time" class="form-control" name="b_delivery">
-												<option value="">Select Days</option>
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '1'  ){ echo "value='1' selected";
-						  							}else{echo "value='1'";}?>>1 Day</option>
+												<option value="">SELECT DAYS</option>
+												<?php
+								 	foreach ($deliveryTime as $key => $value) {
+								 			
+								 			$deliveryid = $value['delivery_id'];
+								 			$deliveryday = $value['delivery_day'];	
+								 ?>
 
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '2'  ){ echo "value='2' selected";
-						  							}else{echo "value='2'";}?>>2 Days</option>
+								 <option <?php if(isset($result['basic_delivery']) && $result['basic_delivery'] == $deliveryid  ){ echo "value='$deliveryid' selected";
+						  }else{echo "value='$deliveryid'";}?> > <?php echo $deliveryday; ?> </option>
 
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '3'  ){ echo "value='3' selected";
-						  							}else{echo "value='3'";}?>>3 Days</option>
+								 <?php
+								 }
+								 ?>
 
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '4'  ){ echo "value='4 ' selected";
-						  							}else{echo "value='4'";}?>value="4">4 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '5'  ){ echo "value='5' selected";
-						  							}else{echo "value='5'";}?>>5 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '6'  ){ echo "value='6' selected";
-						  							}else{echo "value='6'";}?>>6 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '7'  ){ echo "value='7' selected";
-						  							}else{echo "value='7'";}?>>7 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '8'  ){ echo "value='' selected";
-						  							}else{echo "value='8'";}?>>8 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '9'  ){ echo "value='9' selected";
-						  							}else{echo "value='9'";}?>>9 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '10'  ){ echo "value='10' selected";
-						  							}else{echo "value='10'";} ?>>10 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '11'  ){ echo "value='11' selected";
-						  							}else{echo "value='11'";} ?>>11 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '12'  ){ echo "value='12' selected";
-						  							}else{ echo "value='12'";} ?>>12 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '13'  ){ echo "value='13' selected";
-						  							}else{echo "value='13'";}?>>13 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '14'  ){ echo "value='14' selected";
-						  							}else{echo "value='14'";} ?>>14 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '15'  ){ echo "value='15' selected";
-						  							}else{echo "value='15'";} ?>>15 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '16'  ){ echo "value='16' selected";
-						  							}else{echo "value='16'";} ?>>16 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '17'  ){ echo "value='17' selected";
-						  							}else{echo "value='17'";} ?>>17 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '18'  ){ echo "value='18' selected";
-						  							}else{echo "value='18'";} ?>>18 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '19'  ){ echo "value='19' selected";
-						  							}else{echo "value='19'";} ?>>19 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '20'  ){ echo "value='20' selected";
-						  							}else{echo "value='20'";} ?> >20 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '30'  ){ echo "value='30' selected";
-						  							}else{echo "value='30'";}?>>30 Days</option>
-
-												<option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == '60'  ){ echo "value='60' selected";
-						  							}else{ echo "value='60'";}?>>2 Months</option>
+												<option <?php if(isset($result['basic_delivery']) && $result['basic_delivery'] == "60"  ){ echo "value='60' selected";
+						  						}else{echo "value='60'";}?>>2 MONTHS</option>
 											</select>
 											<span id="err_time3"><?php if (isset($reg_err['b_delivery'])){echo $reg_err['b_delivery']; }?></span>
 										</td>

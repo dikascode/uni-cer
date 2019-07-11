@@ -370,7 +370,7 @@
 												echo $_POST['s_plandesc'];
 										} ?></textarea><span id="err_standard1"><?php if (isset($reg_err['s_plandesc'])){echo $reg_err['s_plandesc'];}?></span></td>
 
-										<td><textarea id="basic_offer" class="form-control marginTop" placeholder="Describe what you are offering in your basic plan" name="b_plandesc"><?php if (isset($_POST['b_plandesc'])) {
+										<td><textarea id="basic_offer" class="form-control marginTop" placeholder="Describe what you are offering in your plan" name="b_plandesc"><?php if (isset($_POST['b_plandesc'])) {
 												echo $_POST['b_plandesc'];} ?></textarea><span id="err_basic1"><?php if (isset($reg_err['b_plandesc'])){echo $reg_err['b_plandesc'];}?></span></td>
 									</tr>
 
@@ -531,7 +531,7 @@
 										<td class="my-textAlign">
 											<select id="standard_time" class="form-control" name="s_delivery">
 												<option value="">SELECT DAYS</option>
-												<?php
+									<?php
 
 
 								 	foreach ($deliveryTime as $key => $value) {
@@ -539,7 +539,7 @@
 								 			$deliveryid = $value['delivery_id'];
 								 			$deliveryday = $value['delivery_day'];
 								 		
-								 ?>
+									 ?>
 
 								 <option <?php if(isset($_REQUEST['s_delivery']) && $_REQUEST['s_delivery'] == $deliveryid  ){ echo "value='$deliveryid' selected";
 								  }else{echo "value='$deliveryid'";}?> > <?php echo $deliveryday; ?> </option>
@@ -559,14 +559,11 @@
 										<td class="my-textAlign">
 											<select id="basic_time" class="form-control" name="b_delivery">
 												<option value="">SELECT DAYS</option>
-												<?php
-
-
+								<?php
 								 	foreach ($deliveryTime as $key => $value) {
 								 			
 								 			$deliveryid = $value['delivery_id'];
-								 			$deliveryday = $value['delivery_day'];
-								 		
+								 			$deliveryday = $value['delivery_day'];	
 								 ?>
 
 								 <option <?php if(isset($_REQUEST['b_delivery']) && $_REQUEST['b_delivery'] == $deliveryid  ){ echo "value='$deliveryid' selected";
