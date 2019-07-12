@@ -14,11 +14,24 @@
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
-		$email = User::dataSanitize($_REQUEST['email']);
-		$firstname = User::dataSanitize($_REQUEST['fname']);
-		$lastname = User::dataSanitize($_REQUEST['lname']);
-		$pwd = User::dataSanitize($_REQUEST['reg_pwd']);
-		$username = User::dataSanitize($_REQUEST['username']);
+		if (isset($_REQUEST['email'])) {
+		$email = User::dataSanitize($_REQUEST['email']);}
+
+		if (isset($_REQUEST['fname'])) {
+			$firstname = User::dataSanitize($_REQUEST['fname']);
+		}
+		
+		if (isset($_REQUEST['lname'])) {
+			$lastname = User::dataSanitize($_REQUEST['lname']);
+		}
+
+		if (isset($_REQUEST['reg_pwd'])) {
+			$pwd = User::dataSanitize($_REQUEST['reg_pwd']);
+		}
+
+		if (isset($_REQUEST['username'])) {
+			$username = User::dataSanitize($_REQUEST['username']);
+		}
 		$phone = User::dataSanitize($_REQUEST['p_num']);
 		$state = User::dataSanitize($_REQUEST['stateid']);
 		$country = User::dataSanitize($_REQUEST['countryid']);
@@ -182,7 +195,7 @@
 						 		
 						 ?>
 
-						 <option <?php if(isset($_REQUEST['activity']) && $_REQUEST['activity'] == $usertypeid ){ echo "value='$usertypeid' selected";
+						 <option <?php if(isset($_REQUEST['activity']) && $_REQUEST['activity'] == $usertypeid ){ echo "value='$usertypeid'";
 						  }else{echo "value='$usertypeid'";}?> > <?php echo $usertypename; ?> </option>
 
 						 <?php
@@ -329,7 +342,7 @@
 				<div class="row marginbott">
 					<div  class="col-md">
 						<select id="course_study"class="custom-select" name="courseid">
-						  <option value="course">Course of study</option>
+						  <option value="">Course of study</option>
 						  <?php
 
 						 	foreach ($course as $key => $value) {
@@ -347,14 +360,15 @@
 						 ?>
 						</select>
 						<!-- error section -->
-						<span id="err_text6"><?php if (isset($reg_err['course'])){echo $reg_err['course'];}?></span>
+						<span id="err_text6"><?php if (isset($reg_err['course'])) {
+							echo $reg_err['course'];} ?></span>
 					</div>
 
 					<!-- select university options -->
 
 					<div  class="col-md">
 						<select id="university" class="custom-select" name="unid">
-						  <option value="university">University</option>
+						  <option value="">University</option>
 						   <?php
 
 						 	foreach ($university as $key => $value) {
@@ -371,7 +385,7 @@
 						 }
 						 ?>
 						</select>
-						<span id="err_text7"><?php if (isset($reg_err['unid'])){echo $reg_err['unid'];}?></span>
+						<span id="err_text7"><?php if(isset($reg_err['unid'])){echo $reg_err['unid'];}?></span>
 					</div>
 				</div>
 
@@ -380,7 +394,7 @@
 				<div  class="row marginbott">
 					<div class="col-md">
 						<select id="level" class="custom-select" name="levelid">
-						  <option value="level">Level</option>
+						  <option value="">Level</option>
 						   <?php
 
 						 	foreach ($level as $key => $value) {

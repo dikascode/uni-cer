@@ -8,7 +8,7 @@
 			if (!isset($_SESSION['userid'])) {	
 		
 	
-			 	header("Location: http://localhost/6thprojectphp/signin.php");
+			 	include_once('header1.php');
 			 }else{
 				if ($_SESSION['usertype'] == '1') {
 						include_once('header2.php');
@@ -101,7 +101,7 @@
 									  <div class="carousel-inner">
 									    <div class="carousel-item active">
 									      <img style="width: 150px; height:300px;" src="<?php if(isset($result['gig_headerpic'])){
-									      	if(strlen($result['gig_headerpic']) == 0){ echo 'images/newdika.jpg'; }else{echo $result['gig_headerpic']; } 
+									      	if(strlen($result['gig_headerpic']) == 0){ echo 'images/newdika2.jpg'; }else{echo $result['gig_headerpic']; } 
 									      }?>" class="d-block w-100 img-fluid" alt="<?php if (isset($result['user_username'])) {
 													echo strtolower( $result['user_username']);
 												}  ?>">
@@ -630,7 +630,7 @@
 
 						<div class="row">
 							<div class="col-md my-textAlign">
-								<?php if ($sellerid == $_SESSION['userid']) {
+								<?php if (!isset($_SESSION['userid']) || ($sellerid == $_SESSION['userid'])) {
 								 ?>
 								<a hidden href="quickmessage.php?sellerid=<?php echo $sellerid; ?>&userid=<?php echo $_SESSION['userid']; ?>&gigid=<?php echo $gigid; ?>" class="btn btn-md purplebg">Message Me</a>
 								<hr>

@@ -98,19 +98,19 @@ $(document).ready(function(){
 
 
 
-	$('#reg_btn').click(function(){
+	$('#reg_btn').click(function(e){
 
-		// alert('hi');
+		//alert('hi');
 
 
 
 			//buyer form validation
 			
 
-				if ($('#fnam').val().trim()=='') {
+				if ($('#fname').val().trim()=='') {
 					
 					
-					$('#err_text1').html('First Namkdngvnfdjgdjfe field is required').addClass('text-danger');
+					$('#err_text1').html('First Name field is required').addClass('text-danger');
 				}
 
 				if ($('input').attr('name','lname').val().trim()=='') {
@@ -140,13 +140,13 @@ $(document).ready(function(){
 					$('#err_text4').html('Phone Number field is required').addClass('text-danger');
 				}
 
-				//i need help with the select tag
+				
 
 
 
 				//seller form validation
 
-				if ($('#course_study option[value="course"]').prop('selected')){
+				if ($('#course_study option[value=""]').prop('selected')){
 
 					
 
@@ -155,7 +155,7 @@ $(document).ready(function(){
 				}
 			
 
-				if ($('#university option[value="university"]').prop('selected')){
+				if ($('#university option[value=""]').prop('selected')){
 
 				
 
@@ -163,7 +163,7 @@ $(document).ready(function(){
 
 				}
 
-				if ($('#level option[value="level"]').prop('selected')){
+				if ($('#level option[value=""]').prop('selected')){
 
 					
 
@@ -172,13 +172,21 @@ $(document).ready(function(){
 				}
 
 
-				if ($('#ad_year option[value="ad_year"]').prop('selected')){
+				// if ($('#ad_year option[value="ad_year"]').prop('selected')){
 
 					
 
-					$('#err_text9').html('Select Year of Admission').addClass('text-danger');
+				// 	$('#err_text9').html('Select Year of Admission').addClass('text-danger');
 
-				} 
+				// } 
+
+				// if ($('#err_text8').html() != "" || $('#err_text7').html() != "" 
+				// 	|| $('#err_text6').html() != ""|| $('#err_text4').html() != "" 
+				// 	|| $('#err_text3').html() != "" 
+				// || $('#err_text2').html() != "" || $('#err_text1').html() != "") {
+
+				// 	e.preventDefault();
+				// }
 			
 			
 

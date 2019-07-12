@@ -240,7 +240,7 @@
 						foreach ($gig as $key => $value) {
 							$gigimage = $value['gig_headerpic'];
 							$gigtitle = $value['gig_title'];
-							$gig_basicprice = $value['basic_price'];
+							$gig_basicprice = number_format($value['basic_price']);
 							$username = $value['user_username'];
 							$serviceid = $value['gig_serviceid'];
 						

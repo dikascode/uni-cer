@@ -93,6 +93,7 @@
 
 				    				<?php 
 				    					$num = 0;
+				    					$total=0;
 				    					foreach ($result as $key => $value) {
 				    						$_SESSION['total_order'] = count($result);
 				    						// var_dump($_SESSION['total_gig']); exit;
@@ -155,12 +156,16 @@
 
                         				<td><a href='submitorder.php?orderid=<?php echo $value['order_id'];?>&sellerid=<?php echo $value['order_sellerid'];?>&buyerid=<?php echo $value['order_buyerid']; ?>' class='btn btn-primary'>Submit Order</a></td>
 				    					<?php
-				    					}$_SESSION['all_total'] = $num;}
+				    					}}
+				    					$_SESSION['all_total'] = $num;
+
+
 				    					?>
 				    				</tr>
 
 				    			</tbody>
-				    		</table>	
+				    		</table>
+				    		<?php echo $total = $total + $orderprice; ?>	
 				    	</div>
 				    </div>
 
