@@ -1302,6 +1302,31 @@
 
 
 
+		//write method to fetch all orders for a specific buyer with orderstatus!='Submitted'
+
+	public function getSubmittedOrdersForBuyer($buyerid){
+
+		//write sql syntax
+
+		$sql = "SELECT gigorder.*, user.*, gig.* from gigorder LEFT JOIN user on gigorder.order_sellerid=user.userid LEFT JOIN gig on gigorder.order_gigid = gig.gig_id where order_buyerid = '$buyerid'  AND order_status = 'Submitted' ";
+
+
+		//check if the query runs the sql syntax/statement
+
+			if ($result = $this->udbobj->udbcon->query($sql)) {
+				
+				$row = $result->fetch_all(MYSQLI_ASSOC);
+			}else{
+
+				echo "Error: ".$this->udbobj->udbcon->error;
+			}
+
+			return $row;
+		}
+
+
+
+
 		//method to update a order as submitted in gigorder table
 
 		public function updateOrder($status, $orderid){
@@ -1335,7 +1360,7 @@
 		public function updateStatus($status, $orderid){
 
 
-			$sql = "UPDATE gigorder set order_status = '$status' where  order_id = '$orderid' ";
+			$sql = "UPDATE gigorder set order_status = '$status' where order_id = '$orderid' ";
 		
 
 
@@ -1358,6 +1383,25 @@
 
 				echo "Error: ".$this->udbobj->udbcon->error;
 			}
+		}
+
+		//method to insert into the earning db table. This sets the 3 day interval before any amount earned can be withdrawn
+
+		public function amountEarned($orderid, $status){
+
+			//write query
+
+		$sql = "INSERT into earning(earning_orderid, order_status, withdrawable_date) values('$orderid', '$status', date_add(now(), interval 3 day))";
+
+
+		if($this->udbobj->udbcon->query($sql) === true){
+
+			
+		}else{
+
+			echo "Error.".$this->udbobj->udbcon->error;
+		}
+
 		}
 
 

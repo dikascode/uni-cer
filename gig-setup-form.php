@@ -325,7 +325,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-md table-responsive marginTop">
+					<div class="col-md table-responsive marginTop table-responsive">
 						
 						<table class="table table-striped table-hover">
 

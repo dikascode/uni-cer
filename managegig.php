@@ -46,7 +46,7 @@
 
 							<li><a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Paused <span class="badge purplebg">3</span></a></li> -->
 							
-						</ul>
+						<!-- </ul> -->
 					</div>
 
 					<div class="col-md-2">
@@ -80,8 +80,8 @@
 				    	</div> -->
 				    </div>
 				    <div class="row">
-				    	<div class="col-md">
-				    		<table class="table table-bordered table-hover">
+				    	<div class="col-md table-responsive ">
+				    		<table class="table table-bordered table-hover ">
 				    			<thead class="thead-dark">
 				    				<th><input type="checkbox" name=""></th>
 				    				<th>GIG</th>

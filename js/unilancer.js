@@ -98,7 +98,7 @@ $(document).ready(function(){
 
 
 
-	$('#reg_btn').click(function(e){
+	// $('#reg_btn').click(function(){
 
 		//alert('hi');
 
@@ -107,38 +107,38 @@ $(document).ready(function(){
 			//buyer form validation
 			
 
-				if ($('#fname').val().trim()=='') {
+				// if ($('#fname').val().trim()=='') {
 					
 					
-					$('#err_text1').html('First Name field is required').addClass('text-danger');
-				}
+				// 	$('#err_text1').html('First Name field is required').addClass('text-danger');
+				// }
 
-				if ($('input').attr('name','lname').val().trim()=='') {
+				// if ($('input').attr('name','lname').val().trim()=='') {
 					
 					
-					$('#err_text2').html('Last Name field not is required').addClass('text-danger');
-				}
+				// 	$('#err_text2').html('Last Name field not is required').addClass('text-danger');
+				// }
 
-				if ($('input').attr('name','username').val().trim()=='') {
+				// if ($('input').attr('name','username').val().trim()=='') {
 					
 					
-					$('#err_text3').html('Username field is required').addClass('text-danger');
-				}
+				// 	$('#err_text3').html('Username field is required').addClass('text-danger');
+				// }
 
-				if ($('input').attr('name','reg_pwd').val() =='') {
+				// if ($('input').attr('name','reg_pwd').val() =='') {
 				
 					
-					$('#err_pwd').html('Password field is required').addClass('text-danger');
-				}
+				// 	$('#err_pwd').html('Password field is required').addClass('text-danger');
+				// }
 
 
 				//for phone input		
-				if ($('input').attr('name','p_num').val().trim()=='') {
+				// if ($('input').attr('name','p_num').val().trim()=='') {
 
 					
 
-					$('#err_text4').html('Phone Number field is required').addClass('text-danger');
-				}
+				// 	$('#err_text4').html('Phone Number field is required').addClass('text-danger');
+				// }
 
 				
 
@@ -146,30 +146,30 @@ $(document).ready(function(){
 
 				//seller form validation
 
-				if ($('#course_study option[value=""]').prop('selected')){
+				// if ($('#course_study option[value=""]').prop('selected')){
 
 					
 
-					$('#err_text6').html('Select a Course of Study').addClass('text-danger');
+				// 	$('#err_text6').html('Select a Course of Study').addClass('text-danger');
 
-				}
+				// }
 			
 
-				if ($('#university option[value=""]').prop('selected')){
+				// if ($('#university option[value=""]').prop('selected')){
 
 				
 
-					$('#err_text7').html('Select a University').addClass('text-danger');
+				// 	$('#err_text7').html('Select a University').addClass('text-danger');
 
-				}
+				// }
 
-				if ($('#level option[value=""]').prop('selected')){
+				// if ($('#level option[value=""]').prop('selected')){
 
 					
 
-					$('#err_text8').html('Select a Level').addClass('text-danger');
+				// 	$('#err_text8').html('Select a Level').addClass('text-danger');
 
-				}
+				// }
 
 
 				// if ($('#ad_year option[value="ad_year"]').prop('selected')){
@@ -190,7 +190,7 @@ $(document).ready(function(){
 			
 			
 
-	});
+	// });
 
 
 

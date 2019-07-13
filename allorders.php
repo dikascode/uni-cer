@@ -21,9 +21,9 @@
 
 
 
-			echo "<pre>";
-			print_r(date('j m Y'));
-			echo "</pre>";
+			// echo "<pre>";
+			// print_r(date('j m Y'));
+			// echo "</pre>";
 			// exit;
 
 		?>
@@ -71,11 +71,11 @@
 				<div class="collapse show active" id="collapseNew">
 				  <div class="card card-body" >
 				    <div class="row">
-				    	<div class="col-md-6"><p>NEW ORDERS</p></div>
+				    	<div class="col-md-6"><p>ALL ORDERS</p></div>
 				    	
 				    </div>
 				    <div class="row">
-				    	<div class="col-md">
+				    	<div class="col-md table-responsive">
 				    		<table class="table table-bordered table-hover">
 				    			<thead class="thead-dark">
 				    				<th>S/N</th>
@@ -93,7 +93,7 @@
 
 				    				<?php 
 				    					$num = 0;
-				    					$total=0;
+				    					// $total=0;
 				    					foreach ($result as $key => $value) {
 				    						$_SESSION['total_order'] = count($result);
 				    						// var_dump($_SESSION['total_gig']); exit;
@@ -109,7 +109,7 @@
 											$gigtitle = $value['gig_title'];
 											$orderdate = date('j M Y', strtotime($value['order_date']));
 											$orderdue = date('j M Y', strtotime($value['order_deadline']));
-											$orderprice = number_format($value['order_amount'] - 100, 2);
+											$orderprice = number_format($value['order_amount'] - 100);
 
 											// var_dump(date('j M Y'));
 											// exit;
@@ -121,7 +121,7 @@
 				    				<tr>
 				    					<td><?php echo ++$num; ?></td>
 				    					<td><img class="img-fluid rounded-circle" src="<?php echo $buyerpic; ?>" style="margin-right: 1%; height: 50px; width: 50px;"> <?php echo $username; ?></td>
-				    					<td><img src="<?php echo $gigimage; ?>" style="margin-right: 1%; width: 100px; height: 50px;"><a href="gig_publicview.php?gigid=<?php if(isset($value['gig_id'])){ echo $value['gig_id']; }?>&sellerid=<?php if(isset($value['gig_userid'])){echo $value['gig_userid']; } ?>"><?php echo $gigtitle; ?></a></td>
+				    					<td><img src="<?php echo $gigimage; ?>" alt="<?php echo $gigtitle;  ?>" style="margin-right: 1%; width: 100px; height: 50px;"><a href="gig_publicview.php?gigid=<?php if(isset($value['gig_id'])){ echo $value['gig_id']; }?>&sellerid=<?php if(isset($value['gig_userid'])){echo $value['gig_userid']; } ?>"><?php echo $gigtitle; ?></a></td>
 				    					<td><?php echo $orderdate; ?></td>
 				    					<td><?php echo $orderdue; ?></td>
 				    					<td>&#8358;<?php echo $orderprice; ?></td>
@@ -156,8 +156,13 @@
 
                         				<td><a href='submitorder.php?orderid=<?php echo $value['order_id'];?>&sellerid=<?php echo $value['order_sellerid'];?>&buyerid=<?php echo $value['order_buyerid']; ?>' class='btn btn-primary'>Submit Order</a></td>
 				    					<?php
-				    					}}
-				    					$_SESSION['all_total'] = $num;
+				    					}
+				    					// $total+= ($value['order_amount'] - 100);
+
+				    					}
+
+
+				    					// $_SESSION['all_total'] = $num;
 
 
 				    					?>
@@ -165,7 +170,7 @@
 
 				    			</tbody>
 				    		</table>
-				    		<?php echo $total = $total + $orderprice; ?>	
+				    		 <!-- <?php echo $total;  ?>  -->
 				    	</div>
 				    </div>
 

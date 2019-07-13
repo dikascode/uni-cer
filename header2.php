@@ -62,31 +62,28 @@
 				<a href="index.php"><h2 style="margin-top: 10px; color: #4B0082">UNILANCER</h2></a>
 			</div>
 
-			<div class="col-md-5">
-				<ul id="menulist"  style="margin-top: 2%;">
+			<div class="col-md-6" style="margin-left: 5%;">
+				<ul id="menulist" style="margin-top: 2%;">
 					<li><a href="newuser.php">Dashboard</a></li>
 					<li><a href="message.php?id=<?php echo $_SESSION['userid']; ?>">Messages <span class="badge badge-primary"></span></a></li>
 					<li><a href="manageOrders.php?id=<?php echo $_SESSION['userid']; ?>">Orders</a></li>
 					<li><a href="managegig.php?id=<?php echo $_SESSION['userid']; ?>">Gigs</a></li>
-					<li><!-- <a href="earningsPage.php?id=<?php echo $_SESSION['userid']; ?>">Earnings</a> --></li>
+					<!-- <li><a href="earningsPage.php?id=<?php echo $_SESSION['userid']; ?>">Earnings</a></li> -->
 				</ul>
 			</div>
 
 			<div class="col-md">
-				<nav class="navbar navbar-light" style="display:">
 
-				  <form class="form-inline" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);  ?>">
-				    <input autocomplete="off" id="search" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				  <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);  ?>" style="margin-top: 5%;">
+				    <input autocomplete="off" id="search" name="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
 				    <!-- <input value="Search" name="searchbtn" class="btn btn-outline-light my-2 my-sm-0" type="submit" style="background-color: #4B0082; color:white"> -->
 				  </form>
-
-				</nav>
 
 				<!-- Display search -->
 				<div id="displaySearch" style="border: width: 220px; height: 50px; position: absolute; top:50px; z-index: 10;"></div>
 			</div>
 
-			<div class="col-md-1">
+			<div class="col-md">
 
 				<div class="btn-group dropleft" style="float: right;">
 					<a href="" class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -93,7 +93,7 @@
 						
 					 ?>
 
-					 	<div class="col-md-3">
+					 	<div class="col-md-3 d-flex justifyForMe">
 						
 						<div class="gigBox">
 							<div style="width:230px; height:150px; background-color: black;">

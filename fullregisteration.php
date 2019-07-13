@@ -4,7 +4,12 @@
 
 	<?php
 	session_start();
-	include_once 'header1.php';
+	if (!isset($_SESSION['userid'])) {
+						include_once('header1.php');
+				}else{
+
+				header("Location: http://localhost/6thprojectphp/signin.php");
+				}
 
 
 	$reg_err = array();
@@ -71,6 +76,8 @@
 		if (empty($username)) {
 			
 			$reg_err['username'] = "<span class='text-danger'>Username field is required</span>";
+		}elseif (strlen($username) > 10 ) {
+			$reg_err['username'] = "<span class='text-danger'>Your username is more than the permitted maximum of 10 characters</span>";
 		}
 
 

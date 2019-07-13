@@ -15,10 +15,10 @@
 			$orderobj = new Order;
 
 			$result = $orderobj->getOrdersEarned($_GET['id']);
-			echo "<pre>";
-			print_r($result);
-			echo "</pre>";
-			exit;
+			// echo "<pre>";
+			// print_r($result);
+			// echo "</pre>";
+			// exit;
 
 		?>
 
@@ -31,12 +31,16 @@
 		</div>
 
 		<div class="row boxshadow">
-			<div class="col-md my-textAlign"><small>Net Income</small> <p><?php if ($value['order_status'] == 'Completed'){
-				number_format($result['order_amount'] - 100, 2);
-			} ?></p></div>
+			<div class="col-md my-textAlign"><small>Net Income</small> <p>&#8358;<?php 
+				$total = 0;
+				foreach($result as $key => $value) {
+				$orderprice =($value['order_amount'] - 100);
+				$order_earned = $orderprice - ($orderprice * 0.1);
+				
+			$total+=$order_earned;} echo number_format($total); ?></p></div>
 			<div class="col-md my-textAlign"><small>Pending Clearance</small> <p>N80000</p></div>
 			<div class="col-md my-textAlign"><small>Withdrawn</small> <p>N120000</p></div>
-			<div class="col-md my-textAlign"><small>Used for Purchases</small> <p>N100000</p></div>
+			<!-- <div class="col-md my-textAlign"><small>Used for Purchases</small> <p>N100000</p></div> -->
 			<div class="col-md my-textAlign"><small>Available for Withdrawal</small> <p>N100000</p></div>
 		</div>
 
@@ -172,27 +176,3 @@
 		<?php
 		include 'footer.php';
 		?>
-
-
-	</div>
-
-
-	<!-- External javacript -->
-	
-
-	<!-- jQuery -->
-	<script type="text/javascript" src="bootstrap/js/jquery-3.3.1.js"></script>
-	
-	<!-- Popper -->
-	<script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
-	
-	<!-- Bootstrap Js -->
-	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-
-	<script type="text/javascript" src="js/unilancer.js"></script>
-
-
-
-
-</body>
-</html>

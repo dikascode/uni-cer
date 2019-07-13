@@ -74,7 +74,7 @@
 				    	
 				    </div>
 				    <div class="row">
-				    	<div class="col-md">
+				    	<div class="col-md table-responsive">
 				    		<table class="table table-bordered table-hover">
 				    			<thead class="thead-dark">
 				    				<th>S/N</th>

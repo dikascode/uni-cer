@@ -6,7 +6,7 @@
 
 						$orderobj = new Order;
 
-						$result = $orderobj->getOrdersForBuyer($_SESSION['userid']);
+						$result = $orderobj->getSubmittedOrdersForBuyer($_SESSION['userid']);
 
 						 $infobj = new User;
 
@@ -21,6 +21,8 @@
 
 			if (isset($selection) && $selection == '1') {
 				$status = 'Completed';
+
+				$orderobj->amountEarned($_SESSION['orderid_status'], $status);
 			}
 
 
