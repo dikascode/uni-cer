@@ -3,6 +3,8 @@
 					<div class="col-md" style="text-align: center;">
 						<?php if (isset($_GET['msg'])) {
 						echo $_GET['msg'];
+
+						
 						}  ?>
 						<div>
 

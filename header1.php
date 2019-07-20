@@ -85,8 +85,8 @@
 	<div id="container" class="container-fluid">
 <div id="header" class="row menubar menu-bar" style="background-color: white;">
 
-			<div class="col-md-2" style="font-size: 30px; color:#4B0082; font-weight: bold; margin-right: 5%;"><a href="index.php">UNILANCER</a></div>
-			<div class="col-md-5">
+			<div class="col-md-2 d-flex justifyForMe" style="font-size: 30px; color:#4B0082; font-weight: bold; margin-right: 5%;"><a href="index.php">UNILANCER</a></div>
+			<div class="col-md-5 d-flex justifyForMe">
 				<nav class="navbar navbar-light" style="display:">
 
 				  <form class="form-inline" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);  ?>">

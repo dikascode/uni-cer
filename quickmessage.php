@@ -7,6 +7,9 @@
 	 }elseif($_SESSION['usertype'] == '2'){
 
 	 	include_once('buyer_header.php');
+	}else{
+
+		header("Location: http://localhost/6thprojectphp/signin.php");
 	}
 
 

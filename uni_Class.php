@@ -210,9 +210,13 @@
 				// redirect to fullregisteration page
 
 				if ($_SESSION['usertype'] == '1') {
+
+					//echo "<script>window.location.href='newuser.php'</script>";
 					header("Location: http://localhost/6thprojectphp/newuser.php");
 					exit;
 				}else{
+
+				//echo "<script>window.location.href='buyerpage.php'</script>";
 
 				header("Location: http://localhost/6thprojectphp/buyerpage.php");
 				exit;
@@ -335,6 +339,8 @@
 
 			//check if global varaible $_FILES has a value;
 
+			
+
 			if ($_FILES['profilephoto']['error'] == 0) {
 				# start file upload
 
@@ -356,7 +362,7 @@
 				//check the file size
 
 				if ($filesize > 2097152) {
-					$error[]= "File size must be exactly or less than 2 mb!";
+					$error[]= "<p class='alert alert-danger'>File size must be exactly or less than 2 mb!</p>";
 				}
 
 				//specify the extensions allowed
@@ -367,7 +373,7 @@
 
 				if (in_array($file_ext, $extensions) === false) {
 					
-					$error[] = "Extention not allowed!";
+					$error[] = "<p class='alert alert-danger'>Extention not allowed!</p>";
 				}
 
 				//change the file name
@@ -417,12 +423,13 @@
 				}
 
 				return $result;
+
 				
 			}
 
 		}else{
 
-				$result = "<div class ='alert alert-danger'> You have not uploaded any image!</div>";
+				$result = "<div class ='alert alert-danger'> You have not uploaded any image! Filesize must not be greater then 2mb and must be filetype of jpg, jpeg or png</div> ";
 			}
 
 			return $result;
@@ -756,7 +763,9 @@
 
 			}else{
 
-				echo "Error ".$this->udbobj->udbcon->error;
+				// echo "Error ".$this->udbobj->udbcon->error;
+
+				echo "<div class ='alert alert-danger'> You have not uploaded any image! Filesize must not be greater then 2mb and must be filetype of jpg, jpeg or png</div> ";
 			}
 		}
 

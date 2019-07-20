@@ -132,7 +132,7 @@
 		
 
 
-		if (count($reg_err) == 0) {
+		// if (count($reg_err) == 0) {
 					
 					//create object of user class and reference signup method
 
@@ -141,13 +141,13 @@
 					 // var_dump(user::$userid);
 					 // exit;
 
-					if ($activity == '1') {
+					if ($activity == '1' && count($reg_err) == 0) {
 						$signupobj->signUp($email, $firstname, $lastname, $username, $pwd, $phone, $state, $country, $course, $university, $level, $gender, $activity);
-					}else{
+					}elseif ($activity == '2' && count($reg_err) == 3){
 
 					$signupobj->signUp($email, $firstname, $lastname, $username, $pwd, $phone, $state, $country, '', '', '', $gender, $activity);
 					}
-				}
+				// }
 			
 	}
 

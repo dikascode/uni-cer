@@ -57,12 +57,13 @@
 	<div id="container" class="container-fluid">
 <!-- header without search bar but with message n profile picture -->
 
-<div id="header" class="row menu-bar">
+<div id="header" class="row menubar menu-bar">
 			<div class="col-md-2 d-flex justifyForMe">
 				<a href="index.php"><h2 style="margin-top: 10px; color: #4B0082">UNILANCER</h2></a>
 			</div>
 
 			<div class="col-md-6" style="margin-left: 5%;">
+				
 				<ul id="menulist" style="margin-top: 2%;">
 					<li><a href="newuser.php">Dashboard</a></li>
 					<li><a href="message.php?id=<?php echo $_SESSION['userid']; ?>">Messages <span class="badge badge-primary"></span></a></li>
@@ -70,6 +71,7 @@
 					<li><a href="managegig.php?id=<?php echo $_SESSION['userid']; ?>">Gigs</a></li>
 					<!-- <li><a href="earningsPage.php?id=<?php echo $_SESSION['userid']; ?>">Earnings</a></li> -->
 				</ul>
+			
 			</div>
 
 			<div class="col-md">
@@ -122,6 +124,8 @@
 					    <div class="dropdown-divider"></div>
 					    <a class="dropdown-item" href="logout.php">Logout</a>
 					  </div>
+					</a>
+					
 				</div>
 
 				

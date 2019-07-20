@@ -9,6 +9,15 @@
 	 }
 
 
+
+		$gigobj = new Gigs;
+
+		$gigs = $gigobj->getGigs($_SESSION['userid']);
+
+		 $infobj = new User;
+
+		$output = $infobj->getSigDesc($_SESSION['userid']);
+
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 		// echo "<pre>";
@@ -20,6 +29,7 @@
 		$userobj = new User;
 		$profilepic = $userobj->uploadProfileImage();
 
+
 	}
 
 	?>
@@ -27,13 +37,13 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-3">
-				<?phpif ($_SESSION['usertype'] == '1') {
+				<?php if ($_SESSION['usertype'] == '1') {
 					include_once('user_side_bar.php');
 				 }else{
 
 				 	include_once('buyer_side_bar.php');
 				 }
-			 ; ?>
+			 ?>
 			</div>
 			<div class="col-md-9">
 				<h1>Upload Profile Photo</h1>

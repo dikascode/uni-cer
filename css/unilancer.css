@@ -376,3 +376,33 @@ a:hover {
 	margin-top: 2%;
 }
 
+/*media query*/
+
+@media (min-width: 320px) and (max-width:480px) {
+
+#header {
+	background-color: white;
+	z-index: 200;
+
+	position: relative;
+	top:0px;
+	/*width: 100%;*/
+}
+
+
+#secondmenu {
+
+	min-height: 50px;
+	padding-top: 1%;
+	text-align: center;
+	background-color: #4B0082;
+	margin-bottom: 5px;
+
+	position: relative;
+	top: -20px;
+	z-index: 100;
+}
+
+
+}
+
